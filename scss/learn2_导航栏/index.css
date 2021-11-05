@@ -1,0 +1,300 @@
+@charset "UTF-8";
+body {
+  background-color: #f6f6f6;
+}
+
+p {
+  color: #636a7d;
+}
+
+.module-card {
+  padding: 15px;
+  margin-top: 15px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+}
+
+.w {
+  margin: 0 auto;
+  width: 1120px;
+}
+
+.sticky-bar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.head-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.head-content .company-header-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.head-content .company-header-wrap .img-box {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 100px;
+          flex: 0 1 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ebeef5;
+  margin-right: 15px;
+  border-radius: 12px;
+}
+
+.head-content .company-header-wrap .img-box img {
+  width: 100%;
+  height: 52px;
+}
+
+.head-content .company-header-wrap .company-header-content {
+  vertical-align: baseline;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.head-content .company-header-wrap .company-header-content .d-flex {
+  margin-top: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.head-content .company-header-wrap .company-header-content .d-flex h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #393f4e;
+  position: relative;
+}
+
+.head-content .company-header-wrap .company-header-content .d-flex h1::after {
+  content: '战略投资';
+  font-size: 12px;
+  color: #ffad96;
+  margin: 8px 0 0 8px;
+  display: inline-block;
+  background-color: #fdf0ea;
+  padding: 7px;
+}
+
+.head-content .company-header-wrap .company-header-content .d-flex p {
+  margin: 10px 0 4px;
+  color: #a4aab7;
+}
+
+.head-content .company-header-wrap .company-header-content .d-src {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 18px;
+  vertical-align: baseline;
+}
+
+.head-content .company-header-wrap .company-header-content .d-src .left {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+
+.head-content .company-header-wrap .company-header-content .d-src .left img {
+  width: 14px;
+  height: 12px;
+}
+
+.head-content .company-header-wrap .company-header-content .d-src .left span {
+  display: inline-block;
+  padding: 7px;
+  margin: auto;
+}
+
+.head-content .company-header-wrap .company-header-content .d-src .left span:last-child:hover {
+  color: #ffad96;
+}
+
+.head-content .company-header-wrap .company-header-content .d-src .left span:last-child:hover::after {
+  content: '反馈';
+}
+
+.head-content .company-header-wrap .company-header-content .d-src .right {
+  position: absolute;
+  right: 0;
+}
+
+.head-content .company-header-wrap .company-header-content .d-src .right span {
+  display: inline-block;
+  padding: 7px;
+  margin: auto 5px;
+}
+
+.head-content .company-header-wrap .company-header-content .d-src .right span:first-child::after {
+  content: '(561)';
+}
+
+.head-content .company-header-wrap .company-header-content .d-src .right span::before {
+  content: '🌟';
+}
+
+.head-content .company-tag-box {
+  margin-top: 15px;
+}
+
+.head-content .company-tag-box:hover .hidden-span {
+  visibility: visible;
+}
+
+.head-content .company-tag-box h3 {
+  position: relative;
+}
+
+.head-content .company-tag-box h3::before {
+  content: '||';
+  margin-right: 5px;
+}
+
+.head-content .company-tag-box h3 span {
+  font-size: 14px;
+  position: absolute;
+  left: 10px;
+}
+
+.head-content .company-tag-box h3 .hidden-span {
+  position: absolute;
+  right: 12px;
+  visibility: hidden;
+}
+
+.head-content .company-tag-box .tags-top,
+.head-content .company-tag-box .tags-bottom {
+  margin-top: 10px;
+}
+
+.head-content .company-tag-box .tags-top a,
+.head-content .company-tag-box .tags-bottom a {
+  display: inline-block;
+  padding: 5px 7px;
+  border-radius: 2px;
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
+  margin: 3px 8px 3px 0;
+  background-color: #f2f6fe;
+  color: #8d879c;
+  text-decoration: none;
+}
+
+.head-content .company-tag-box .tags-top a:nth-child(1),
+.head-content .company-tag-box .tags-bottom a:nth-child(1) {
+  color: #f86;
+  background-color: #fff3eb;
+}
+
+.head-content .company-tag-box .tags-top a:nth-child(2),
+.head-content .company-tag-box .tags-bottom a:nth-child(2) {
+  color: #d1a42c;
+  background-color: #f7f0e3;
+}
+
+.head-content .company-tag-box .tags-bottom {
+  margin-top: 5px;
+}
+
+.main-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main-content .main-content-left {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 824px;
+          flex: 0 0 824px;
+  margin-right: 20px;
+}
+
+.main-content .main-content-left .base-info .title {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.main-content .main-content-left .base-info .content {
+  font-size: 14px;
+  vertical-align: baseline;
+  line-height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main-content .main-content-left .base-info .content .bottom {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main-content .main-content-left .base-info .content .bottom p {
+  font-size: 12px;
+}
+
+.main-content .main-content-right {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.main-content .main-content-right .right-hot .title {
+  font-size: 16px;
+}
+
+.main-content .main-content-right .right-hot .data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+/*# sourceMappingURL=index.css.map */

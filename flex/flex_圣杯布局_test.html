@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>圣杯布局</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    .container{
+      background-color: #ccc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 50px;
+      text-align: center;
+    }
+    .header,
+    .footer{
+      background-color: skyblue;
+      flex: 0 0 50px;
+      text-align: center;
+    }
+    .footer{
+      background-color: #323232;
+      color: #ffffff;
+    }
+    .main{
+      flex: 1 0 auto;
+      display: flex;
+    }
+    .left,
+    .right{
+      flex: 0 0 200px;
+      background-color: #424242;
+    }
+    .right{
+      background-color: #fff;
+    }
+    .center{
+      flex: 1 0 auto;
+    }
+    @media screen and (max-width: 600px){
+      .main{
+        flex-direction: column;
+      }
+      .left,
+      .right{
+        flex: 1 1 auto;
+        order: 1;
+      }
+      .center{
+        flex: 2 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      header
+    </div>
+    <div class="main">
+      <div class="left">
+        左侧
+        <br>丹歌起势 同风而起
+        <br> 卧龙低伏 入我阵来 <br>
+        我即方位 我即吉凶
+        <br> 四方万物 皆我主宰
+      </div>
+      <div class="center">
+        <span></span>
+        <br>山里偷得的半日的闲
+        <br>搁这儿遛弯儿的人别扰着 您都请便
+        <br>半不邋遢 小道名也
+        <br>胸无大志 爱咧咧
+        <br>少来打听那有的没的
+        <br>翻你个底儿掉掀朝天
+        <br>顺天下势 理天下事
+        <br>云山雾绕 方为术士
+        <br>人间不如意 随了谁的性
+      </div>
+      <div class="right">
+        <br>常应常静 常静清灵
+        <br>凡人本就 六欲七情
+        <br>祖师在上 弟子凡心
+        <br>不入龙虎局 不得常清静
+      </div>
+    </div>
+
+    <div class="footer">
+      footer
+    </div>
+  </div>
+
+  <script>
+    const CON = document.querySelector('.container')
+    let span = document.querySelector('span')
+
+    window.onresize = () => {
+      span.innerHTML = CON.clientWidth
+    }
+    span.innerHTML = CON.clientWidth
+  </script>
+</body>
+
+</html>

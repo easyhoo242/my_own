@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组合式api</title>
+</head>
+
+<body>
+
+  <div>
+    <div id="app">
+      {{message}}
+      {{count}}
+      <Cpn user="123" />
+    </div>
+  </div>
+
+  <template id="temp1">
+    <div>
+      <p>13123123</p>
+    </div>
+  </template>
+
+  <script src="https://unpkg.com/vue@next"></script>
+
+  <script>
+
+    const Cpn = {
+      props: {
+        user: {
+          type: String,
+          default: 'kobe'
+        }
+      },
+      date() {
+        return {
+          user: this.count
+        }
+      },
+      template: '#temp1',
+      setup(props, context) {
+        console.log(props.user, context);
+        // const count = {
+        //   value: 0
+        // }
+        // Vue.watchEffect(() => console.log(count.value))
+
+      }
+
+
+    }
+
+
+
+    const App = {
+      components: {
+        Cpn
+      },
+      data() {
+        return {
+          message: '123123'
+        }
+      }
+    }
+
+    Vue.createApp(App).mount('#app')
+
+  </script>
+</body>
+
+</html>

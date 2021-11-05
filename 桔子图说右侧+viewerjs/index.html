@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="./node_modules/viewerjs/dist/viewer.min.css">
+  <title>桔子图说</title>
+</head>
+
+<body>
+  <div id="app">
+    <viewer />
+  </div>
+</body>
+
+
+<template id="viewer">
+
+  <div class="head-img">
+
+  </div>
+  <div class="list">
+    <div ref="imageRef" v-for="(item, index) in 8" :key="index" class="item">
+      <div class="img-box">
+        <img src="https://img1.baidu.com/it/u=3565173774,1989253727&fm=26&fmt=auto" alt="Picture index" />
+      </div>
+      <div class="content">
+        <p>字节跳动退出职业教育品牌，轻轻 教育关闭在线1对1服务...</p>
+        <span>2021年12月24日</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="list">
+    <div v-for="item in 8" :key="item" class="item">
+      <div class="content">
+        <p>字节跳动退出职业教育品牌，轻轻 教育关闭在线1对1服务...</p>
+        <span>2021年12月24日</span>
+      </div>
+    </div>
+  </div>
+  </div>`
+</template>
+
+</html>
+
+<script src="./node_modules/vue/dist/vue.min.js"></script>
+<script src="./node_modules/viewerjs/dist/viewer.min.js"></script>
+
+<script>
+  const app = new Vue({
+    components: {
+      viewer: {
+        template: '#viewer',
+        methods() {
+
+        },
+        mounted() {
+          let viewer = new Viewer(this.$refs.imageRef, {
+            title: false,
+            navbar: false,
+            tooltip: false,
+            ready(e) {
+              const toolbar = e.target.viewer.toolbar
+
+              setHidden('.viewer-prev')
+              setHidden('.viewer-next')
+              setHidden('.viewer-play')
+
+              function setHidden(className) {
+                toolbar.querySelector(className).style.display = 'none'
+              }
+            },
+            viewed() {
+              viewer.zoomTo(1)
+            }
+          })
+
+          this.$on('hook:beforeDestroy', () => {
+            viewer.destroy()
+            viewer = null
+          })
+        }
+      }
+
+    }
+  }).$mount('#app')
+
+
+
+
+</script>

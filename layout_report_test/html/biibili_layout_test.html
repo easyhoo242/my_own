@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>b站直播选项卡</title>
+  <style>
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+
+    /* HTML5 display-role reset for older browsers */
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+      display: block;
+    }
+
+    body {
+      line-height: 1;
+    }
+
+    ol,
+    ul {
+      list-style: none;
+    }
+
+    blockquote,
+    q {
+      quotes: none;
+    }
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+      content: '';
+      content: none;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    .live-card-body {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      min-width: 900px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+      font-size: 12px;
+      /* background-color: #ccc; */
+    }
+
+    .live-card {
+      padding-top: 10px;
+      width: 215px;
+    }
+
+    .live-card-img {
+      position: relative;
+    }
+
+    .live-card-img:hover .live-card-stats {
+      opacity: 0;
+      transition: all .3s linear;
+    }
+
+    .live-card-stats {
+      margin-top: 10px;
+      transition: all .3s linear;
+    }
+
+    .live-card-img:hover .img {
+      background-color: skyblue;
+    }
+
+    .live-card-img .img {
+      background-color: hotpink;
+      border-radius: 10px;
+      width: 215px;
+      height: 120px;
+      transition: all .4s linear;
+    }
+
+    .live-card-img:hover .play {
+      /* display: block; */
+      opacity: 1;
+      transition: all .5s linear;
+    }
+
+    .play {
+      /* content: ' '; */
+      /* display: none; */
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.3);
+      line-height: 35px;
+      width: 35px;
+      text-align: center;
+      font-size: 20px;
+      border-radius: 12px;
+      top: 10px;
+      right: 10px;
+      opacity: 0;
+      transition: all .3s linear;
+    }
+
+    .live-card-img .live-card-stats span {
+      position: absolute;
+      bottom: 0px;
+      color: #ffffff;
+      font-size: 12px;
+      padding: 16px 8px 6px;
+    }
+
+    .live-card-img .live-card-stats span:first-child:before {
+      content: ">>";
+    }
+
+    .live-card-img .live-card-stats span:nth-child(2) {
+      right: 0;
+    }
+
+    .live-card-info {
+      display: flex;
+    }
+
+    .live-card-info .info-head {
+      padding-right: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .info-head .img {
+      background-color: hotpink;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+    }
+
+    .live-card-info .info-text {
+      font-size: 14px;
+      padding: 0 15px 5px 10px;
+      line-height: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    .info-text-a1{
+      padding-top: 5px;
+    }
+    .info-text-a2{
+      margin-top: 10px;
+      font-size: 12px;
+    }
+    .info-text-a1:hover {
+      color: skyblue;
+      transition: all .3s linear;
+    }
+
+    .info-text-a2:hover {
+      color: red;
+      transition: all .6s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="live-card-body">
+
+    <div class="live-card">
+      <div class="live-card-wrap">
+
+        <div class="live-card-img">
+          <div class="img"></div>
+          <div class="live-card-stats">
+            <span>12.5万</span>
+            <span>陪伴学习</span>
+          </div>
+          <div class="play">
+            <label for="play">
+              >
+            </label>
+          </div>
+        </div>
+
+        <div class="live-card-info">
+          <div class="info-head">
+            <div class="img"></div>
+          </div>
+          <div class="info-text">
+            <a href="javascript:void(0);" class="info-text-a1">
+              <h3>考研倒计时</h3>
+            </a>
+            <p>
+              <a href="javascript:void(0)" class="info-text-a2">
+                <span class="info--author">不太行的恒星星</span>
+                <span class="info--date"> - 10-30</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="live-card">
+      <div class="live-card-wrap">
+
+        <div class="live-card-img">
+          <div class="img"></div>
+          <div class="live-card-stats">
+            <span>12.5万</span>
+            <span>陪伴学习</span>
+          </div>
+          <div class="play">
+            <label for="play">
+              >
+            </label>
+          </div>
+        </div>
+
+        <div class="live-card-info">
+          <div class="info-head">
+            <div class="img"></div>
+          </div>
+          <div class="info-text">
+            <a href="javascript:void(0);" class="info-text-a1">
+              <h3>考研倒计时</h3>
+            </a>
+            <p>
+              <a href="javascript:void(0)" class="info-text-a2">
+                <span class="info--author">不太行的恒星星</span>
+                <span class="info--date"> - 10-30</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div><div class="live-card">
+      <div class="live-card-wrap">
+
+        <div class="live-card-img">
+          <div class="img"></div>
+          <div class="live-card-stats">
+            <span>12.5万</span>
+            <span>陪伴学习</span>
+          </div>
+          <div class="play">
+            <label for="play">
+              >
+            </label>
+          </div>
+        </div>
+
+        <div class="live-card-info">
+          <div class="info-head">
+            <div class="img"></div>
+          </div>
+          <div class="info-text">
+            <a href="javascript:void(0);" class="info-text-a1">
+              <h3>考研倒计时</h3>
+            </a>
+            <p>
+              <a href="javascript:void(0)" class="info-text-a2">
+                <span class="info--author">不太行的恒星星</span>
+                <span class="info--date"> - 10-30</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div><div class="live-card">
+      <div class="live-card-wrap">
+
+        <div class="live-card-img">
+          <div class="img"></div>
+          <div class="live-card-stats">
+            <span>12.5万</span>
+            <span>陪伴学习</span>
+          </div>
+          <div class="play">
+            <label for="play">
+              >
+            </label>
+          </div>
+        </div>
+
+        <div class="live-card-info">
+          <div class="info-head">
+            <div class="img"></div>
+          </div>
+          <div class="info-text">
+            <a href="javascript:void(0);" class="info-text-a1">
+              <h3>考研倒计时</h3>
+            </a>
+            <p>
+              <a href="javascript:void(0)" class="info-text-a2">
+                <span class="info--author">不太行的恒星星</span>
+                <span class="info--date"> - 10-30</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div><div class="live-card">
+      <div class="live-card-wrap">
+
+        <div class="live-card-img">
+          <div class="img"></div>
+          <div class="live-card-stats">
+            <span>12.5万</span>
+            <span>陪伴学习</span>
+          </div>
+          <div class="play">
+            <label for="play">
+              >
+            </label>
+          </div>
+        </div>
+
+        <div class="live-card-info">
+          <div class="info-head">
+            <div class="img"></div>
+          </div>
+          <div class="info-text">
+            <a href="javascript:void(0);" class="info-text-a1">
+              <h3>考研倒计时</h3>
+            </a>
+            <p>
+              <a href="javascript:void(0)" class="info-text-a2">
+                <span class="info--author">不太行的恒星星</span>
+                <span class="info--date"> - 10-30</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div><div class="live-card">
+      <div class="live-card-wrap">
+
+        <div class="live-card-img">
+          <div class="img"></div>
+          <div class="live-card-stats">
+            <span>12.5万</span>
+            <span>陪伴学习</span>
+          </div>
+          <div class="play">
+            <label for="play">
+              >
+            </label>
+          </div>
+        </div>
+
+        <div class="live-card-info">
+          <div class="info-head">
+            <div class="img"></div>
+          </div>
+          <div class="info-text">
+            <a href="javascript:void(0);" class="info-text-a1">
+              <h3>考研倒计时</h3>
+            </a>
+            <p>
+              <a href="javascript:void(0)" class="info-text-a2">
+                <span class="info--author">不太行的恒星星</span>
+                <span class="info--date"> - 10-30</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div><div class="live-card">
+      <div class="live-card-wrap">
+
+        <div class="live-card-img">
+          <div class="img"></div>
+          <div class="live-card-stats">
+            <span>12.5万</span>
+            <span>陪伴学习</span>
+          </div>
+          <div class="play">
+            <label for="play">
+              >
+            </label>
+          </div>
+        </div>
+
+        <div class="live-card-info">
+          <div class="info-head">
+            <div class="img"></div>
+          </div>
+          <div class="info-text">
+            <a href="javascript:void(0);" class="info-text-a1">
+              <h3>考研倒计时</h3>
+            </a>
+            <p>
+              <a href="javascript:void(0)" class="info-text-a2">
+                <span class="info--author">不太行的恒星星</span>
+                <span class="info--date"> - 10-30</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div><div class="live-card">
+      <div class="live-card-wrap">
+
+        <div class="live-card-img">
+          <div class="img"></div>
+          <div class="live-card-stats">
+            <span>12.5万</span>
+            <span>陪伴学习</span>
+          </div>
+          <div class="play">
+            <label for="play">
+              >
+            </label>
+          </div>
+        </div>
+
+        <div class="live-card-info">
+          <div class="info-head">
+            <div class="img"></div>
+          </div>
+          <div class="info-text">
+            <a href="javascript:void(0);" class="info-text-a1">
+              <h3>考研倒计时</h3>
+            </a>
+            <p>
+              <a href="javascript:void(0)" class="info-text-a2">
+                <span class="info--author">不太行的恒星星</span>
+                <span class="info--date"> - 10-30</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

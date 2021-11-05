@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./node_modules/viewerjs/dist/viewer.css" />
+</head>
+
+<body>
+  <div id="app">
+    <viewer v-if="show" />
+
+  </div>
+</body>
+
+</html>
+
+<script src="./node_modules/viewerjs/dist/viewer.js"></script>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+  const ViewerComponent = {
+    data() {
+      return {
+        imgList: ['https://cdn.itjuzi.com/images/61bd48eb3c2427eda00787c4016976b0.png']
+      }
+    },
+    methods: {
+      handleClick() {
+        this.imgList.push('https://cdn.itjuzi.com/images/61bd48eb3c2427eda00787c4016976b0.png')
+      }
+    },
+    template: `
+      <div ref="imageRef">
+        <div v-for="(item,index) in imgList" :key="index">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde officiis nostrum perspiciatis doloribus, quod vel
+            laboriosam placeat, aliquam facilis vero, numquam eaque! Perferendis odio corporis aliquid ratione labore nesciunt
+            libero.
+          </p>
+          <img
+            :src="item"
+            alt="Picture"
+          />
+        </div>
+        <button @click="handleClick()">click</button>
+      </div>
+    `,
+    mounted() {
+      let viewer = new Viewer(this.$refs.imageRef, {
+        title: false,
+        navbar: false,
+        tooltip: false,
+        ready(e) {
+          const toolbar = e.target.viewer.toolbar
+
+          setHidden('.viewer-prev')
+          setHidden('.viewer-next')
+          setHidden('.viewer-play')
+
+          function setHidden(className) {
+            toolbar.querySelector(className).style.display = 'none'
+          }
+        },
+        viewed() {
+          viewer.zoomTo(1)
+        },
+        shown() {
+          viewer.update()
+        }
+      })
+
+      const { handleClick } = this
+
+      this.handleClick = () => {
+        handleClick.call(this)
+        this.$nextTick(() => {
+          viewer.update()
+        })
+      }
+
+      this.$on('hook:beforeDestroy', () => {
+        viewer.destroy()
+        viewer = null
+      })
+    }
+  }
+
+  const app = new Vue({
+    components: {
+      viewer: ViewerComponent
+    },
+    data() {
+      return {
+        show: true,
+      }
+    },
+  }).$mount('#app')
+</script>

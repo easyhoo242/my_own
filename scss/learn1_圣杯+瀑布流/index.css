@@ -1,0 +1,116 @@
+a {
+  color: hotpink;
+}
+
+a:hover {
+  color: blue;
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: aquamarine;
+  text-align: center;
+  text-decoration: none;
+  line-height: 70px;
+  font-size: 16px;
+}
+
+.container .header,
+.container .footer {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 70px;
+          flex: 0 1 70px;
+  background-color: black;
+  color: #fff;
+}
+
+.container .header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10px;
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.container .main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container .main .left,
+.container .main .right {
+  background-color: skyblue;
+  color: chartreuse;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 200px;
+          flex: 0 200px;
+}
+
+.container .main .center {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  height: 80vh;
+  background-color: cadetblue;
+}
+
+.container .main .center p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 30px;
+}
+
+.card-item {
+  max-width: 200px;
+  margin: 5px 10px;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #fff;
+}
+
+.card-item .top {
+  border: 1px soid burlywood;
+}
+
+.card-item .top img {
+  width: 80%;
+  margin: 8px;
+}
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>year-report</title>
+  <style>
+    body{
+      width: 100%;
+      /* background-color: #ccc; */
+    }
+    .container{
+      margin: 0 auto;
+    }
+    .header{
+      padding-left: 15px;
+      width: 750px;
+      background-color: #f3f5f7;
+      position: relative;
+      color: #000000;
+      line-height: 50px;
+      font-size: 14px;
+      margin: 0 auto;
+      border-radius: 2px;
+      border-bottom: 1px solid #ccc;
+    }
+    .header::before{
+      display: block;
+      content: " ";
+      width: 40px;
+      height: 8px;
+      background-color: #f08e6e;
+      position: absolute;
+      bottom: 18px;
+    }
+    .header span{
+      position: relative;
+      z-index: 2;
+    }
+    .list{
+      box-sizing: border-box;
+      width: 750px;
+      background-color: #fff;
+      margin: 0 auto;
+    }
+    .list-item{
+      padding:  16px 0;
+      background-color: #fff;
+      display: flex;
+      border-bottom: 1px solid #000;
+    }
+    .list-item:last-child{
+      border-bottom: none;
+    }
+    .list-item .img-box{
+      vertical-align: middle;
+      padding-top: 25px;
+      /* display: table; */
+    }
+    .list-item .content{
+      width: 672px;
+      padding-left: 15px;
+    }
+    .list-item .content h4{
+      font-weight: 500;
+      color: #333333;
+      line-height: 34px;
+      font-size: 14px;
+    }
+    .list-item .content p{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      color: #999999;
+      margin-bottom: 16px;
+    }
+    .list-item .content .footer{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span>12321</span>
+    </div>
+    <div class="list">
+      <div class="list-item">
+        <!-- 图片 -->
+        <div class="img-box">
+          <img src="#" alt="" width="82" height="116">
+        </div>
+        <!-- 文本 -->
+        <div class="content">
+          <h4>这是标题</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam sapiente harum expedita aperiam animi! Corrupti necessitatibus enim officia optio recusandae illo nulla nisi libero, voluptates facilis tempora, placeat, natus nesciunt?</p>
+          <div class="footer">
+            <span>¥199</span>
+            <button>查看详情</button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</body>
+</html>

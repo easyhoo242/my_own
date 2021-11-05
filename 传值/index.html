@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件间交互测试</title>
+
+</head>
+
+<body>
+
+  <div id="app">
+    <div>
+      {{msg}}
+    </div>
+
+  </div>
+</body>
+
+</html>
+
+<script src="https://unpkg.com/vue@next"></script>
+
+
+<script>
+  const { createApp } = Vue
+
+
+  const cpn1 = {
+    template:
+      `
+      <p>12313123123</p>
+      <p>hhhhhhhhh</p>
+    `
+  }
+
+
+
+  const app = createApp({
+    data() {
+      return {
+        msg: '12'
+      }
+    }
+  })
+
+  app.mount('#app')
+</script>

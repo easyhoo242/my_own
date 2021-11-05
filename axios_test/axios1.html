@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>axios_test1</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    
+  </div>
+
+  <script>
+
+    // import axios1 from './node_modules/axios/index.js'
+
+    // //  get请求
+    // axios.get('https://cnodejs.org/api/v1/topics')
+    // .then( res => {
+    //   console.log( res,"success" )
+    // })
+    // .catch( err=> {
+    //   console.log( err,"error" )
+    // })
+    // .then( () => {
+    //   console.log( "always run" )
+    // })
+
+    // // post请求
+
+    // // axios.post('https://cnodejs.org/api/v1/topics',
+    // axios.post('https://cnodejs.org/api/v1/topics',{
+    //   FirstName: "001",
+    //   LastName: "002",
+    // }).FirstName
+    // .then( res => {
+    //   console.log( res );
+    // })
+    // .catch( err => {
+    //   console.log( err );
+    // })
+
+
+    // //  并发请求
+    // function getUserId() {
+    //   return axios.post('https://cnodejs.org/api/v1/topics')
+    // }
+    // function getUserScore() {
+    //   return axios.post('https://cnodejs.org/api/v1/topics')
+
+    // }
+
+    // Promise.all([getUserId(),getUserScore()])
+    // .then( res => {
+    //   const userId = res[0]
+    //   const userScore = res[1]
+    // })
+
+
+    // //  发送post请求
+    // axios({
+    //   method: "POST",
+    //   url: '/api/v1/topic',
+    //   // `data` 是作为请求体被发送的数据
+    //   // 仅适用 'PUT', 'POST', 'DELETE 和 'PATCH' 请求方法
+    //   // 在没有设置 `transformRequest` 时，则必须是以下类型之一:
+    //   // - string, plain object, ArrayBuffer, ArrayBufferView, URLSearchParams
+    //   // - 浏览器专属: FormData, File, Blob
+    //   // - Node 专属: Stream, Buffer
+    //   data: {
+    //     FirstName: "kobe",
+    //     LastName: "bryant"
+    //   },
+    //   // `timeout` 指定请求超时的毫秒数。
+    //   // 如果请求时间超过 `timeout` 的值，则请求会被中断
+    //   timeout: 5000,
+    // })
+    // .then( res => {
+    //   console.log( res );
+    // })
+
+    // // 在nodejs 用get获取远程图片
+
+    // axios({
+    //   method: "GET",
+    //   url: '/api/v1/topic',
+    //   // `responseType` 表示浏览器将要响应的数据类型
+    //   // 选项包括: 'arraybuffer', 'document', 'json', 'text', 'stream'
+    //   // 浏览器专属：'blob'
+    //   responseType: "stream",
+    //   // `maxContentLength` 定义了node.js中允许的HTTP响应内容的最大字节数
+    //   maxContentLength: 2000,
+    // })
+    // .then( res => {
+    //   // response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+    // })
+
+  axios({
+    method: 'GET',
+    url: 'https://cnodejs.org/api/v1/user/alsotang',
+    // /api/v1/user/alsotang
+    responseType: 'json'
+  })
+  .then( res => {
+    console.log(res);
+    const container = document.querySelector('.container')
+
+    for(let i in res.data.data[0]){
+      container.innerHTML += res.data.data[0][i]
+    }
+    // container.innerHTML = res.data.data[0]
+  })
+
+  const objToQuery = obj => {
+    let query = ''
+    for(let key in obj){
+      let value = obj[key]
+      query += `&${key}=${value}`
+    }
+    return query.replace('&' , '?')
+  }
+
+
+  const obj1 = {
+    a: 1,
+    b: 2,
+    c: 3
+  }
+  console.log( "obj转query：",objToQuery(obj1) );
+
+
+  const queryToObj = query => {
+    let obj = {}
+    query = query.replace('?','')
+    const arr = query.split('&')
+    for(let i = 0;i < arr.length; i++){
+      [ key , , value ] = arr[i]
+      obj[key] = value
+    }
+    return obj
+  }
+
+  const str1 = '?a=1&b=2&c=3'
+  console.log( "query转obj",queryToObj(str1) );
+
+  </script>
+
+</body>
+</html>

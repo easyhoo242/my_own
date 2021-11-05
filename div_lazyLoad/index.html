@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+
+
+<body>
+  <div id="app">
+    <div>
+      <div
+        class="list scroll-box"
+        ref="imageRef"
+      >
+        <div
+          v-for="item in newList"
+          :key="item.id"
+          class="item"
+        >
+          <div class="img-box">
+            <img
+              :src="item.img_src"
+              alt=""
+            />
+          </div>
+          <div class="content">
+            <p>{{ item.text }}</p>
+            <span>{{ item.date }}</span>
+          </div>
+        </div>
+      </div>
+      <div ref="triggerRef"></div>
+      <div
+        v-if="loading"
+        class="text-center"
+      >加载中...</div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+
+  const { createApp } = Vue
+  const app = createApp({
+    data() {
+      return {
+        loading: false
+      }
+    },
+    methods: {
+      getScrollTop() {
+        var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
+        if (document.body) {
+          bodyScrollTop = document.body.scrollTop;
+        }
+        if (document.documentElement) {
+          documentScrollTop = document.documentElement.scrollTop;
+        }
+        scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+        return scrollTop;
+      },
+      getScrollHeight() {
+        var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
+        if (document.body) {
+          bodyScrollHeight = document.body.scrollHeight;
+        }
+        if (document.documentElement) {
+          documentScrollHeight = document.documentElement.scrollHeight;
+        }
+        scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
+        return scrollHeight;
+      },
+      getWindowHeight() {
+        var windowHeight = 0;
+        if (document.compatMode == 'CSS1Compat') {
+          windowHeight = document.documentElement.clientHeight;
+        } else {
+          windowHeight = document.body.clientHeight;
+        }
+        return windowHeight;
+      },
+      moreData() {
+        setTimeout(() => {
+          if (this.getScrollTop() + this.getWindowHeight() >= this.getScrollHeight()) {
+            console.log(scroll)
+            Array.from(document.querySelectorAll('.item')).map(res => res.classList.add('aaa'))
+            this.arr.push('asjdlkjasdljlkj')
+
+          }
+        }, 500)
+
+      }
+    },
+    mounted() {
+      window.addEventListener('scroll', this.moreData)
+
+    },
+  })
+
+  app.mount('#app')
+
+
+
+  let uid = 0
+  const createImg = () => ({
+    id: ++uid,
+    img_src: 'https://img0.baidu.com/it/u=2725677310,1998166489&fm=26&fmt=auto',
+    text: '字节跳动退出职业教育品牌，轻轻 教育关闭在线1对1服务...',
+    date: '2021年12月24日'
+  })
+
+  function createImgList(len) {
+    // return new Array(len).map(createImg)
+    return new Array(len).fill(null).map(createImg)
+  }
+
+  console.log(new Array(3))
+  console.log(new Array(3).fill().map(() => {
+    return {
+      a: 1
+    }
+  }))
+  console.log(createImgList(4))
+</script>

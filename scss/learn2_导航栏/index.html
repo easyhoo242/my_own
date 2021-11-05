@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>顶部导航栏</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="common.css">
+</head>
+
+<body>
+  <div id="app">
+
+    <div class="w">
+
+      <div class="sticky-bar module-card">
+        <div class="sticky-left">
+          
+        </div>
+        <div class="sticky-right">
+          <a href="javascript:void(0);">完善信息</a>
+        </div>
+      </div>
+
+      <div class="head-content module-card padding">
+        <div class="company-header-wrap">
+
+          <div class="img-box">
+            <img :src="juzi[0].imgSrc" alt="" height="98" width="184">
+          </div>
+
+          <div class="company-header-content">
+            <div class="d-flex">
+              <h1>{{juzi[0].title}}</h1>
+              <p>{{juzi[0].text}}</p>
+            </div>
+            <div class="d-src">
+              <div class="left">
+                <span><a :href="juzi[0].wx_src"><img :src="juzi[0].wb_src" alt=""></a></span>
+                <span><a :href="juzi[0].wb_src"><img :src="juzi[0].wx_src" alt=""></a></span>
+                <span>{{juzi[0].src}}</span>
+              </div>
+              <div class="right">
+                <span v-for="item in juzi[0].header_">{{item}}</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="company-tag-box">
+          <h3>
+            <span>{{juzi[0].tagsTop[0]}}</span>
+            <i class="hidden-span">{{juzi[0].tagsTop[1]}}</i>
+          </h3>
+          <div class="tags-top">
+            <a v-for="item in juzi[0].tag_1" :href="item.href">{{item.content}}</a>
+          </div>
+          <div class="tags-bottom">
+            <a v-for="item in juzi[0].tag_2" :href="item.href">{{item.content}}</a>
+          </div>
+        </div>
+      </div>
+
+
+      <section class="main-content">
+        <div class="main-content-left">
+          <div class="base-info module-card">
+            <div class="title">
+              基本信息
+            </div>
+            <div class="content">
+              <p>{{someData.companyBaseInfo.content}}</p>
+              <div class="bottom">
+                <p>{{someData.companyBaseInfo.name}}</p>
+                <p>{{someData.companyBaseInfo.address}}</p>
+                <p>{{`成立于:${someData.companyBaseInfo.createTime}`}}</p>
+                <p>{{`公司规模:${someData.companyBaseInfo.size}人`}}</p>
+                <!--  遗留问题：为什么显示但却占了位置 -->
+                <!-- <p>{{companyState}}</p> -->
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="main-content-rigth ">
+
+          <div class="right-hot module-card">
+            <div class="title">
+              浏览热度
+            </div>
+            <div class="data">
+              <div v-for="item in someData.hot" class="content">
+                <span>{{item.key}}</span>
+                <p>{{item.value}}</p>
+              </div>
+
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam temporibus minima dolor perspiciatis
+              ipsa quaerat in maiores labore, quam quo culpa qui, aspernatur, repudiandae nihil ipsum. Temporibus natus
+              dolorum laboriosam.
+            </div>
+          </div>
+
+          <div class="banner module-card">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident suscipit nihil quo, nisi sapiente,
+            voluptas alias saepe et ipsum, quod eum iste ipsam fugiat totam voluptatem reprehenderit nam a iure?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur perferendis sed ipsam? Necessitatibus
+            voluptas exercitationem architecto repellendus earum, praesentium aliquid, dignissimos facilis, possimus
+            molestiae beatae nemo voluptatem reiciendis corrupti! Sapiente.
+          </div>
+          <div class="banner module-card">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident suscipit nihil quo, nisi sapiente,
+            voluptas alias saepe et ipsum, quod eum iste ipsam fugiat totam voluptatem reprehenderit nam a iure?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo, harum numquam ducimus et deleniti
+            blanditiis amet, veritatis magnam perspiciatis aperiam nisi non beatae, at velit impedit repudiandae vel
+            cumque laudantium?
+
+          </div>
+          <div class="banner module-card">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident suscipit nihil quo, nisi sapiente,
+            voluptas alias saepe et ipsum, quod eum iste ipsam fugiat totam voluptatem reprehenderit nam a iure?
+          </div>
+          <div class="banner module-card">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident suscipit nihil quo, nisi sapiente,
+            voluptas alias saepe et ipsum, quod eum iste ipsam fugiat totam voluptatem reprehenderit nam a iure?
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+
+  </div>
+
+</body>
+
+</html>
+
+<script src="https://unpkg.com/vue@next"></script>
+
+
+<script>
+
+  const { createApp,computed } = Vue
+
+  const app = createApp({
+    data() {
+      return {
+        juzi: [{
+          imgSrc: 'https://cdn.itjuzi.com/images/0c1109884a733e864658ac8622f65f87.png',
+          title: 'IT桔子',
+          text: 'IT桔子，更聪明地创业和投资',
+          src: 'https://www.itjuzi.com/',
+          wb_src: 'https://cdn.itjuzi.com/assets/front//images/img/icon-weibo.png',
+          wx_src: 'https://cdn.itjuzi.com/assets/front/images/img/icon-weixin.png',
+          header_: ['关注', '追逐', '笔记', '分享'],
+          fellow: 516,
+          tagsTop: ['标签&专辑', '反馈'],
+          tag_1: [
+
+            {
+              "content": "企业服务",
+              "href": "/company?scope=企业服务"
+            },
+            {
+              "content": "数据服务",
+              "href": "/company?scope=企业服务&sub_scope=数据服务"
+            },
+            {
+              "content": "人工智能",
+              "href": "/atlas/247"
+            },
+            {
+              "content": "创业服务",
+              "href": "/atlas/297"
+            },
+            {
+              "content": "数据库技术",
+              "href": "/atlas/576"
+            },
+            {
+              "content": "机器学习",
+              "href": "/atlas/858"
+            },
+            {
+              "content": "数据分析",
+              "href": "/atlas/1160"
+            },
+            {
+              "content": "数据挖掘",
+              "href": "/atlas/1161"
+            },
+            {
+              "content": "智慧商业",
+              "href": "/atlas/1366"
+            },
+            {
+              "content": "数据平台",
+              "href": "/atlas/1400"
+            },
+            {
+              "content": "自然语言处理",
+              "href": "/atlas/1402"
+            },
+            {
+              "content": "深度学习",
+              "href": "/atlas/3934"
+            },
+            {
+              "content": "大数据技术",
+              "href": "/atlas/3984"
+            },
+            {
+              "content": "大数据服务",
+              "href": "/atlas/7425"
+            },
+            {
+              "content": "基础层",
+              "href": "/atlas/7642"
+            },
+            {
+              "content": "技术层",
+              "href": "/atlas/7643"
+            },
+            {
+              "content": "通用应用层",
+              "href": "/atlas/7644"
+            },
+            {
+              "content": "行业应用层",
+              "href": "/atlas/7645"
+            },
+            {
+              "content": "智能金融",
+              "href": "/atlas/7658"
+            },
+            {
+              "content": "盛大系",
+              "href": "/atlas/447"
+            },
+            {
+              "content": "网易系",
+              "href": "/atlas/452"
+            },
+            {
+              "content": "连续获投",
+              "href": "/atlas/5000"
+            },
+            {
+              "content": "融资节奏快",
+              "href": "/atlas/5001"
+            },
+
+          ],
+          tag_2:
+            [
+              {
+                "content": "微软创投加速器第六期创业团队",
+                "href": "/album/131"
+              },
+              {
+                "content": "提供企业数据及情报信息的创业公司",
+                "href": "/album/240"
+              }
+            ]
+
+        }],
+        someData: {
+          hot: [
+            {
+              'key': '浏览',
+              'value': '50万+'
+            },
+            {
+              'key': '关注',
+              'value': '516'
+            },
+            {
+              'key': '评论',
+              'value': '58'
+            },
+          ],
+          companyBaseInfo: {
+            'content': 'IT桔子是一个关注新经济领域创业与投资的数据库，致力于为用户提供结构化的公司数据和商业信息，北京岁月桔子科技有限公司旗下产品。',
+            'name': '北京岁月桔子科技有限公司',
+            'address': '北京-朝阳区',
+            'createTime': '2013-5',
+            'size': '10-50',
+            'state': true
+          }
+
+
+        }
+      }
+    }
+  })
+
+  app.computed = {
+    companyState:() => {
+        return this.someData.companyBaseInfo.state?'运行中':'已关闭'
+      }
+  }
+
+
+
+
+
+  app.mount('#app')
+</script>

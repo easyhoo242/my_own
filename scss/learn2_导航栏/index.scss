@@ -1,0 +1,276 @@
+body {
+  background-color: #f6f6f6;
+}
+
+p {
+  color: #636a7d;
+}
+
+.module-card {
+  padding: 15px;
+  margin-top: 15px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+}
+
+// .padding {
+//   padding: 15px;
+// }
+.w {
+  margin: 0 auto;
+  width: 1120px;
+}
+
+.sticky-bar{
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+
+.head-content {
+  display: flex;
+  flex-direction: column;
+
+
+
+  .company-header-wrap {
+    display: flex;
+
+    .img-box {
+      flex: 0 1 100px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 100px;
+      border: 1px solid #ebeef5;
+      margin-right: 15px;
+      border-radius: 12px;
+
+      img {
+        width: 100%;
+        height: 52px;
+      }
+    }
+
+    .company-header-content {
+      vertical-align: baseline;
+      flex: 1 1 auto;
+
+      .d-flex {
+        margin-top: 0px;
+        display: flex;
+        flex-flow: column;
+
+        h1 {
+          font-size: 20px;
+          font-weight: 700;
+          color: #393f4e;
+          position: relative;
+
+          &::after {
+            content: '战略投资';
+            font-size: 12px;
+            color: #ffad96;
+            margin: 8px 0 0 8px;
+            display: inline-block;
+            // position: absolute;
+            // top: -4px;
+            background-color: #fdf0ea;
+            padding: 7px;
+          }
+        }
+
+        p {
+          margin: 10px 0 4px;
+          color: #a4aab7;
+        }
+      }
+
+      .d-src {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 18px;
+        vertical-align: baseline;
+
+
+        .left {
+          flex: 0 1 auto;
+
+          img {
+            width: 14px;
+            height: 12px;
+          }
+
+          span {
+            display: inline-block;
+            padding: 7px;
+            margin: auto;
+
+            &:last-child:hover {
+              color: #ffad96;
+            }
+
+            &:last-child:hover::after {
+              content: '反馈';
+            }
+
+          }
+        }
+
+        .right {
+          position: absolute;
+          right: 0;
+
+          // flex: 0 1 100px;
+          span {
+            display: inline-block;
+            padding: 7px;
+            // background-color: hotpink;
+            margin: auto 5px;
+
+            &:first-child::after {
+              content: '(561)';
+            }
+
+            &::before {
+              content: '🌟';
+            }
+          }
+
+        }
+
+      }
+    }
+  }
+
+  .company-tag-box {
+    // background-color: rgba(0, 0, 0, .1);
+    margin-top: 15px;
+
+    &:hover .hidden-span {
+      visibility: visible;
+    }
+
+    h3 {
+      position: relative;
+
+      &::before {
+        content: '||';
+        margin-right: 5px;
+      }
+
+      span {
+        font-size: 14px;
+        position: absolute;
+        left: 10px;
+      }
+
+      .hidden-span {
+        position: absolute;
+        right: 12px;
+        visibility: hidden;
+      }
+    }
+
+
+    .tags-top,
+    .tags-bottom {
+      margin-top: 10px;
+
+      a {
+        display: inline-block;
+        padding: 5px 7px;
+        border-radius: 2px;
+        font-size: 13px;
+        line-height: 1;
+        white-space: nowrap;
+        margin: 3px 8px 3px 0;
+        background-color: #f2f6fe;
+        color: #8d879c;
+
+        text-decoration: none;
+
+        &:nth-child(1) {
+          color: #f86;
+          background-color: #fff3eb;
+        }
+
+        &:nth-child(2) {
+          color: #d1a42c;
+          background-color: #f7f0e3;
+        }
+      }
+    }
+
+    .tags-bottom {
+      margin-top: 5px;
+    }
+
+
+  }
+}
+
+.main-content {
+  display: flex;
+
+  // justify-content: space-between;
+  .main-content-left {
+    flex: 0 0 824px;
+    // width: 824px;
+    margin-right: 20px;
+
+    .base-info {
+      .title {
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+
+      .content {
+        font-size: 14px;
+        vertical-align: baseline;
+        line-height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        // margin-bottom: 15px;
+
+        .bottom {
+          margin-top: 20px;
+          display: flex;
+          justify-content: space-between;
+
+          p {
+            font-size: 12px;
+          }
+        }
+      }
+
+    }
+  }
+
+  .main-content-right {
+    // flex: 1 0 auto;
+    box-sizing: border-box;
+
+    .right-hot {
+      .title {
+        font-size: 16px;
+      }
+
+      .data {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+
+        .content {}
+
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.bd-box {
+  background: url(https://cdn.itjuzi.com/images/gPMRQPsptxNe5ULb8o9rlWspX5FTgBKMOSZgMU2p.png) top no-repeat;
+  background-size: 1920px auto;
+  height: 520px;
+  background-size: 100%;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.title img {
+  width: 596px;
+  margin-top: 200px;
+}
+
+.hand-btn {
+  display: inline-block;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 50px;
+  margin-top: 42px;
+  background-color: #f86;
+  border-radius: 25px;
+  padding: 0 50px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */

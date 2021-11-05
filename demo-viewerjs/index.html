@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/viewerjs/dist/viewer.css" />
+  </head>
+  <body>
+    <div id="app">
+      <viewer v-if="show" />
+    </div>
+  </body>
+</html>
+
+<script src="./node_modules/viewerjs/dist/viewer.js"></script>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+  const ViewerComponent = {
+    template: `
+      <img
+        ref="imageRef"
+        src="https://cdn.itjuzi.com/images/61bd48eb3c2427eda00787c4016976b0.png"
+        alt="Picture"
+      />
+    `,
+    mounted() {
+      let viewer = new Viewer(this.$refs.imageRef, {
+        title: false,
+        navbar: false,
+        tooltip: false,
+        ready(e) {
+          const toolbar = e.target.viewer.toolbar
+
+          setHidden('.viewer-prev')
+          setHidden('.viewer-next')
+          setHidden('.viewer-play')
+
+          function setHidden(className) {
+            toolbar.querySelector(className).style.display = 'none'
+          }
+        },
+        viewed() {
+          viewer.zoomTo(1)
+        }
+      })
+
+      this.$on('hook:beforeDestroy', () => {
+        viewer.destroy()
+        viewer = null
+      })
+    }
+  }
+
+  const app = new Vue({
+    components: {
+      viewer: ViewerComponent
+    },
+    data() {
+      return {
+        show: true
+      }
+    },
+  }).$mount('#app')
+</script>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>learn_scss</title>
+
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="container">
+      <div class="header">{{msg.w[0]}}</div>
+      <div class="main">
+        <div class="left">{{msg.n[0]}}</div>
+        <div class="center">
+          <!-- {{msg.n[1]}} -->
+          <div  class="card-item">
+            <div class="top">
+              <img src="https://img1.baidu.com/it/u=2376190876,3402357566&fm=26&fmt=auto" alt="" width="100">
+            </div>
+            <p>123123123</p>
+          </div>
+          <div  class="card-item">
+            <div class="top">
+              <img src="https://img2.baidu.com/it/u=3877265070,3861497788&fm=26&fmt=auto" alt="" width="100">
+            </div>
+            <p>123123123</p>
+          </div>
+          <div  class="card-item">
+            <div class="top">
+              <img src="https://img0.baidu.com/it/u=3837701124,345667481&fm=26&fmt=auto" alt="" width="100">
+            </div>
+            <p>123123123</p>
+          </div>
+          <div  class="card-item">
+            <div class="top">
+              <img src="https://img0.baidu.com/it/u=2326335660,1615373965&fm=26&fmt=auto" alt="" width="100">
+            </div>
+            <p>123123123</p>
+          </div>
+          <div  class="card-item">
+            <div class="top">
+              <img src="https://img0.baidu.com/it/u=4236079281,148928414&fm=26&fmt=auto" alt="" width="100">
+            </div>
+            <p>123123123</p>
+          </div>
+          <div  class="card-item">
+            <div class="top">
+              <img src="https://img0.baidu.com/it/u=1377333910,1348332938&fm=26&fmt=auto" alt="" width="100">
+            </div>
+            <p>123123123</p>
+          </div>
+          <div  class="card-item">
+            <div class="top">
+              <img src="https://img1.baidu.com/it/u=3842738086,2972675316&fm=26&fmt=auto" alt="" width="100">
+            </div>
+            <p>123123123</p>
+          </div>
+          <div  class="card-item">
+            <div class="top">
+              <img src="https://img2.baidu.com/it/u=3535037406,3921317536&fm=26&fmt=auto" alt="" width="100">
+            </div>
+            <p>123123123</p>
+          </div>
+          <div  class="card-item">
+            <div class="top">
+              <img src="https://img1.baidu.com/it/u=2376190876,3402357566&fm=26&fmt=auto" alt="" width="100">
+            </div>
+            <p>123123123</p>
+          </div>
+          <div  class="card-item">
+            <div class="top">
+              <img src="https://img1.baidu.com/it/u=2376190876,3402357566&fm=26&fmt=auto" alt="" width="100">
+            </div>
+            <p>123123123</p>
+          </div>
+          <div  class="card-item">
+            <div class="top">
+              <img src="https://img1.baidu.com/it/u=2376190876,3402357566&fm=26&fmt=auto" alt="" width="100">
+            </div>
+            <p>123123123</p>
+          </div>
+          <div  class="card-item">
+            <div class="top">
+              <img src="https://img1.baidu.com/it/u=2376190876,3402357566&fm=26&fmt=auto" alt="" width="100">
+            </div>
+            <p>123123123</p>
+          </div>
+          <div  class="card-item">
+            <div class="top">
+              <img src="https://img1.baidu.com/it/u=3996813513,3924788553&fm=26&fmt=auto" alt="" width="100">
+            </div>
+            <p>123123123</p>
+          </div>
+
+        </div>
+        <div class="right">{{msg.n[2]}}</div>
+      </div>
+      <div class="footer">{{msg.w[2]}}</div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+  const { createApp } = Vue
+
+  const app = createApp({
+    data() {
+      return {
+        msg: {
+          w: ['header', 'main', 'footer'],
+          n: ['left', 'center', 'right']
+        }
+      }
+    }
+  })
+
+
+  const Home = {
+    props: {
+      name: {
+        type: String,
+        default: () => { 'kobe' }
+      }
+    },
+    setup(props) {
+      const name1 = ref('decade')
+      console.log(name1);
+      return {
+        name1
+      }
+    }
+  }
+
+
+  app.components = {
+    Home
+  }
+
+
+  app.mount('#app')
+</script>
