@@ -10,15 +10,47 @@
 
 <body>
 
+  <!-- filter -->
+  <input type="number" class="filter-input" value="99">
+  <button onclick="filterClick()">点我filter</button>
+  <p><span class="filter-span">?</span></p>
+
+  <script>
+    var ageList = [34, 56, 89, 32, 14, 65]
+    function isMore(ageList) {
+      // const isMore = age => {
+      return ageList <= document.querySelector('.filter-input').value
+    }
+    function filterClick() {
+      // const filterClick = ageList => {
+      document.querySelector('.filter-span').innerHTML = ageList.filter(isMore)
+      console.log(document.querySelector('.filter-span').innerHTML, ageList.filter(isMore))
+    }
+  </script>
+
+
+
 </body>
 
 </html>
 
 
 <script>
-  console.log(!null)
+  console.log('!null :', !null)
 
 
+
+
+  // arguments
+
+  const indMax = () => {
+    const max = -Infinity
+    arguments.filter()
+  }
+
+
+
+  //  call &  apply test
   const getName = {
     // fullName: () => {
     fullName: function (city, country) {
@@ -28,13 +60,43 @@
   }
 
   const person = {
-    firstName1: 'Jay',
+    firstName: 'Jay',
     lastName: 'Chou'
   }
-
-
   getName.fullName.apply(person)
+  // call 不能接收数组
+  console.log(getName.fullName.call(person, '台湾', '中国'))       //Jay Chou 台湾 中国
+  console.log(getName.fullName.call(person, ['台湾', '中国']))     //Jay Chou 台湾,中国 undefined
+  // apply 能接收数组
+  console.log(getName.fullName.apply(person, ['台湾', '中国']))    //Jay Chou 台湾 中国
 
-  console.log(getName.fullName.call(person,'123','213'))
+
+
+  console.log('一般写法结果：', Math.max(1, 2, 3))
+  console.log('数组形式结果(apply)：', Math.max.apply(' ', [1, 2, 3]))
+
+
+
+
+
+
+
+  // 快速创建数组对象 test
+  let uid = 0
+  const createPerson = () => ({
+    id: ++uid,
+    name: 'decade',
+    age: 18,
+    scroll: 89
+  })
+
+  const createPersonList = len => {
+    return new Array(len).fill(null).map(createPerson)
+  }
+
+  console.log('快捷常见数组对象', createPersonList(3))
+
+
+
 
 </script>
