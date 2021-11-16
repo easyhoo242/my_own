@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./css/animate.min.css">
+  <link rel="stylesheet" href="./css/index.css">
+
+  <title>新闻列表</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <div class="news-list">
+      <div class="news-item">
+        <div class=" news-date">
+          2020-10-11
+        </div>
+        <div class="news-item-context">
+          <div class="news-item-title">
+            这是标题
+          </div>
+          <div class="news-item-info">
+            <div class="item-info-box">
+              <div class="item-company">
+                <a href="javascript:void(0);" class="company-box">
+                  <div class="img-box">
+                    <img src="">
+                    <span class="company-name">
+                      美丽说
+                    </span>
+                  </div>
+                </a>
+              </div>
+              <div class="news-item-company-taps">
+                <template v-for="item in 2" :key="item">
+                  <span class="split-line"></span>
+                  <span v-for="item in 2" :key="item">{{'  特点  '}}</span>
+                </template>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="news-item-origin">
+          这是信息来源
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="wow rollIn bg-red box-wrap">123</div>
+  <div class="wow rollIn bg-blue box-wrap"></div>
+  <div class="wow bounceInDown bg-green box-wrap">WOW.js</div>
+  <div class="wow lightSpeedIn bg-purple box-wrap"></div>
+
+
+</body>
+
+</html>
+<script src="./js/wow.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+  const {
+    createApp
+  } = Vue
+
+
+  const app = createApp({
+
+  })
+
+  app.mount('#app')
+</script>

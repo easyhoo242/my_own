@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrayTest</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script src="./api.js"></script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- <script type="module">
+    import { getDataOrangePicture } from './api.js'; console.log(getDataOrangePicture);const aaa = 1; console.log(aaa)
+</script> -->
+<script lang="ts">
+    const getDataOrangePicture = () => {
+        let result
+        axios({
+            method: 'GET',
+            url: ' https://cnodejs.org/api/v1/topics'
+        }).then(res => {
+            console.log(res);
+            result = res[0]
+        })
+        return result
+    }
+
+    console.log(getDataOrangePicture())
+    const _splitLine = () => console.log(new Array(30).join('-'))
+    _splitLine()
+    const arrReduce = [...
+        '1233445560'
+    ].map(res => parseInt(res))
+    const getResult = arr => arr.filter((item, index, arr) => arr.indexOf(item) == index && item % 2 !== 0).reduce((x,
+        y) => x + y, arr && arr.reduce((x, y) => x * y, 1))
+    console.log(getResult(arrReduce))
+
+    // const myArr = [{
+
+    // id: 1,
+    // time: 1636588800,
+    // title: "测试标题",
+    // url: "https://cdn.itjuzi.com/images/d77b06c1b4a8b14e58fb024da39649e9.png"
+    // }, {
+    // id: 2,
+    // time: 1636588800,
+    // title: "测试标题",
+    // url: "https://cdn.itjuzi.com/images/d77b06c1b4a8b14e58fb024da39649e9.png"
+    // }]
+
+    // // console.log(myArr.flat())
+    // console.log(...myArr)
+
+    const myObj = {
+        a: 1,
+        b: 2
+    }
+    const myObjC = {
+        a: 3,
+        b: 4
+    }
+
+    const createObjList = obj => {
+        return new Array(4).fill(null).map(res => obj)
+    }
+    const objList = createObjList(myObj)
+
+    const listItem = []
+    listItem.push(
+        ...objList.map(item => ({
+            ...item,
+            year: 1992
+        })))
+
+
+    console.log(objList, listItem)
+
+    _splitLine()
+    console.log('箭头函数生成的obj和普通的obj的区别')
+    const objTest = {
+        a: 'asd',
+        b: 'sdf'
+    }
+
+    const _objTest = () => ({
+        a: 'asd',
+        b: 'sdf'
+    })
+
+    console.log()
+        // console.log('%c \n 123', 'color: green; font-size: 55px')
+
+    _splitLine()
+    const a = [...
+        'abc'
+    ]
+    console.log('pop的返回值和 splice一样，都是返回被截取的字符串')
+    const c = a.pop('c')
+    console.log(a, c)
+
+
+
+
+
+
+
+
+
+    // 实现一个sizeOf函数：接收一个对象参数，计算传入的对象所占的Bytes数
+    function calculator(object) {
+
+    }
+
+    const testData = {
+        a: 111,
+        b: 'cccc',
+        2222: false
+    }
+
+    console.log(calculator(testData));
+</script>

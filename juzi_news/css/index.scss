@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: "Microsoft Yahei";
+}
+
+body h1 {
+  width: 100%;
+  margin: 80px 0;
+  font-size: 50px;
+  font-weight: 500;
+  text-align: center;
+}
+
+body .txt {
+  margin: 80px 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+.dowebok {
+  margin: 0 auto;
+}
+
+.dowebok ul {
+  list-style-type: none;
+}
+
+.dowebok .row {
+  font-size: 0;
+  text-align: center;
+}
+
+.dowebok .wow {
+  display: inline-block;
+  width: 280px;
+  height: 280px;
+  margin: 30px 15px 0;
+  border-radius: 50%;
+  font: 30px/280px "Microsoft Yahei";
+  vertical-align: top;
+  *display: inline;
+  zoom: 1;
+}
+
+.bg-green {
+  background: #5bd5a0;
+}
+
+.bg-blue {
+  background: #1daee9;
+}
+
+.bg-purple {
+  background: #c843a5;
+}
+
+.bg-red {
+  background: #eb3980;
+}
+
+.bg-yellow {
+  background: #ffcc35;
+}
+
+
+a {
+  text-decoration: none;
+  color: #a4aab7;
+
+}
+
+.news-list {
+  color: #a4aab7;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  .news-item {
+    padding: 19px 0;
+    display: flex;
+
+    .news-date {
+      flex: 0 0 auto;
+      width: 110px;
+      font-size: 13px;
+    }
+
+
+    .news-item-context {
+      flex: 1 1 auto;
+
+      .news-item-title {
+        margin-bottom: 12px;
+      }
+
+      .news-item-info {
+        // display: flex;
+
+        .item-info-box {
+          display: flex;
+          align-items: center;
+
+          .item-company {
+            margin-right: 8px;
+
+            .company-box {
+              display: flex;
+              align-items: center;
+
+              .img-box {
+                display: inline-flex;
+                align-items: center;
+
+                img {
+                  width: 17px;
+                  height: 17px;
+                  margin-right: 5px;
+                  background-color: hotpink;
+                }
+
+                .company-name {
+                  max-width: 100%;
+                  max-height: 100%;
+                  flex: 0 0 auto;
+                  color: #ff8866;
+                }
+              }
+            }
+          }
+
+          .news-item-company-taps {
+            flex: 0 0 auto;
+            align-items: center;
+
+            .split-line {
+              width: 1px;
+              height: 14px;
+              background: hotpink;
+              margin: 0 4px;
+            }
+          }
+        }
+      }
+    }
+
+    .news-origin {
+      flex: 0 0 auto;
+      width: 100px;
+      font-size: 12px;
+      text-align: right;
+    }
+  }
+}
+
+
+
+
+
+.box-wrap {
+  line-height: 100px;
+  text-align: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
