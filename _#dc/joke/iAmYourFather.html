@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+  const _splitLine = () => console.log(new Array(30).join('-'))
+
+  const _dl = 'father dc,son lh'
+
+
+  console.log(_dl.split(','))
+  _dl.split(',').map(res => console.log(res))
+
+
+
+
+  _splitLine()
+  for (let index in _dl.split(',')) {
+    console.log(_dl.split(',')[index])
+    console.log(_dl.split(',')[index].split(' ')[0])
+  }
+
+  // _dl.split(',')[index].split(' ')[0]
+
+  const _dlObj = {} 
+  'father dc,son lh'.split(',').map((item,index) => _dlObj[item.split(' ')[0]] = item.split(' ')[1])
+
+
+  const _dlPro = 1
+
+  console.log(_dlObj)
+
+  _splitLine()
+  // console.log(_dl.split(',').map((item,index) => _dlObj[item.split(' ')[0]] = item.split(' ')[1]))
+</script>

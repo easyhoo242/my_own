@@ -17,10 +17,12 @@
 
   <script>
     var ageList = [34, 56, 89, 32, 14, 65]
+
     function isMore(ageList) {
       // const isMore = age => {
       return ageList <= document.querySelector('.filter-input').value
     }
+
     function filterClick() {
       // const filterClick = ageList => {
       document.querySelector('.filter-span').innerHTML = ageList.filter(isMore)
@@ -65,10 +67,10 @@
   }
   getName.fullName.apply(person)
   // call 不能接收数组
-  console.log(getName.fullName.call(person, '台湾', '中国'))       //Jay Chou 台湾 中国
-  console.log(getName.fullName.call(person, ['台湾', '中国']))     //Jay Chou 台湾,中国 undefined
+  console.log(getName.fullName.call(person, '台湾', '中国')) //Jay Chou 台湾 中国
+  console.log(getName.fullName.call(person, ['台湾', '中国'])) //Jay Chou 台湾,中国 undefined
   // apply 能接收数组
-  console.log(getName.fullName.apply(person, ['台湾', '中国']))    //Jay Chou 台湾 中国
+  console.log(getName.fullName.apply(person, ['台湾', '中国'])) //Jay Chou 台湾 中国
 
 
 

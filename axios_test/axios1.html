@@ -61,26 +61,26 @@
 
 
     // //  发送post请求
-    // axios({
-    //   method: "POST",
-    //   url: '/api/v1/topic',
-    //   // `data` 是作为请求体被发送的数据
-    //   // 仅适用 'PUT', 'POST', 'DELETE 和 'PATCH' 请求方法
-    //   // 在没有设置 `transformRequest` 时，则必须是以下类型之一:
-    //   // - string, plain object, ArrayBuffer, ArrayBufferView, URLSearchParams
-    //   // - 浏览器专属: FormData, File, Blob
-    //   // - Node 专属: Stream, Buffer
-    //   data: {
-    //     FirstName: "kobe",
-    //     LastName: "bryant"
-    //   },
-    //   // `timeout` 指定请求超时的毫秒数。
-    //   // 如果请求时间超过 `timeout` 的值，则请求会被中断
-    //   timeout: 5000,
-    // })
-    // .then( res => {
-    //   console.log( res );
-    // })
+    axios({
+      method: "POST",
+      url: '/api/v1/topic',
+      // `data` 是作为请求体被发送的数据
+      // 仅适用 'PUT', 'POST', 'DELETE 和 'PATCH' 请求方法
+      // 在没有设置 `transformRequest` 时，则必须是以下类型之一:
+      // - string, plain object, ArrayBuffer, ArrayBufferView, URLSearchParams
+      // - 浏览器专属: FormData, File, Blob
+      // - Node 专属: Stream, Buffer
+      data: {
+        FirstName: "kobe",
+        LastName: "bryant"
+      },
+      // `timeout` 指定请求超时的毫秒数。
+      // 如果请求时间超过 `timeout` 的值，则请求会被中断
+      timeout: 5000,
+    })
+    .then( res => {
+      console.log( res );
+    })
 
     // // 在nodejs 用get获取远程图片
 
