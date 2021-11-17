@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>objTest</title>
+</head>
+
+<body>
+  <div class="app"></div>
+</body>
+
+</html>
+
+<script>
+  const _splitLine = () => console.log(new Array(30).join('-'))
+  const arrA = [...'HelloWorld']
+
+  // 引用同一个数组
+  let arrB = arrA
+
+  arrA.push('!')
+  arrB.unshift('-')
+  console.log(arrA.join(''), arrB.join(''))
+  console.log(arrA === arrB)
+
+  _splitLine()
+
+  const objA = {
+    a: 0,
+    b: 1
+  }
+  const objB = {
+    a: 0,
+    b: 1
+  }
+
+
+
+  const copyObj = obj => {
+    let newObj = {}
+    for (index in obj) {
+      newObj[index] = obj[index]
+    }
+    return newObj
+  }
+
+  const objC = copyObj(objA)
+  console.log(objA, objC, objA == objC)
+  // console.log(Array.prototype.map.call(a,(res, index) => res === b[index]))
+  console.log(objA.length === objB.length)
+  console.log(objA === objB)
+  console.log('| 尽管两个对象的每个索引对应的值都相同且长度相等，两个对象仍不相等 \n| 只有他们引用同一个对象的时候，才相等')
+  _splitLine()
+
+
+
+  const myArrList = ['Hello World', 'ni hao']
+  let myArrItem = myArrList.flatMap(res => res.split(' '))
+  console.log(myArrItem)
+
+  _splitLine()
+
+  console.log(-('1' - '2'))
+
+  console.log(function () {
+    _splitLine()
+  }.toString())
+  // 需要加个()
+  console.log((() => {
+    _splitLine()
+  }).toString())
+
+  const toZeroLast = [...'10203040506'].map(res => parseInt(res))
+
+  const _toZeroLast = arr => {
+    for (let [index, len] = [0, arr.length]; index < len; index++) {
+      for (let indexC = 0; indexC < index; indexC++) {
+        // arr[index] !== 0 && arr[indexC === 0] && [arr[index], arr[indexC]] = [arr[indexC], arr[index]] 
+        if (arr[index] !== 0) {
+          console.log(arr[index])
+          if (arr[indexC == 0]) {
+            console.log(arr[indexC])
+            let [x, y] = [arr[index], arr[indexC]]
+            [x, y] = [y, x]
+          }
+        }
+      }
+    }
+    return arr
+  }
+
+  const _toZeroLastC = arr => {
+    for (let [index, len] = [0, arr.length]; index < len; index++) {
+      // arr[index] == 0 && arr.push(0)
+      // arr.splice(index, 1)
+      if (arr[index] == 0) {
+        arr.push('0')
+        arr.splice(index, 1)
+      }
+    }
+    return arr
+  }
+  console.log(_toZeroLastC(toZeroLast))
+
+  _splitLine()
+
+  const pointsArr = [{
+    x: 1,
+    y: 2
+  }, {
+    x: 1,
+    y: 2
+  }]
+
+  let [{
+    x: x1,
+    y: y1
+  }, {
+    x: x2,
+    y: y2
+  }] = pointsArr
+  console.log(x1, y1, x2, y2)
+
+
+  const pointsObj = {
+    p1: [1, 2],
+    p2: [3, 4]
+  }
+
+  let {
+    p1: [x11, y11],
+    p2: [x22, y22]
+  } = pointsObj
+
+  console.log(x11, y11, x22, y22)
+  _splitLine()
+
+
+  const app = document.querySelector('.app')
+  app.innerText = '123'
+  
+</script>
+

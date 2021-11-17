@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>location的一些方法的测试</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+
+  const _splitLine = () => console.log(new Array(30).join('-'))
+
+  const locationStr = 'http://www.example.com/some/path?name=123&w=blog%3Acart55free99%20微软%20bootstrap#anchor'
+
+
+  console.log(locationStr.slice(locationStr.indexOf('?')))
+
+  _splitLine()
+  const getSearch = search => {
+    if (typeof search === 'string') {
+      const searchArr = search.slice(search.indexOf('?') + 1).split('&')
+      const searchObj = {}
+      for (let item in searchArr) {
+        searchObj[searchArr[item].split('=')[0]] = searchArr[item].split('=')[1]
+      }
+      return searchObj
+    }
+    return {}
+  }
+  _splitLine()
+
+
+  _splitLine()
+  console.log(getSearch(locationStr))
+</script>

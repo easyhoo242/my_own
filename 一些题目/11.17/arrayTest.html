@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ig
+    </title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    // const ig = {}
+    // const player = 'the Shy,roockie,ning,jackylove,baolan'.split(',').map((item, index) => ig[index] = item)
+    // console.log(ig.crisp, ig.uzi) //undefine  undefine
+
+    // const uid = 0
+    // const createPlayer = () => {
+    //     return {
+    //         id: ++uid,
+    //         name: paofu ? 'uzi' : 'crisp',
+    //     }
+    // }
+
+    // const createPlayerList = createPlayer => {
+    //     return createPlayer
+    // }
+
+    // console.log(player.length)
+    //   const newIg = new Array(player.length).fill(null).map(createPlayer)
+
+
+    // const arr = [...
+    //     'ignb'
+    // ]
+
+    // console.log(arr)
+    // console.log(arr.find(res => res == 'g'), //元素
+    //     arr.findIndex(res => res == 'g'), //索引
+    //     arr.indexOf('g')) //索引
+
+
+    // console.log(arr.every(res => res == 'i') && alert('ig牛逼'))
+    // arr.some(res => res == 'i') && alert('ig牛逼')
+
+
+
+
+
+
+
+    const myArr = [...
+        '1223345051'
+    ].map(res => parseInt(res))
+
+    const myReduce = arr => {
+        return arr.filter((item, index, arr) => arr.indexOf(item) === index && item % 2 !== 0).reduce((x, y) => x +
+            y, arr && arr.reduce((x, y) => x * y, 1))
+    }
+
+    // console.log(myReduce(myArr))
+
+
+    const arrS = ['hello world', 'the definitive guide']
+    const arrWords = arrS.flatMap(arr => arr.split(' '))
+    console.log(arrWords)
+
+
+    const arr = [1, -2, 4, 9]
+    const _arrFlat = arr => {
+        return
+    }
+    console.log('flatMap', arr.flatMap(res => res < 0 ? [] : Math.sqrt(res)))
+    console.log('.map(f).flat', arr.map(res => res < 0 ? [] : Math.sqrt(res)).flat())
+    console.log('map', arr.map(res => res < 0 ? false : Math.sqrt(res)).filter(() => true))
+    console.log('map', arr.map(res => res < 0 ? undefined : Math.sqrt(res)).filter(() => true))
+    console.log('map', arr.map(res => res < 0 ? null : Math.sqrt(res)).filter(() => true))
+
+    console.log('flat&flatMap结束')
+    console.log(new Array(30).join('-'))
+
+
+    const arrPush = [...'1 2 3'.split(' ')].map(res => parseInt(res))
+    arrPush.push('new item')
+    //arr.push后返回数组长度
+    console.log(arrPush)
+
+    const arrCopyWithIn = [...'012345'].map(res => parseInt(res))
+
+    console.log('push结束')
+    console.log(new Array(30).join('-'))
+
+
+    // 第一个参数是要复制到的位置 只写一个则意味着把从0位置开始往后的所有内容复制到第一个参数的索引位置
+    arrCopyWithIn.copyWithin(2)
+    // 第二个参数是要复制内容的起始位置 
+    // arrCopyWithIn.copyWithin(2,0)
+    // 第三个参数是配合第二个参数使用的终止位置
+
+    console.log(arrCopyWithIn)
+
+    // 修改原数组
+
+
+    const arrIndexOf = [...'asdfasdfdasfasd']
+
+    const arrFindItem = (arr, item) => {
+        const len = arr.length
+        let result = []
+        let pos = 0
+        while (pos < len) {
+            // 如果这里不限定查找的起始位置（pos） 循环会一直进行下去
+            // clearTimeout(sto)
+            // const sto = setTimeout(() => {
+            pos = arr.indexOf(item, pos)
+            if (pos === -1) break
+            result.push(pos)
+            pos += 1
+            // console.log(pos)
+            // }, 500)
+
+        }
+        return result
+    }
+
+    console.log(arrFindItem(arrIndexOf, 'f'))
+
+    console.log('indexOf结束')
+    console.log(new Array(30).join('-'))
+
+
+    const arrInclude = ['asd', NaN, NaN, 123, 3]
+
+    console.log(arrInclude.find(res => res === NaN))
+    console.log(arrInclude.findIndex(res => res === NaN))
+    console.log(arrInclude.indexOf(NaN))
+    console.log(arrInclude[1], arrInclude[2])
+    console.log(arrInclude.includes(NaN))
+
+
+    console.log('includes结束')
+    console.log(new Array(30).join('-'))
+
+
+
+    const arrSort = [...'12 4 56 87 34 76'.split(' ')].map(res => parseInt(res))
+
+    const _arrSort = (arr, a, b) => {
+        return arr.sort((a, b) => {
+            if (a > b) return 1
+            if (b > a) return -1
+            return 0
+        })
+    }
+    console.log(arrSort)
+    console.log(arrSort, _arrSort(arrSort, 11, 3))
+
+    console.log('sort结束')
+    console.log(new Array(30).join('-'))
+
+    const objTest = {
+        a: '123',
+        b: '12345',
+        c: '4768'
+    }
+
+    // console.log(objTest)
+
+    const objClass = {}
+
+    let pos = 0
+
+    while (pos < 10) {
+        objClass[`item${pos}`] = pos * pos
+        pos++
+    }
+    objClass.length = pos
+
+    let objClassSum = 0
+
+    for (index in objClass) {
+        objClassSum += objClass[index]
+    }
+    console.log(objClass, objClassSum)
+    console.log('类数组结束')
+    console.log(new Array(30).join('-'))
+
+    
+</script>
