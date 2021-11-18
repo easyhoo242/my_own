@@ -13,32 +13,38 @@
 </body>
 
 </html>
+<script src="./a.js" type="module">
+  import {
+    PI
+  } from './a.js'
+  console.log(PI)
+</script>
 
-<script>
-  const stats = (
-    function () {
-      // 模块私有的辅助函数
-      const sum = (x, y) => x + y
-      const square = x => x * x
-      // 平均值
-      function mean(data) {
-        return data.reduce(sum) / data.length
-      }
-      // 
-      function stdDev(data) {
-        let m = mean(data)
-        return Math.sqrt(
-          data.map(x => x - m).map(square).reduce(sum) / (data.length - 1)
-        )
-      }
-      return {
-        mean,
-        stdDev
-      }
-    }
-    ())
+<!-- <script>
+  // const stats = (
+  //   function () {
+  //     // 模块私有的辅助函数
+  //     const sum = (x, y) => x + y
+  //     const square = x => x * x
+  //     // 平均值
+  //     function mean(data) {
+  //       return data.reduce(sum) / data.length
+  //     }
+  //     // 
+  //     function stdDev(data) {
+  //       let m = mean(data)
+  //       return Math.sqrt(
+  //         data.map(x => x - m).map(square).reduce(sum) / (data.length - 1)
+  //       )
+  //     }
+  //     return {
+  //       mean,
+  //       stdDev
+  //     }
+  //   }
+  //   ())
 
-  console.log(stats.mean([...'13579'].map(res => parseInt(res))))
+  // console.log(stats.mean([...'13579'].map(res => parseInt(res))))
 
   // const modules = {}
 
@@ -72,9 +78,9 @@
   //   return exports
   // }())
 
-  const stats = require('stats.js')
-  const BitSet = require('sets.js').BitSet
+  // const stats = require('stats.js')
+  // const BitSet = require('sets.js').BitSet
 
-  let s = new BitSet(100)
-  s.insert(10)
-</script>
+  // let s = new BitSet(100)
+  // s.insert(10)
+</script> -->
