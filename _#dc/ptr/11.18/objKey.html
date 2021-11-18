@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>objKey</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+  const _splitLine = () => console.log(new Array(30).join('-'))
+  _splitLine()
+
+  const _dlObj = 'father=dc&son=lh'.split('&').reduce((obj, item) => {
+    const [key, value] = item.split('=')
+    return Object.assign({}, obj, {
+      [key]: value
+    })
+  }, {})
+  console.log(_dlObj)
+  console.log(JSON.parse(JSON.stringify(_dlObj)))
+
+  const _dlObjC = {}
+  _dlObjC = [...'father:dc,son:lh'.split(',')]
+  console.log()
+</script>
