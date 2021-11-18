@@ -11,7 +11,7 @@
 
 
 <script>
-import { getTopicsData } from '../api/index'
+// import { getTopicsData } from '../api/index'
 export default {
   name: 'App',
   data() {
@@ -20,12 +20,12 @@ export default {
     }
   },
   methods: {
-    getTopics() {
-      return getTopicsData().then((res) => {
-        console.log(res)
-        this.list = res
-      })
-    },
+    // getTopics() {
+    //   return getTopicsData().then((res) => {
+    //     console.log(res)
+    //     this.list = res
+    //   })
+    // },
   },
   mounted() {
     this.$refs.showData.innerText = this.list
