@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>module1</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+  const stats = (
+    function () {
+      // 模块私有的辅助函数
+      const sum = (x, y) => x + y
+      const square = x => x * x
+      // 平均值
+      function mean(data) {
+        return data.reduce(sum) / data.length
+      }
+      // 
+      function stdDev(data) {
+        let m = mean(data)
+        return Math.sqrt(
+          data.map(x => x - m).map(square).reduce(sum) / (data.length - 1)
+        )
+      }
+      return {
+        mean,
+        stdDev
+      }
+    }
+    ())
+  console.log(stats.mean([...'13579'].map(res => parseInt(res))))
+</script>
