@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>obj方法</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+  const _splitLine = res => {
+    const logR = res => {
+      console.log(new Array(30).join(res))
+    }
+    res ? logR(res) : logR('-')
+    return 1
+  }
+
+
+  _splitLine()
+
+  // 简写属性
+  console.log('简写属性')
+  let x = 1, y = 2
+  const o = {
+    x, y
+  }
+  const point = {
+    o, x, y
+  }
+  console.log(o, point)
+
+  _splitLine()
+
+  // 计算属性
+  console.log('计算属性')
+
+  const PROPERTY_NAME = 'p1'
+  const computePropertyName = () => 'p' + 2
+  const objComputed = {}
+  objComputed[PROPERTY_NAME] = 1
+  objComputed[computePropertyName()] = 2
+  console.log(objComputed)
+
+  const objComputed1 = {
+    [PROPERTY_NAME]: 1,
+    [computePropertyName()]: 2
+  }
+
+console.log(objComputed1, objComputed1.p1 + objComputed1.p2)
+</script>
