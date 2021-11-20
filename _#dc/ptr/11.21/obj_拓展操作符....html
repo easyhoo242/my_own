@@ -12,6 +12,17 @@
 </html>
 
 <script>
+
+  const _splitLine = res => {
+    const logR = res => {
+      console.log(new Array(30).join(res))
+    }
+    res ? logR(res) : logR('-')
+    return 1
+  }
+
+  _splitLine()
+  console.log('简写方法')
   const position = {
     x: 0, y: 0
   }
@@ -23,4 +34,44 @@
   const rect = {...position, ...dimensions}
 
   console.log(rect)
+
+
+  _splitLine()
+
+  let square = {
+    area: function() {
+      return this.side * this.side
+    },
+    side: 10
+  }
+
+  let square1 = {
+    area() {
+      return this.side * this.side
+    },
+    side: 10
+  }
+  console.log(square.area(), square1.area())
+
+  _splitLine()
+  console.log('计算属性')
+
+  const METHOD_NAME = 'm'
+  const symbol = Symbol()
+  const weirdMethods = {
+    'method with spaces'(x) {
+      return x + 1
+    },
+    [METHOD_NAME](x){
+      return x + 2
+    },
+    [symbol](x) {
+      return x + 3
+    }
+  }
+  console.log(weirdMethods['method with spaces'](1), 
+              weirdMethods[METHOD_NAME](1),
+              weirdMethods[symbol](1))
+
+  _splitLine()
 </script>
