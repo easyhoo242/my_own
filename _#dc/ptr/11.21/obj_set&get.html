@@ -12,5 +12,22 @@
 </html>
 
 <script>
+  const _splitLine = res => {
+    const logR = res => {
+      console.log(new Array(30).join(res))
+    }
+    res ? logR(res) : logR('-')
+    return 1
+  }
+
+  _splitLine()
+
+  console.log('set&get')
+
+  const objSet_get = {
+    'dataProp': 'value',
+    get accessorProp() { return this.dataProp },
+    set accessorProp(value) { this.dataProp = value }
+  }
   
 </script>
