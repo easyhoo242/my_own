@@ -7,27 +7,26 @@
   <title>assign</title>
 </head>
 <body>
-  
 </body>
 </html>
 <script>
-
   const _splitLine = res => {
     const logR = res => {
       console.log(new Array(30).join(res))
     }
     res ? logR(res) : logR('-')
-    return 1 
+    return 1
   }
 
-
   _splitLine()
-  let target = {x: 1}
+  let target = {
+    x: 1
+  }
   let source = {
     y: 2,
     z: 3
   }
-  for(let key of Object.keys(source)){
+  for (let key of Object.keys(source)) {
     target[key] = source[key]
   }
   console.log(Object.keys(source), source)
@@ -35,26 +34,51 @@
 
   _splitLine();
 
-
-  (function(){
-    for(let i of arguments){
+  (function () {
+    for (let i of arguments) {
       console.log(i)
     }
   })(1, 2, 3)
 
-
   _splitLine()
 
-  const objFor = {
+  const objTarget = {
     a: 1,
     b: 2,
     c: 3
   }
+  const objMid = {
+    d: 4
+  }
+  const objFrom = {
+    c: 2,
+    e: 5,
+  }
 
   // console.log([...objFor])
-  console.log(objFor)
+  // console.log(objTarget)
   // for(let i of [...objFor]){
   //   console.log(objFor[i])
   // }
+
+  // 合并对象，有相同key的则不改变
+  const merge = (target, ...sources) => {
+    for (let source of sources) {
+      for (let key of Object.keys(source)) {
+        // !(key in target) && (target[key] = source[key])
+        if(!(key in target)){
+          target[key] = source[key]
+        }
+      }
+    }
+  }
+  
+  console.log({a: 1,b: 2}, {b: 3, d: 4})
+  console.log(Object.assign({a: 1,b: 2}, {b: 3, d: 4}))
+  console.log(Object.assign(objTarget, objMid, objFrom))
+  _splitLine()
+  console.log(merge({a: 1, b: 2, c: 3}, {c: 4, d: 5, e: 6}))
+  _splitLine()
+
 
 </script>
