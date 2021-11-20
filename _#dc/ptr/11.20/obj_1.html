@@ -1,16 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>obj_1</title>
 </head>
+
 <body>
-  
+
 </body>
+
 </html>
 
 <script>
-  
+
+  const _splitLine = res => {
+    const logR = res => {
+      console.log(new Array(30).join(res))
+    }
+    res ? logR(res) : logR('-')
+    return true
+  }
+
+  _splitLine()
+
+  console.log('函数创建的三种方法：')
+
+  _splitLine()
+
+  let o = { a: 1}
+  o.x = 1
+  //  o = { x : 1}
+  console.log(o)
+  _splitLine()
+  let p = Object.create(o)
+  console.log(p)
+  p.y = 2
+  // p = { x: 1, y： 2}
+  console.log(p)
+  _splitLine()
+  let q = Object.create(p)
+  console.log(q)
+  q.x = 10
+  q.x = 2       //  这里修改的是q中并不存在的属性 
+  q.z = 3
+  console.log(q)
+  // q = {z: 3}
+  let f = q.toString()
+  // console.log('q.toString()',f)
+  // f = { x: 1, y: 2, z: 3}
+  console.log(q.x + q.y, o.x, o.a)
+
+  //  也就是说 使用Object.create()  创建的函数会继承被继承函数的属性(引用)
+  //  但是并不会出现在该函数中 
+  _splitLine()
+
+
+
 </script>
