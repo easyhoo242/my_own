@@ -15,7 +15,6 @@
 </html>
 
 <script>
-
   const _splitLine = res => {
     const logR = res => {
       console.log(new Array(30).join(res))
@@ -28,9 +27,45 @@
 
   console.log('函数创建的三种方法：')
 
+  console.log('第一种')
+  let empty = {}
+  let point = {
+    x: 0,
+    y: 0
+  }
+  let p2 = {
+    x: point.x,
+    y: point.y + 1
+  }
+  let book = {
+    'main': 'JavaScript',
+    'sub-title': 'The default guide',
+    for: 'all audiences',
+    author: {
+      firstName: 'kobe',
+      lastName: 'bryant',
+      fullName: function () {
+        return this.firstName + this.lastName
+      }
+    }
+  }
+  console.log(book)
+
   _splitLine()
 
-  let o = { a: 1}
+  console.log('第二种')
+
+  let obj_o = new Object()
+  let obj_a = new Array(2)
+  let obj_d = new Date()
+  let obj_m = new Map()
+
+  console.log(obj_o, obj_a, obj_d, obj_m)
+  _splitLine()
+  console.log('第三种')
+  let o = {
+    a: 1
+  }
   o.x = 1
   //  o = { x : 1}
   console.log(o)
@@ -44,7 +79,7 @@
   let q = Object.create(p)
   console.log(q)
   q.x = 10
-  q.x = 2       //  这里修改的是q中并不存在的属性 
+  q.x = 2 //  这里修改的是q中并不存在的属性 
   q.z = 3
   console.log(q)
   // q = {z: 3}
@@ -55,8 +90,6 @@
 
   //  也就是说 使用Object.create()  创建的函数会继承被继承函数的属性(引用)
   //  但是并不会出现在该函数中 
+  //  同时修改引用内容也不会对原型产生修改
   _splitLine()
-
-
-
 </script>
