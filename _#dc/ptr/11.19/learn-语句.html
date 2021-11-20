@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>语句</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+ 
+<script>
+
+  const _splitLine = () => console.log(new Array(30).join('-'))
+  let foObj = {}
+  for (let letter of 'mississippi') {
+    if (foObj[letter]) {
+      foObj[letter]++
+    } else {
+      foObj[letter] = 1
+    }
+
+    // foObj[letter] && foObj[letter]++ || foObj[letter] = 1
+  }
+  console.log(foObj)
+
+  _splitLine()
+
+  // throw new Error('抛出异常')
+
+
+  try{
+    // throw new Error('抛出了一条异常报错')
+  }catch(e){
+    console.log(e)
+    // 当try抛出异常的时候catch()会执行
+    // 
+  }finally{
+    // 无论怎么样这条都会执行，
+  }
+
+  const factorial = x => {
+    if(x < 0){
+      throw new Error('必须是一个数字')
+    }
+    for(let f = 1; x > 1; f *= x, x--){
+      return f
+    }
+  }
+
+  try{
+    // let n = Number(prompt('输入个数字','').trim())
+    let n = 1
+    let f = factorial(n)
+
+    console.log(n + '! = ' + f)
+  }catch(ex){
+    console.log(ex)
+  }finally{
+    console.log('try catch 执行完毕')
+  }
+
+  _splitLine()
+
+
+  function f(o){
+    if(o === undefined) debugger
+    console.log(o)
+  }
+  f(1)
+
+  _splitLine()
+
+  
+  class Circle{
+    constructor(radius){
+      this.r = radius
+    }
+    area(){
+      return Math.PI * this.r * this.r
+    }
+    circumference(){
+      return 2 * Math.PI * this.r
+    }
+  }
+</script>
