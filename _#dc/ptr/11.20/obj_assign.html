@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>assign</title>
+</head>
+<body>
+  
+</body>
+</html>
+<script>
+
+  const _splitLine = res => {
+    const logR = res => {
+      console.log(new Array(30).join(res))
+    }
+    res ? logR(res) : logR('-')
+    return 1 
+  }
+
+
+  _splitLine()
+  let target = {x: 1}
+  let source = {
+    y: 2,
+    z: 3
+  }
+  for(let key of Object.keys(source)){
+    target[key] = source[key]
+  }
+  console.log(Object.keys(source), source)
+  console.log(target)
+
+  _splitLine();
+
+
+  (function(){
+    for(let i of arguments){
+      console.log(i)
+    }
+  })(1, 2, 3)
+
+
+  _splitLine()
+
+  const objFor = {
+    a: 1,
+    b: 2,
+    c: 3
+  }
+
+  // console.log([...objFor])
+  console.log(objFor)
+  // for(let i of [...objFor]){
+  //   console.log(objFor[i])
+  // }
+
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for/of</title>
+</head>
+<body>
+  
+</body>
+</html>
+<script>
+  const _splitLine = res => {
+    const logR = res => {
+      console.log(new Array(30).join(res))
+    }
+    res ? logR(res) : logR('-')
+    return 1
+  }
+
+
+  _splitLine()
+
+  console.log('for/of只能对可迭代对象起作用，可迭代对象包括')
+  console.log('Array Set Map String TypedArray arguments')
+  
+  _splitLine()
+  console.log('Map')
+  const arrMap = new Map([['a', 1], ['b', 2], ['c', 3]])
+  for(let entry of arrMap){
+    console.log(entry)
+  }
+
+  for(let [key, value] of arrMap){
+    console.log(value)
+  }
+  
+  _splitLine('z')
+
+  const objMap = {
+    a: 1,
+    b: 2,
+    c: 3
+  }
+
+</script>
