@@ -43,9 +43,9 @@
     for: 'all audiences',
     author: {
       firstName: 'kobe',
-      lastName: 'bryant',
+      surName: 'bryant',
       fullName: function () {
-        return this.firstName + this.lastName
+        return this.firstName + this.surName
       }
     }
   }
@@ -86,10 +86,44 @@
   let f = q.toString()
   // console.log('q.toString()',f)
   // f = { x: 1, y: 2, z: 3}
+
+  console.log('x' in o)
   console.log(q.x + q.y, o.x, o.a)
 
   //  也就是说 使用Object.create()  创建的函数会继承被继承函数的属性(引用)
   //  但是并不会出现在该函数中 
   //  同时修改引用内容也不会对原型产生修改
   _splitLine()
+
+
+
+  console.log('属性访问')
+  
+  let surName = null
+  // const book1 = ''
+  surname = book && book.author && book.author.surName
+  surName = book?.author?.surName
+  // 两种方式均可
+  console.log(surName, surname)
+
+  _splitLine()
+
+  const propNameTest = 'name'
+  const hasOwnPropObj = {
+    name: '华强',
+    skill: '买瓜',
+    glory: '撒日朗',
+    arr: [...'12345'].map(res => parseInt(res)),
+    num: 1
+  }
+
+  console.log('检测是否有该属性的方法')
+  console.log('name' in hasOwnPropObj, hasOwnPropObj.hasOwnProperty('name'), propNameTest in hasOwnPropObj)
+  // hasOwnProperty() 中必须是用引号括起来的属性名或者以声明的变量
+  console.log('检测是否有可枚举属性')
+  console.log(hasOwnPropObj.propertyIsEnumerable('toString'))
+  console.log(hasOwnPropObj.arr,hasOwnPropObj.propertyIsEnumerable('arr'))
+  console.log(hasOwnPropObj.arr,hasOwnPropObj.propertyIsEnumerable('num'))
+_splitLine()
+
 </script>
