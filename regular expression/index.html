@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,14 @@
   <title>regular expression</title>
 </head>
 <body>
-  
 </body>
 </html>
 
 <script>
-  
+  const str = '123q2w3e4r5'
+  const regExr_num = /[0-9]+/
+  console.log(str, str.match(regExr_num))
+
+  const regExr_psd = /^[0-9a-z_-]{3,15}$/
+  console.log('123'.match(regExr_psd))
 </script>
