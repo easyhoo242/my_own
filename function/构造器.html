@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>构造器</title>
+</head>
+<body>
+  
+</body>
+</html>
+
+<script>
+  const _splitLine = res => {
+    const logR = res => {
+      console.log(new Array(30).join(res))
+    }
+    res ? logR(res) : logR('-')
+  }
+
+  const add = (a, b) => a + b
+
+  _splitLine()
+
+  const Quo = function(string) {
+    this.status = string
+  }
+  const abcTest = () => {
+    
+  }
+  abcTest.prototype.addTest = () => {
+    return 123
+  }
+  console.log(abcTest)
+
+  _splitLine()
+
+  Quo.prototype.get_status = function() {
+    return this.status
+  }
+  Quo.getStatus = function() {
+    return this.status
+  }
+  const myQuo = new Quo('confused')
+  console.log(myQuo)
+  console.log(myQuo.get_status)
+
+  _splitLine()
+
+  console.log('apply调用')
+
+  const arrApply = [...'34'].map(res => parseInt(res))
+  const sum = add.apply(null, arrApply)
+  console.log(sum)
+
+
+  const statusObj = {
+    status: 'A-OK'
+  }
+  const status = Quo.prototype.get_status.call(statusObj)
+</script>
