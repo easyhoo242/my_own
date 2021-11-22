@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>exception</title>
 </head>
+
 <body>
-  
+
 </body>
+
 </html>
 
 <script>
+  const _splitLine = res => {
+    const logR = res => {
+      console.log(new Array(30).join(res))
+    }
+    res ? logR(res) : logR('-')
+  }
 
   const add = (a, b) => {
-    if(typeof a !== 'number' || typeof b !== 'number') {
+    if (typeof a !== 'number' || typeof b !== 'number') {
       throw {
         name: 'TypeError',
         message: 'add needs number'
@@ -24,9 +33,9 @@
   }
 
   const tryIt = () => {
-    try{
+    try {
       add('one')
-    }catch(e){
+    } catch (e) {
       console.log(e)
     }
   }
@@ -36,6 +45,45 @@
   Function.prototype.sayYo = () => {
     console.log('Yo!')
   }
-  
+
   tryIt.sayYo()
+
+  Number.prototype.integer = function () {
+    console.log(this)
+    return Math[this < 0 ? 'ceil' : 'floor'](this)
+  }
+  // Number.method('integer1', function() {
+  //   return Math[this < 0 ? 'ceil' : 'floor'](this)
+  // })
+
+  const funcObj = {
+    get_num: function() {
+      console.log(this)
+      add()
+
+      function add() {
+        console.log(this)
+      }
+    }(this),
+  }
+
+
+  _splitLine()
+  console.log((-10 / 3).integer())
+
+  
+  console.log('汉诺塔')
+  _splitLine()
+  const hanoi = (disc, src, aux, dst) => {
+    if(disc > 0) {
+      hanoi(disc - 1, src, dst, aux)
+      console.log(`move 🥘  ${disc} from ${src} to 🅿️`)
+      hanoi(disc - 1, aux, src, dst)
+    }
+  }
+
+  hanoi(3, '🐎', '✨', '🦄️')
+  _splitLine()
+
+  
 </script>
