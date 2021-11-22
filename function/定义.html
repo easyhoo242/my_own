@@ -54,5 +54,16 @@
   _splitLine()
   const assignObjC = Object.assign({ a: 1, b: 2, c: 3 },{ d: 4, e: 5 })
   console.log(assignObj, assignObjC)
+  _splitLine()
+
+  const mySum = (...num) => {
+    let sum = 0
+    sum = num.reduce((a, b) => a + b, sum)
+    return sum
+  }
+  console.log(mySum(...[...'12345'].map(res => parseInt(res))))
+  _splitLine()
+
+  
 
 </script>
