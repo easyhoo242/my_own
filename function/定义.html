@@ -7,10 +7,52 @@
   <title>函数定义</title>
 </head>
 <body>
-  
 </body>
 </html>
-
 <script>
-  
+  const _splitLine = res => {
+    const logR = res => {
+      console.log(new Array(30).join(res))
+    }
+    res ? logR(res) : logR('-')
+  }
+
+  const add = (a, b) => a + b
+
+  _splitLine()
+  const myObj = {
+    value: 0,
+    increment(inc) {
+      this.value += typeof inc === 'number' ? inc : 1
+    }
+  }
+
+  myObj.increment()
+  console.log(myObj.value) // 1
+
+  myObj.increment(2)
+  console.log(myObj.value)
+  myObj.double = function () {
+    const that = this
+    const helper = function () {
+      that.value = add(that.value, that.value)
+    }
+    helper()
+  }
+  myObj.double()
+  console.log(myObj.value)
+
+  _splitLine()
+
+
+  const assignObj = {
+    ...{a: 1, b: 2, c: 3},
+    d: 4,
+    e: 5
+  }
+  console.log(JSON.stringify(new Array(10).fill(Boolean(1)).map(res => assignObj)))
+  _splitLine()
+  const assignObjC = Object.assign({ a: 1, b: 2, c: 3 },{ d: 4, e: 5 })
+  console.log(assignObj, assignObjC)
+
 </script>
