@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exception</title>
+</head>
+<body>
+  
+</body>
+</html>
+
+<script>
+
+  const add = (a, b) => {
+    if(typeof a !== 'number' || typeof b !== 'number') {
+      throw {
+        name: 'TypeError',
+        message: 'add needs number'
+      }
+    }
+    return a + b
+  }
+
+  const tryIt = () => {
+    try{
+      add('one')
+    }catch(e){
+      console.log(e)
+    }
+  }
+  tryIt()
+
+
+  Function.prototype.sayYo = () => {
+    console.log('Yo!')
+  }
+  
+  tryIt.sayYo()
+</script>
