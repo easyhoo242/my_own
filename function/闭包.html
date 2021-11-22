@@ -63,7 +63,7 @@
     const step = function() {
       let hex = level.toString(16)
       console.log(hex)
-      node.style.backgroundColor = '#f5f5' + hex + hex
+      node.style.backgroundColor = '#ffff' + hex.repeat(2)
       if(level < 15){
         level += 1
         setTimeout(step, 100)
