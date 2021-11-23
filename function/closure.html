@@ -115,4 +115,89 @@
 
   biggerNumA.count = 200
 
+  _splitLine()
+
+  const addPrivateProperty = (o, name, predicate) => {
+    let value
+    o[`get${name}`] = () => value
+    o[`set${name}`] = v => {
+      if(predicate && !predicate(v)){
+        throw new TypeError(`set${name}: 不承认 ${v}`)
+      }else{
+        value = v
+      }
+    }
+  }
+  let o = new Object()
+
+  addPrivateProperty(o, 'Name', x => typeof x === 'string')
+
+
+  console.log('根据函数的调用次数输出1')
+  const aaa = (() => {
+    let count = 0
+    return () => {
+      count % 2 !== 0 ? console.log(1) : console.log(2)
+      return count++
+    }
+  })()
+  _splitLine()
+
+  function constFunc(v) {
+    return () => v
+  }
+  let funcs = []
+  for(var i = 0; i < 6; i++){
+    funcs[i] = constFunc(i)
+  }
+  console.log(funcs[5]())
+  _splitLine(0)
+
+
+  console.log('如果把循环转移到闭包中，像原来一样写就会出现问题（数组中的所有元素共用同一个i），这是var关键字的原因（无块作用域）')
+  
+  const constFuncR = () => {
+    let focus = []
+    for(var i = 0; i < 10; i++){
+      focus[i] = () => i
+    }
+    return funcs
+  }
+  const funcsR = constFuncR()
+
+  const constFuncRC = () => {
+    let focus = []
+    for(let i = 0; i < 10; i++){
+      focus[i] = () => i
+    }
+    return funcs
+  }
+  const funcsRC = constFuncRC()
+
+  console.log(funcsR[4](), funcsRC[4]())
+
+
+  const objTrace = {
+    logR(){
+      console.log('123')
+    }
+  }
+  objTrace.logR()
+
+  const trace = (o, m) => {
+    let original = o[m]
+    o[m] = function(...args) {
+      console.log(new Date, 'entering', m)
+      let result = original.apply(this, args)
+      console.log(new Date, 'exiting', m)
+      return result 
+    }
+  }
+  trace(objTrace, 'logR')
+  objTrace.logR()
+  _splitLine()
+
+
+  
+
 </script>
