@@ -12,5 +12,44 @@
 </html>
 
 <script>
-  
+  const _splitLine = res => {
+    const logR = res => {
+      console.log(new Array(30).join(res))
+    }
+    res ? logR(res): logR('-')
+  }
+
+  _splitLine()
+  function f(y) {
+    return this.x + y
+  }
+  let o = {x: 1}
+  let g = f.bind(o)
+  g(2)
+  let p = {x: 10, g}
+  p.g(2)
+
+
+  let sum = (x, y) => x + y
+  let suc = sum.bind(null, 1)
+  console.log(suc(2))
+
+
+  function fn_1(y, z) {return this.x + y + z}
+  const gg = fn_1.bind({x: 1}, 2)
+  console.log(gg(3))
+
+
+  const scope = 'global'
+  const constructFunction = () => {
+    const scope = 'local'
+    return new Function('return scope')
+  }
+  const constFunction = () => {
+    const scope = 'local'
+    return () => {return scope}
+  }
+
+  constructFunction()()
+
 </script>
