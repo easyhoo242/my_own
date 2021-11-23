@@ -12,6 +12,14 @@
 </html>
 
 <script>
+
+  const _splitLine = res => {
+    const logR = res => {
+      console.log(new Array(30).join(res))
+    }
+    res ? logR(res) : logR('-')
+  }
+
   const myObject = (function () {
     const value_1 = 0
     return {
@@ -66,7 +74,7 @@
     }
     setTimeout(step, 100)
   }
-  fade(document.body)
+  fade(document.documentElement)
 
   const bb = (function() {
     let count = 0
@@ -89,19 +97,23 @@
   }
   const counterA = counter(), counterB = counter()
 
+  _splitLine()
 
-  const biggerNum = function(num) {
+  const biggerNum = function(n) {
     return {
       get count() {
-        return n++
+        return n += 10
       },
       set count(m) {
-        if(m > n) {
-          n = m
-        }else throw '必须输入更大的数字'
+        if(m > n) n = m
+        else throw '必须输入更大的数字'
       }
     }
   }
+  const biggerNumA = biggerNum(100)
+  const biggerNumB = biggerNum(1000)
+
+  biggerNumA.count = 200
 
   let biggerNumA = biggerNum(1)
 </script>
