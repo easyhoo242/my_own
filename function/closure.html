@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>闭包</title>
 </head>
-
 <body>
-
+  
 </body>
-
 </html>
-
 
 <script>
   const myObject = (function () {
@@ -40,13 +36,12 @@
   })()
 
 
-  // (function someFn() {
-  //   let count = 0
-  //   return function () {
-      
-  //   }
-  // })()
-
+  const someFn = (function() {
+    let counter = 0
+    return function () {
+      return counter ++
+    }
+  })()
 
   const quo = function(status) {
     return {
@@ -62,8 +57,8 @@
     let level = 1
     const step = function() {
       let hex = level.toString(16)
-      console.log(hex)
-      node.style.backgroundColor = '#ffff' + hex.repeat(2)
+      // console.log(hex)
+      node.style.backgroundColor = '#f5f5' + hex + hex
       if(level < 15){
         level += 1
         setTimeout(step, 100)
@@ -72,4 +67,41 @@
     setTimeout(step, 100)
   }
   fade(document.body)
+
+  const bb = (function() {
+    let count = 0
+    return function() {
+      count % 2 === 1 ? console.log(1) : console.log(2)
+      return count ++
+    }
+  })()
+
+  const counter = function() {
+    let n = 0
+    return{
+      counter() {
+        return n ++
+      },
+      reset(){
+        return n = 0
+      }
+    }
+  }
+  const counterA = counter(), counterB = counter()
+
+
+  const biggerNum = function(num) {
+    return {
+      get count() {
+        return n++
+      },
+      set count(m) {
+        if(m > n) {
+          n = m
+        }else throw '必须输入更大的数字'
+      }
+    }
+  }
+
+  let biggerNumA = biggerNum(1)
 </script>
