@@ -9,6 +9,7 @@ const _splitLine = ( res => {
   res ? logR(res) : logR('-')
 })()
 
+const logR = () => console.log('test')
 
 
 
