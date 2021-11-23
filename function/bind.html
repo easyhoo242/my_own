@@ -30,8 +30,8 @@
   p.g(2)
 
 
-  let sum = (x, y) => x + y
-  let suc = sum.bind(null, 1)
+  let _sum = (x, y) => x + y
+  let suc = _sum.bind(null, 1)
   console.log(suc(2))
 
 
@@ -51,5 +51,12 @@
   }
 
   constructFunction()()
+
+  const addArr = [...'1234'].map(res => parseInt(res))
+  const avg = addArr.reduce(_sum)/addArr.length
+  const deviations  = addArr.map(res => res - avg)
+  const stdDev = Math.sqrt(deviations.map(res => res * res).reduce(_sum)/(addArr.length - 1))
+  console.log(deviations, stdDev)
+
 
 </script>
