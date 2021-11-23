@@ -5,18 +5,92 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>documentElement</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    #app{
+      height: 1000px;
+      background-image: linear-gradient(25deg, #6e5b65, #737279, #76898e, #77a1a3);
+      padding: 50px;
+    }
+    .item1{
+      width: 100px;
+      background-color: hotpink;
+      text-align: center;
+      line-height: 100px;
+    }
+    .item2 {
+      width: 100px;
+      background-color: hotpink;
+      text-align: center;
+      line-height: 100px;
+      offset: path("M 100 100 L 300 100 L 200 300 z M 200 200 L 300 100 L 200 300 z") auto;
+      animation: move 3s linear infinite;
+    }
+    @keyframes move {
+      from {
+        offset-distance: 0%;
+      }
+      to {
+        offset-distance: 100%;
+      }
+    }
+    
+  </style>
 </head>
 <body>
-  
+  <div id="app">
+    <div class="item1">
+      item1
+    </div>
+    <div class="item2">
+      item2
+    </div>
+  </div>
 </body>
 </html>
 
 <script>
 
   const _scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-  console.log(_scrollTop)
-  // body document.body
-  // html document.documentElement
-  
+  const _app = document.getElementById('app')
+  const _item1 = _app.querySelector('.item1')
+
+  window.addEventListener('scroll', () => {
+    console.log(document.documentElement.scrollTop)
+    // logScrollTop()
+  })
+
+  const logScrollTop = () => {
+    clearTimeout(ownTimeOut)
+    let ownTimeOut = setTimeout(() => {
+      console.log(document.documentElement,scrollTop)
+    },100)
+  }
+
+  _app.scrollTo({
+    top: 100,
+    behavior: 'auto'
+  })
+
+  _app.addEventListener('click',() => {
+    window.scrollTo({
+      top: _item1.scrollTop,
+      behavior: "smooth"
+    })
+    console.log(document.documentElement.scrollTop)
+  })
+  const _scrollTo = window.scrollTo()
+
+
+  console.log('item1')
+
+  console.log(_item1.getBoundingClientRect())
+  window.setInterval(() => {
+    // null
+  },200)
+
 
 </script>
