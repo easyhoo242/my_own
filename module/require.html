@@ -16,12 +16,25 @@
 <script src="../common/js/index.js"></script>
 
 <script type="module">
-  import { map } from '../common/js/index.js'
-  console.log(commonJs)
-  export default {  
-    name: 'require',
-  }
+  import { 
+    myMap, 
+    _splitLine 
+  } from '../common/js/index.js'
 
-  console.log(map)
-  
+  import { average } from '../common/js/math.js'
+
+  console.log(average)
+  console.log(myMap([1, 2, 3], x => x += 1))
+  _splitLine()
+
+
+  // async analyzeData(data) {
+  //   let stats = await import('../common/js/index.js')
+  //   return {
+  //     average: stats.mean(data),
+  //     stddev: stats.stddev(data)
+  //   }
+  // }
+
+
 </script>
