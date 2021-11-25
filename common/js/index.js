@@ -9,8 +9,6 @@ const _splitLine = (res = '-') => {
 
 const logR = res => console.log(new Array(30).join(res))
 
-
-
 export {
   map,
   reduce,
