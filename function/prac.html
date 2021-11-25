@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>方法</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+<script>
+  const sourceData = [
+    {key: 'name', value: '张三'},
+    {key: 'age', value: 25},
+    {key: 'weight', value: '150'}
+  ]
+  const finalArr = [] 
+  sourceData.map(({key, value}) => finalArr.push(key, value))
+  console.log(finalArr)
+
+  // const rightBigger = [2, 6, 3, 8, 10, 9]
+  // let bigger = []
+  // for(let index = 0; index < rightBigger.length; index ++){
+  //   for(let j = index + 1; j < rightBigger.length; j++){
+  //     if(rightBigger[j] > rightBigger[index]){
+  //       continue
+  //     }
+  //   }
+  // }
+
+</script>
