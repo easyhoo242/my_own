@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>map</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+  const myMap = new Map()
+
+  const keyObj = {}
+  const keyFunc = function () {}
+  const keyString = 'a keyString'
+
+
+  // 添加键
+  myMap.set(keyObj, '这是一个和对象有关的键值')
+  myMap.set(keyFunc, '这是一个和函数有关的键值')
+  myMap.set(keyString, '这是一个和字符串有关的键值')
+
+  // 根据键取值
+  myMap.get(keyObj)
+  myMap.get(keyFunc)
+  myMap.get(keyString)
+
+  myMap.get('a keyString')  //和myMap.get(keyString) 等价
+
+  console.log(myMap, myMap.size)
+
+  // 使用NaN作为key
+
+  
+
+
+</script>
