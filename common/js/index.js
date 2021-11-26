@@ -17,3 +17,21 @@ export {
   _splitLine,
   logR
 }
+
+
+export function debounce(time, fn) {
+  let timer
+  let isLock = false
+
+  return function (...args) {
+    if (!isLock) {
+      fn(...args)
+      isLock = true
+    }
+
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      isLock = false
+    }, time)
+  }
+}
