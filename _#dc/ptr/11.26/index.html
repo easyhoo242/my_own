@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>通过id取flag</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="(item ,index) in list" @click="handleClick(index)">{{`${item.id} ${item.flag.toString()} ${item.name}`}}</li>
+    </ul>
+  </div>
+</body>
+</html>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+
+  const app = new Vue
+
+  let uid = 0, uFlag = false
+  const createList = function(){
+    ++uid
+    return {
+      id: uid,
+      flag: uid % 2 === 0 && !uFlag,
+      name: `${uid}号病人`
+    }
+  }
+  const objList = new Array(10).fill(null).map(res => createList()) 
+
+  objList.forEach(item => {
+    item.id === 1 && console.log(item.flag) 
+  })
+
+  app({
+    data() {
+      return {
+        list: objList
+      }
+    },
+    methods: {
+      handleClick(index) {
+        console.log(index)
+      }
+    }
+  })
+  app.mount('#app')
+</script>
