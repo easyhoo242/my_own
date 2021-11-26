@@ -16,10 +16,12 @@
 
 .input-box input {
   height: 100px;
-  border: 1px solid #f5f5f5;
+  border: 1px solid #ccc;
   border-radius: 10px;
   padding: 10px 20px;
   margin-bottom: 20px;
+  -webkit-box-shadow: 0 10px 16px 0 #999;
+          box-shadow: 0 10px 16px 0 #999;
 }
 
 .input-box .input-1 {

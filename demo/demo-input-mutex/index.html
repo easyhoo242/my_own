@@ -23,7 +23,10 @@
 
 </html>
 <script src="https://unpkg.com/vue@next"></script>
-<script>
+<script src="../../common/js/index.js"></script>
+<script type="module">
+
+  import { debounce } from '../../common/js/index.js'
   const {
     createApp,
     watch
@@ -34,40 +37,50 @@
       return {
         form: {
           name: '123',
-          code: ''
+          code: '456'
         },
-        name: '123'
       }
     },
     methods: {
       getTimeOut() {
         return 123
+      },
+      useWatcher(form) {
+        let createNameWatcher
+        let createCodeWatcher
+        let unNameWatcher
+        let unCodeWatcher
+
+        createNameWatcher = createWatcher(
+          () => form.name,
+          () => {
+            unCodeWatcher && unCodeWatcher()
+            form.code
+          },
+          () => {
+            
+          }
+        )
+      },
+      createWatcher(watcher, startCb, endCb, conditions) {
+        return function() {
+          return watch(watcher, async (value, preValue ) => {
+            if(!conditions()){
+              return
+            }
+            if(value !== '' && value !== preValue){
+              startCb()
+              await nextTick()
+              endCb()
+            }
+          })
+        }
       }
     },
     watch: {
 
     }
   })
-
-
-
-  // 防抖
-  function debounce(time, fn) {
-    let timer
-    let isLock = false
-
-    return function (...args) {
-      if (!isLock) {
-        fn(...args)
-        isLock = true
-      }
-
-      clearTimeout(timer)
-      timer = setTimeout(() => {
-        isLock = false
-      }, time)
-    }
-  }
 
   app.mount('#app')
 </script>
