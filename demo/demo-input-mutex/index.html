@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,30 +9,65 @@
   <link rel="stylesheet" href="./css/index.css">
   <title>input-mutex</title>
 </head>
+
 <body>
   <div id="app">
     <div class="input-box">
-      <input class="input-1" type="text" placeholder="请输入第一个选项">
-      <input class="input-2" type="text" placeholder="请输入第二个选项">
+      <input class="input-1" v-model="form.name" type="text" placeholder="请输入第一个选项">
+      <input class="input-2" v-model="form.code" type="text" placeholder="请输入第二个选项">
+      <p>{{form.name}}</p>
+      <p>{{form.code}}</p>
     </div>
   </div>
 </body>
+
 </html>
 <script src="https://unpkg.com/vue@next"></script>
 <script>
-  const { createApp } = Vue
-  // console.log(createApp)
+  const {
+    createApp,
+    watch
+  } = Vue
+
   const app = createApp({
     data() {
       return {
-        list: []
+        form: {
+          name: '123',
+          code: ''
+        },
+        name: '123'
       }
     },
     methods: {
       getTimeOut() {
         return 123
       }
-    }
-  }) 
+    },
+    watch: {
 
+    }
+  })
+
+
+
+  // 防抖
+  function debounce(time, fn) {
+    let timer
+    let isLock = false
+
+    return function (...args) {
+      if (!isLock) {
+        fn(...args)
+        isLock = true
+      }
+
+      clearTimeout(timer)
+      timer = setTimeout(() => {
+        isLock = false
+      }, time)
+    }
+  }
+
+  app.mount('#app')
 </script>
