@@ -32,13 +32,24 @@
   myMap.get(keyFunc)
   myMap.get(keyString)
 
-  myMap.get('a keyString')  //和myMap.get(keyString) 等价
-
+  myMap.get('a keyString') //和myMap.get(keyString) 等价
+  myMap.get({}) //undefined {} !== {}
+  myMap.get(function () {}) //undefined function !== function
   console.log(myMap, myMap.size)
 
+
+
   // 使用NaN作为key
+  myMap.set(NaN, 'key is NaN')
+  myMap.get(NaN) // 'key is NaN'
+  myMap.get(Number('lorem')) // 'key is NaN'
 
-  
+  console.log(myMap)
+  myMap.clear()
+  // 迭代Map
+  myMap.set(0, 'zero').set(1, 'one')
 
-
+  for(let [key, value] of myMap){
+    console.log(`key: `)
+  }
 </script>
