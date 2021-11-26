@@ -20,6 +20,18 @@
 <script src="https://unpkg.com/vue@next"></script>
 <script>
   const { createApp } = Vue
-  console.log(createApp)
+  // console.log(createApp)
+  const app = createApp({
+    data() {
+      return {
+        list: []
+      }
+    },
+    methods: {
+      getTimeOut() {
+        return 123
+      }
+    }
+  }) 
 
 </script>
