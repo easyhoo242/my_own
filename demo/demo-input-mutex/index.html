@@ -55,12 +55,23 @@
           () => form.name,
           () => {
             unCodeWatcher && unCodeWatcher()
-            form.code
+            form.code = ''
           },
           () => {
+            unCodeWatcher = createWatcher ? createWatcher() : undefined
+          },
+          () => form.code !== ''
+        )
+        
+        createCodeWatcher = createWatcher(
+          () => form.code,
+          () => {
+            unCodeWatcher && createWatcher()
             
           }
         )
+
+
       },
       createWatcher(watcher, startCb, endCb, conditions) {
         return function() {
