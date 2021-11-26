@@ -7,15 +7,21 @@
   <title>set</title>
 </head>
 <body>
-  
+
 </body>
 </html>
-
 
 <script>
   const set_1 = new Set([...'123'])
   const set_2 = new Set([1, ...set_1])
 
-  const set_3 = new Set()
+  const set_3 = new Set([...set_1, ...set_2])
 
+
+  const set_4 = new Set([...'1122335566'].map(res => parseInt(res)))
+  console.log(
+
+    set_4.add(7), + '\n' +
+    set_4.delete(1)
+  )
 </script>
