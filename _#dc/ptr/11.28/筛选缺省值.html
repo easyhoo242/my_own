@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>配置缺省值</title>
 </head>
 
 <body>
@@ -14,6 +14,65 @@
 
 </html>
 <script src="https://unpkg.com/vue@next"></script>
-<script>
+<script type="module">
 
+  // import {  } from '../../../common/js/index.js'
+
+  const testArr = [
+    {
+      name: 'lh',
+      sex: 'male',
+      age: 21
+    },
+    {
+      name: 'jj',
+      sex: undefined,
+      age: 20
+    },
+    {
+      name: 'dl',
+      sex: null,
+      age: 20
+    },
+    {
+      name: 'xl',
+      sex: 'male',
+      age: 22
+    }
+  ]
+
+  // console.log(testArr)
+
+  let errorArr = testArr.filter((item, index) => {
+    // return Object.values(item).includes(undefined)
+    // return item.values()
+    Object.values((...args) => {
+      // for(let i in args){
+      //   i === undefined && console.log(i) 
+      // }
+    })
+  })
+
+  const getErrorArr = targetArr => {
+    let errorArr = [], flag = false
+    targetArr.filter(item => {
+      Object.values(item).filter(item => !item && (flag = true)) 
+      flag && errorArr.push(item)
+      flag = false
+    })
+    return errorArr
+  }
+  const getErrorArrC = targetArr => {
+    let errorArr = [], flag = false
+    targetArr.filter(item => {
+      Object.values(item).filter(item => !item && (flag = true))
+      flag && errorArr.push(item)
+      flag = false
+    })
+    return errorArr
+  }
+
+  // console.log(getErrorArrC(testArr))
+  console.log(getErrorArrC(testArr))
+  // 还可以再优化
 </script>
