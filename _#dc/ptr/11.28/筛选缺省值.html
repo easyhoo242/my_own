@@ -42,40 +42,36 @@
   ]
 
   // console.log(testArr)
-
-  let errorArr = testArr.filter((item, index) => {
-    // return Object.values(item).includes(undefined)
-    // return item.values()
-    Object.values((...args) => {
-      // for(let i in args){
-      //   i === undefined && console.log(i) 
-      // }
-    })
-  })
-
+  // 改进前
   const getErrorArr = targetArr => {
     let errorArr = [], flag = false
-    targetArr.filter(item => {
+    targetArr.forEach(item => {
       Object.values(item).forEach(item => !item && (flag = true)) 
       flag && errorArr.push(item)
       flag = false
     })
     return errorArr
   }
-  const getErrorArrC = targetArr => {
-    let errorArr = [], flag = false
-    targetArr.forEach(item => {
-      Object.values(item).filter(item => !item && (flag = true))
-      flag && errorArr.push(item)
-      flag = false
-    })
-    return errorArr
-  }
+  // 改进后
+  const getErrorArrC = targetArr => targetArr.filter(item => !Object.values(item).every(res => res))
 
-  console.log(testArr[0])
-  console.log(Object.values(testArr[0]).filter(item => !item && (flag = true)))
-
-  // console.log(getErrorArrC(testArr))
   console.log(getErrorArrC(testArr))
+  console.log('---')
+  // const getErrorArrC = targetArr => {
+  //   let errorArr = [], flag = false
+  //   targetArr.forEach(item => {
+  //     Object.values(item).forEach(item => !item && (flag = true))
+  //     flag && errorArr.push(item)
+  //     flag = false
+  //   })
+  //   return errorArr
+  // }
+
+  // console.log(Object.values(testArr[1]))
+  // console.log(Object.values({a: null, b: undefined, c: '132'}))
+  // console.log(Object.values({a: null, b: undefined, c: '132'}).some(res => !res))
+  // console.log(Object.values(testArr[1]).map( item => item ?? 'bbb').includes('bbb'))
+
+  console.log(getErrorArr(testArr))
   // 还可以再优化
 </script>
