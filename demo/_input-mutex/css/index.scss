@@ -1,25 +1,31 @@
-.input-box{
-  height: 120px;
+.input-box {
+  width: 400px;
   padding: 50px 20px;
-  margin: 100px margin 0;
+  margin: 100px auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  input{
-    height: 100px;
+  input {
+    width: 300px;
+    height: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 10px 20px;
     margin-bottom: 20px;
-    box-shadow: 0 10px 16px 0 #999;
+    outline: none;
+
+    &:hover {
+      box-shadow: 0 0px 16px 0 #999;
+
+    }
   }
 
-  .input-1{
+  .input-1 {
     background-color: hotpink;
   }
 
-  .input-2{
+  .input-2 {
     background-color: skyblue;
   }
 }
