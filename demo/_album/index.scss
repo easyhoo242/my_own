@@ -1,0 +1,134 @@
+.album-module {
+  font-family: PingFangSC-Regular,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 14px;
+
+  .album-header {
+    color: #fff;
+    display: flex;
+    background-image: linear-gradient(268deg, rgb(51, 76, 58), rgb(51, 76, 58) 5%, rgb(41, 41, 48) 90%, rgb(41, 41, 48));
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0 24px;
+    margin-bottom: 20px;
+  }
+
+  .album-header-title {
+    font-size: 1.4em;
+    margin-top: 5px;
+  }
+
+  .album-header-content {
+    text-align: center;
+    max-width: 430px;
+    margin-bottom: 20px;
+  }
+
+  .album-tags {
+    margin-bottom: 20px;
+  }
+
+  .album-btn-box {
+
+    span {
+      display: inline-block;
+      padding: 4px 10px;
+      cursor: pointer;
+      color: #f86;
+      font-size: 14px;
+      border: 1px solid #f86;
+      border-radius: 4px;
+      margin-right: 16px;
+    }
+  }
+
+
+  .album-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .album-body-list {
+
+      .album-body-item {
+        position: relative;
+        display: flex;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, .06);
+        align-items: center;
+
+        &:hover {
+
+          .album-item-report {
+            color: #f86;
+            display: block;
+          }
+        }
+
+        .album-item-btn-box {
+          position: absolute;
+          right: 80px;
+          top: 15px;
+
+          span {
+            display: inline-block;
+            padding: 4px 10px;
+            cursor: pointer;
+            color: #f86;
+            font-size: 14px;
+            border: 1px solid #f86;
+            border-radius: 4px;
+            margin-right: 16px;
+          }
+        }
+
+        .album-item-report {
+          position: absolute;
+          top: 15px;
+          right: 20px;
+          line-height: 22px;
+          font-weight: 400;
+
+          display: none;
+          color: #333;
+          cursor: pointer;
+
+        }
+
+        .album-body-img-box {
+          width: 60px;
+          height: 60px;
+          background-color: #fff;
+          margin-right: 20px;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .album-body-content {
+          max-width: 1140px;
+
+          .album-body-title {
+            color: #888;
+            cursor: default;
+          }
+
+          .album-body-info {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 0 10px;
+            background-color: #f3f7fb;
+          }
+
+          .album-body-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #666;
+          }
+        }
+      }
+
+    }
+  }
+}
