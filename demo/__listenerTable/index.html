@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>listenerTable</title>
+</head>
+
+<body>
+  <div id="app">
+    <table class="table">
+      <tr v-for="(item, index) in trList" :key="index" @click="handleClick(index)">
+        <td>{{ `第${index + 1}行  ${item}` }}</td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+  const {
+    createApp
+  } = Vue
+  const app = createApp({
+    data() {
+      return {
+        trList: [...'12345']
+      }
+    },
+    methods: {
+      handleClick(index) {
+        index === this.trList.length - 1 && this.trList.push(this.trList.length + 1)        
+      }
+    }
+  })
+  app.mount('#app')
+</script>
