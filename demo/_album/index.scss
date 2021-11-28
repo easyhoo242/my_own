@@ -25,6 +25,10 @@
 
   .album-tags {
     margin-bottom: 20px;
+
+    span {
+      margin-left: 20px;
+    }
   }
 
   .album-btn-box {
@@ -111,6 +115,14 @@
           .album-body-title {
             color: #888;
             cursor: default;
+
+            span {
+              margin-left: 10px;
+
+              &::before {
+                content: '🐎';
+              }
+            }
           }
 
           .album-body-info {

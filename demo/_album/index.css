@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .album-module {
   font-family: PingFangSC-Regular,Helvetica Neue,Helvetica,Arial,sans-serif;
   font-size: 14px;
@@ -33,6 +34,10 @@
 
 .album-module .album-tags {
   margin-bottom: 20px;
+}
+
+.album-module .album-tags span {
+  margin-left: 20px;
 }
 
 .album-module .album-btn-box span {
@@ -127,6 +132,14 @@
 .album-module .album-body .album-body-list .album-body-item .album-body-content .album-body-title {
   color: #888;
   cursor: default;
+}
+
+.album-module .album-body .album-body-list .album-body-item .album-body-content .album-body-title span {
+  margin-left: 10px;
+}
+
+.album-module .album-body .album-body-list .album-body-item .album-body-content .album-body-title span::before {
+  content: '🐎';
 }
 
 .album-module .album-body .album-body-list .album-body-item .album-body-content .album-body-info {

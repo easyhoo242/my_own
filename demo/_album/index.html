@@ -23,15 +23,16 @@
         </div>
 
         <div class="album-tags">
-          <span>22 家公司</span>
-          <span>2021-11-26 10:55:10</span>
+          <span>📱22 家公司</span>
+          <span>🎁2021-11-26</span>
+          <span>10:55:10</span>
         </div>
 
         <div class="album-btn-box">
-          <span>关注</span>
+          <span>+关注</span>
           <span>下载专辑数据</span>
-          <span>追踪</span>
-          <span>分享</span>
+          <span>+追踪</span>
+          <span>>>分享</span>
         </div>
 
       </div>
@@ -52,8 +53,8 @@
             </div>
             <div class="album-body-content">
               <div class="album-body-title">
-                <span class="album-body-tag">
-                  社交网络
+                <span v-for="item in bodyTags" :key="item" class="album-body-tag">
+                  {{item}}
                 </span>
               </div>
 
@@ -86,7 +87,11 @@
   } = Vue
 
   const app = createApp({
-
+    data() {
+      return {
+        bodyTags: ['社交网络', '北京', '2014.10']
+      }
+    }
   })
   app.mount('#app')
 </script>
