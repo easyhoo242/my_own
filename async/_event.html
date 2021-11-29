@@ -34,6 +34,23 @@
     }
   }
 
+
+  //  node 中的回调与事件
+  //  肯定会报错 因为没有这些数据  
+  //  只是模拟
+  const fs = require('fs')
+  let options = {
+    //  默认选项
+  }
+
+  fs.readFile('config.json', 'utf-8', (err, text) => {
+    if(err) {
+      console.warn(`could not read config file: ${err}`)
+    }else {
+      Object.assign(options, JSON.parse(text))
+    }
+  })
+
   let request
   const https = require('https')
   function getText(url, callback) {
@@ -61,6 +78,8 @@
       callback(err, null)
     })
   }
+
+
 
 
 </script>
