@@ -7,10 +7,23 @@
   <title>Promise</title>
 </head>
 <body>
-  
 </body>
 </html>
 
 <script>
-  
+  // get Json
+  getJSON(url).then(jsonData => {
+    // 回调函数，它会解析得到JSON的值
+    // 之后被异步调用 并且接收JSON值作为参考
+  })
+
+  const displayUserProfile = profile => {
+    console.log(profile)
+  }
+
+  getJSON('url').then(res => {
+    displayUserProfile(res)
+  })
+
+
 </script>
