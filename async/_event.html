@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+  function getCurrentVersionNumber(versionCallback) {
+    let request = new XMLHttpRequest()
+    request.open('get', 'http://www.baiud.com')
+    request.send()
+
+    request.onload = function () {
+      if (request.status === 200) {
+        let currentVersion = parseInt(request.responseText)
+        versionCallback(null, currentVersion)
+      } else {
+        versionCallback(request.statusText, null)
+      }
+    }
+
+    request.onerror = request.ontimeout = function(e) {
+      versionCallback(e.type, null)
+    }
+  }
+
+
+  
+</script>
