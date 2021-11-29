@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Promise</title>
 </head>
+
 <body>
 </body>
-</html>
 
+</html>
 <script>
+  function a1() {
+
+  }
   // get Json
   getJSON(url).then(jsonData => {
     // 回调函数，它会解析得到JSON的值
@@ -25,11 +30,25 @@
     displayUserProfile(res)
   })
 
+  //  抓取错误
   const handleProfileError = err => {
     console.log(err)
   }
-
   getJSON('url').then(displayUserProfile, handleProfileError)
 
+  // 另一种写法
+  // 语义化更加明显
+  getJSON('url').then(displayUserProfile).catch(handleProfileError)
 
+  // 在getJSON、displayUserProfile甚至handleUserProfile抛出的任何异常都会作为参数传到handleUserProfile函数中
+  // 等价于
+  getJSON('url').then(displayUserProfile((res = null) => {
+    // ...
+  })).catch(handleProfileError)
+
+
+
+
+  // promise链
+  
 </script>
