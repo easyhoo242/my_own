@@ -14,50 +14,55 @@
 
 </html>
 <script src="https://unpkg.com/vue@next"></script>
-<script type="module">
+<script>
 
   // import {  } from '../../../common/js/index.js'
 
-  const testArr = [
-    {
-      name: 'lh',
-      sex: 'male',
-      age: 21
-    },
-    {
-      name: 'jj',
-      sex: undefined,
-      age: 20
-    },
-    {
-      name: 'dl',
-      sex: null,
-      age: 20
-    },
-    {
-      name: 'xl',
-      sex: '',
-      age: 22
-    }
-  ]
+  const testArr = new Array(100000).fill({
+    name: 'xl',
+    sex: '',
+    age: 0
+  })
 
   // console.log(testArr)
   // 改进前
   const getErrorArr = targetArr => {
     let errorArr = [], flag = false
     targetArr.forEach(item => {
-      Object.values(item).forEach(item => !item && (flag = true)) 
+      Object.values(item).forEach(item => !item && (flag = true)) //[]
       flag && errorArr.push(item)
       flag = false
     })
     return errorArr
   }
   // 改进后
-  const getErrorArrC = targetArr => targetArr.filter(item => !Object.values(item).every(res => res))
+  const getErrorArrC = targetArr => targetArr.filter(item => Object.values(item).some(res => !res))
+
+  const getErrorArrC2 = targetArr => targetArr.filter(item => {
+    for (const key in item) {
+      if (!item[key]) {
+        return true
+      }
+    }
+    return false
+  })
+
+  const getErrorArrC3 = targetArr => {
+    const result = []
+    for (let i = 0; i<targetArr.length; i++) {
+      const item = targetArr[i]
+      for (const key in item) {
+        if (!item[key]) {
+          result.push(item)
+          break
+        }
+      }
+    }
+    return result
+  }
 
   console.log(getErrorArrC(testArr))
   console.log('---')
-
   
   // const getErrorArrC = targetArr => {
   //   let errorArr = [], flag = false
