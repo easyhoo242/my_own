@@ -15,10 +15,9 @@
 </html>
 <script src="https://unpkg.com/vue@next"></script>
 <script>
-
   // import {  } from '../../../common/js/index.js'
 
-  const testArr = new Array(100000).fill({
+  const testArr = new Array(10).fill({
     name: 'xl',
     sex: '',
     age: 0
@@ -27,7 +26,8 @@
   // console.log(testArr)
   // 改进前
   const getErrorArr = targetArr => {
-    let errorArr = [], flag = false
+    let errorArr = [],
+      flag = false
     targetArr.forEach(item => {
       Object.values(item).forEach(item => !item && (flag = true)) //[]
       flag && errorArr.push(item)
@@ -49,7 +49,7 @@
 
   const getErrorArrC3 = targetArr => {
     const result = []
-    for (let i = 0; i<targetArr.length; i++) {
+    for (let i = 0; i < targetArr.length; i++) {
       const item = targetArr[i]
       for (const key in item) {
         if (!item[key]) {
@@ -63,7 +63,7 @@
 
   console.log(getErrorArrC(testArr))
   console.log('---')
-  
+
   // const getErrorArrC = targetArr => {
   //   let errorArr = [], flag = false
   //   targetArr.forEach(item => {
@@ -80,5 +80,9 @@
   // console.log(Object.values(testArr[1]).map( item => item ?? 'bbb').includes('bbb'))
 
   console.log(getErrorArr(testArr))
+  
+  console.time('time')
+  getErrorArrC2(testArr)
+  console.timeEnd('time')
   // 还可以再优化
 </script>
