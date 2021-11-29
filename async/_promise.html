@@ -25,5 +25,11 @@
     displayUserProfile(res)
   })
 
+  const handleProfileError = err => {
+    console.log(err)
+  }
+
+  getJSON('url').then(displayUserProfile, handleProfileError)
+
 
 </script>
