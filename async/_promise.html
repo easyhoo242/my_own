@@ -50,5 +50,44 @@
 
 
   // promise链
+
+  fetch(document)
+    .then(response => response.json())
+    .then(document => {
+      return render(document)
+    })
+    .then(rendered => {
+      cacheInDatabase(rendered)
+    })
+    .catch(err => {
+      handle(error)
+    })
+
+  fetch('api/user/profile').then(response => {
+    if (response.ok && response.header.get('content-Type') === 'application/json') {
+      // do something
+    }
+  })
+
+
+  //  幼稚方式
+  fetch('api/user/profile').then(response => {
+    response.json().then(profile => {
+      displayUserProfile(profile)
+    })
+  })
+  //  之所以说这种写法为幼稚方式是因为
+  //  promise应该对每次结果的处理是用链式方法
+  // 这种方式违背了promise的初衷
+
+  //  该采用的方式
+  fetch('api/user/profile').then(response => {
+    return response.json()
+  })
+  .then(profile => {
+    displayUserProfile(profile)
+  })
+
+
   
 </script>
