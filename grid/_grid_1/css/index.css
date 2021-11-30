@@ -9,7 +9,8 @@
   display: grid;
   width: 180px;
   height: 180px;
-  background-color: #ccc;
+  background-color: rgba(204, 204, 204, 0.445);
+  border-radius: 5px;
   -ms-grid-columns: (33%)[3];
       grid-template-columns: repeat(3, 33%);
   -ms-grid-rows: (33%)[3];
@@ -26,16 +27,5 @@
       grid-template-columns: 1fr 1fr 1fr;
   -ms-grid-rows: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
-}
-
-.container .item {
-  width: 50px;
-  height: 50px;
-  background-color: hotpink;
-  margin: 5px;
-  text-align: center;
-  line-height: 50px;
-  font-size: 24px;
-  font-weight: 600;
 }
 /*# sourceMappingURL=index.css.map */
