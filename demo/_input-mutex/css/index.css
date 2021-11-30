@@ -1,4 +1,10 @@
-.form-container {
+* {
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+.search-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,7 +24,7 @@
   font-size: 14px;
 }
 
-.form-container .input-box {
+.search-form .input-box {
   width: 400px;
   padding: 20px 20px;
   display: -webkit-box;
@@ -37,7 +43,7 @@
   margin-bottom: 10px;
 }
 
-.form-container .input-box input {
+.search-form .input-box input {
   width: 80%;
   height: 20px;
   border: 1px solid #ccc;
@@ -47,24 +53,24 @@
   outline: none;
 }
 
-.form-container .input-box input.input-1 {
+.search-form .input-box input.input-1 {
   background-color: hotpink;
 }
 
-.form-container .input-box input.input-2 {
+.search-form .input-box input.input-2 {
   background-color: skyblue;
 }
 
-.form-container .input-box input.input-3 {
+.search-form .input-box input.input-3 {
   background-color: yellowgreen;
 }
 
-.form-container .input-box input:hover {
+.search-form .input-box input:hover {
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.form-container .form-btn {
+.search-form .form-btn {
   width: 150px;
   height: 30px;
   border-radius: 20px;
@@ -73,14 +79,16 @@
   font-size: 16px;
   outline: none;
   background-image: linear-gradient(87deg, #47aae1, #86adbc, #a8b197, #c0b570);
+  -webkit-animation: bgi 5s infinite;
+          animation: bgi 5s infinite;
   position: relative;
 }
 
-.form-container .form-btn span {
-  z-index: 99;
+.search-form .form-btn span {
+  z-index: 999;
 }
 
-.form-container .form-btn::after {
+.search-form .form-btn::after {
   content: ' ';
   width: 180px;
   height: 36px;
@@ -89,10 +97,66 @@
   position: absolute;
   top: -3px;
   left: -15px;
-  opacity: 0.3;
+  opacity: 0.5;
+  -webkit-animation: bgi 5s infinite;
+          animation: bgi 5s infinite;
+  z-index: 1;
 }
 
-.form-container .form-btn:hover {
+@-webkit-keyframes bgi {
+  0% {
+    background-img-top: 0;
+  }
+  50% {
+  }
+  100% {
+    background-img-top: 100%;
+  }
+}
+
+@keyframes bgi {
+  0% {
+    background-img-top: 0;
+  }
+  50% {
+  }
+  100% {
+    background-img-top: 100%;
+  }
+}
+
+.search-form .form-btn:hover {
   color: oldlace;
+}
+
+table,
+tr,
+td {
+  border: 1px solid hotpink;
+}
+
+.search-table {
+  margin: 0 auto;
+  width: 700px;
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+  padding: 15px;
+}
+
+.search-table table {
+  width: 100%;
+  table-layout: fixed;
+  background-color: #ebdbba;
+}
+
+.search-table table tr {
+  line-height: 48px;
+  height: 48px;
+}
+
+.search-table table tr td {
+  margin: 5px 10px;
+  width: 33%;
 }
 /*# sourceMappingURL=index.css.map */
