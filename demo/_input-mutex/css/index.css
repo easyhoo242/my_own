@@ -1,7 +1,26 @@
-.input-box {
-  width: 400px;
-  padding: 50px 20px;
+.form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  width: 500px;
   margin: 100px auto;
+  font-size: 14px;
+}
+
+.form-container .input-box {
+  width: 400px;
+  padding: 20px 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,28 +31,68 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
 }
 
-.input-box input {
-  width: 300px;
+.form-container .input-box input {
+  width: 80%;
   height: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 10px 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   outline: none;
 }
 
-.input-box input:hover {
-  -webkit-box-shadow: 0 0px 16px 0 #999;
-          box-shadow: 0 0px 16px 0 #999;
-}
-
-.input-box .input-1 {
+.form-container .input-box input.input-1 {
   background-color: hotpink;
 }
 
-.input-box .input-2 {
+.form-container .input-box input.input-2 {
   background-color: skyblue;
+}
+
+.form-container .input-box input.input-3 {
+  background-color: yellowgreen;
+}
+
+.form-container .input-box input:hover {
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container .form-btn {
+  width: 150px;
+  height: 30px;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 16px;
+  outline: none;
+  background-image: linear-gradient(87deg, #47aae1, #86adbc, #a8b197, #c0b570);
+  position: relative;
+}
+
+.form-container .form-btn span {
+  z-index: 99;
+}
+
+.form-container .form-btn::after {
+  content: ' ';
+  width: 180px;
+  height: 36px;
+  border-radius: 20px;
+  background-image: linear-gradient(87deg, #75c4ee, #9ec6d6, #bef15e, #e7da87);
+  position: absolute;
+  top: -3px;
+  left: -15px;
+  opacity: 0.3;
+}
+
+.form-container .form-btn:hover {
+  color: oldlace;
 }
 /*# sourceMappingURL=index.css.map */

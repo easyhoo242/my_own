@@ -12,14 +12,19 @@
 
 <body>
   <div id="app">
-    <div class="input-box">
-      <input class="input-1" :value="form.name" @input="(v) => handleChange(v, 'name')" type="text" placeholder="请输入第一个选项">
-      <input class="input-2" :value="form.code" @input="(v) => handleChange(v, 'code')" type="text" placeholder="请输入第二个选项">
-      <input class="input-3" :value="form.val1" @input="(v) => handleChange(v, 'val1')" type="text" placeholder="请输入第三个选项">
-      <p>{{form.name}}</p>
-      <p>{{form.code}}</p>
-      <p>{{form.val1}}</p>
+    <div class="form-container">
+      <div class="input-box">
+        <input class="input input-1" :value="form.name" @input="(v) => handleChange(v, 'name')" type="text"
+          placeholder="请输入第一个选项">
+        <input class="input input-2" :value="form.code" @input="(v) => handleChange(v, 'code')" type="text"
+          placeholder="请输入第二个选项">
+        <input class="input input-3" :value="form.val1" @input="(v) => handleChange(v, 'val1')" type="text"
+          placeholder="请输入第三个选项">
+        <!-- <p v-for="item in form" :key="item">{{item}}</p> -->
+      </div>
+      <div class="form-btn"><span>search</span></div>
     </div>
+
   </div>
 </body>
 
@@ -51,6 +56,9 @@
             this.form[key] = ''
           }
         })
+      },
+      handleClick() {
+        
       }
     }
   })

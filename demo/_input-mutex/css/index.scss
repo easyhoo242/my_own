@@ -1,31 +1,79 @@
-.input-box {
-  width: 400px;
-  padding: 50px 20px;
-  margin: 100px auto;
+.form-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 500px;
+  margin: 100px auto;
+  font-size: 14px;
 
-  input {
-    width: 300px;
-    height: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    outline: none;
+  .input-box {
+    width: 400px;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 
-    &:hover {
-      box-shadow: 0 0px 16px 0 #999;
+    input {
+      width: 80%;
+      height: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px 20px;
+      margin-bottom: 10px;
+      outline: none;
 
+      &.input-1 {
+        background-color: hotpink;
+      }
+
+      &.input-2 {
+        background-color: skyblue;
+      }
+
+      &.input-3 {
+        background-color: yellowgreen;
+      }
+
+      &:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
     }
   }
 
-  .input-1 {
-    background-color: hotpink;
-  }
+  .form-btn {
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    outline: none;
+    background-image: linear-gradient(87deg, #47aae1, #86adbc, #a8b197, #c0b570);
+    position: relative;
 
-  .input-2 {
-    background-color: skyblue;
+    span {
+      z-index: 99;
+    }
+
+    &::after {
+      content: ' ';
+      width: 180px;
+      height: 36px;
+      border-radius: 20px;
+      background-image: linear-gradient(87deg, #75c4ee, #9ec6d6, #bef15e, #e7da87);
+      position: absolute;
+      top: -3px;
+      left: -15px;
+      opacity: 0.3;
+      // transform:;
+    }
+
+    &:hover {
+      color: oldlace;
+    }
   }
 }
