@@ -52,4 +52,14 @@
     status: 'A-OK'
   }
   const status = Quo.prototype.get_status.call(statusObj)
+
+  const self = [...'qy'].fill({'🦈':'🐟'}).map(res => res).find(self => '🐟')
+
+  const countFishTurnOver = (() => {
+    let turnOver = 0
+    return () => {
+      turnOver % 2 === 1 && console.log('翻身咯')
+      return turnOver ++
+    }
+  })()
 </script>

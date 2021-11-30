@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>require</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script src="../common/js/index.js"></script>
+
+<script type="module">
+  import { 
+    myMap, 
+    _splitLine 
+  } from '../common/js/index.js'
+
+  import { average } from '../common/js/math.js'
+
+  console.log(average)
+  console.log(myMap([1, 2, 3], x => x += 1))
+  _splitLine()
+
+
+  // async analyzeData(data) {
+  //   let stats = await import('../common/js/index.js')
+  //   return {
+  //     average: stats.mean(data),
+  //     stddev: stats.stddev(data)
+  //   }
+  // }
+
+  const aaaa = (...args) => console.log(args)
+</script>

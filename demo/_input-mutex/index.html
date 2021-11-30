@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../common/css/reset.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <title>input-mutex</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- form -->
+    <div class="search-form">
+      <div class="input-box">
+        <input class="input input-1" :value="form.name" @input="(v) => handleChange(v, 'name')" type="text"
+          placeholder="请输入第一个选项">
+        <input class="input input-2" :value="form.code" @input="(v) => handleChange(v, 'code')" type="text"
+          placeholder="请输入第二个选项">
+        <input class="input input-3" :value="form.val1" @input="(v) => handleChange(v, 'val1')" type="text"
+          placeholder="请输入第三个选项">
+        <!-- <p v-for="item in form" :key="item">{{item}}</p> -->
+      </div>
+      <div class="form-btn"><span>search</span></div>
+    </div>
+    <!-- el表格 -->
+    <div class="search-table">
+      <table>
+        <tr v-for="(item, index) in tableData" :key="index">
+          <td>{{item.date}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.address}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>
+<script src="https://unpkg.com/vue@next"></script>
+<!-- <script src="https://unpkg.com/element-ui/lib/index.js"></script> -->
+
+<script type="module">
+  import { debounce } from '../../common/js/index.js'
+  const {
+    createApp,
+    watch
+  } = Vue
+
+  const app = createApp({
+    data() {
+      return {
+        form: {
+          name: '',
+          code: '',
+          val1: ''
+        },
+        tableData: [{
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '上海市普陀区'
+        }, {
+          date: '2016-05-04',
+          name: '王小虎',
+          address: '上海市普陀区 '
+        }, {
+          date: '2016-05-01',
+          name: '王小虎',
+          address: '上海市普陀区 '
+        }, {
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '上海市普陀区'
+        }]
+      }
+    },
+    methods: {
+      handleChange(ev, type) {
+        this.form[type] = ev.target.value
+        Object.keys(this.form).forEach((key) => {
+          if (key !== type && this.form[key] !== '') {
+            this.form[key] = ''
+          }
+        })
+      },
+      handleClick() {
+        
+      }
+    }
+  })
+
+  app.mount('#app')
+</script>

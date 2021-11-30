@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+  function getCurrentVersionNumber(versionCallback) {
+    let request = new XMLHttpRequest()
+    request.open('get', 'http://www.baiud.com')
+    request.send()
+
+    request.onload = function () {
+      if (request.status === 200) {
+        let currentVersion = parseInt(request.responseText)
+        versionCallback(null, currentVersion)
+      } else {
+        versionCallback(request.statusText, null)
+      }
+    }
+
+    request.onerror = request.ontimeout = function(e) {
+      versionCallback(e.type, null)
+    }
+  }
+
+
+  //  node 中的回调与事件
+  //  肯定会报错 因为没有这些数据  
+  //  只是模拟
+  const fs = require('fs')
+  let options = {
+    //  默认选项
+  }
+
+  fs.readFile('config.json', 'utf-8', (err, text) => {
+    if(err) {
+      console.warn(`could not read config file: ${err}`)
+    }else {
+      Object.assign(options, JSON.parse(text))
+    }
+  })
+
+  let request
+  const https = require('https')
+  function getText(url, callback) {
+    request = https.get(url)
+
+    request.on('response', response => {
+      let httpStatus = response.statusCode
+      response.setEncoding('utf-8')
+      let body = ''
+
+      response.on('data', chunk => {
+        body += chunk
+      })
+
+      response.on('end', () => {
+        if(httpStatus === 200) {
+          callback(null, body)
+        }else {
+          callback(httpStatus, null)
+        }
+      })
+    })
+
+    request.on('error', err => {
+      callback(err, null)
+    })
+  }
+
+
+
+
+</script>

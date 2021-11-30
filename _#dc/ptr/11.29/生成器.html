@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>生成器</title>
+</head>
+<body>
+  
+</body>
+</html>
+
+<script>
+
+  // 生成器  示例
+
+  function* gen() {
+    yield 1
+    yield 2
+    yield 3
+  }
+
+  const g = gen()
+  g.next()
+  g.next()
+  g.next()
+
+  function * generator(i) {
+    yield i 
+    yield i + 10
+  }
+
+  const gen_1 = generator(10)
+</script>

@@ -11,9 +11,19 @@
 </body>
 </html>
 
-<script type="module">
-  import { map } from './js/function.js'
-  
+<!-- <script type='module' src="../components/js/common.js">
+  console.log(123)
+  import { map, _splitLine } from '../components/js/common.js'
+  console.log(map )
+  console.log(1)
+</script> -->
+
+<script>
+  const sum = (x, y) => x + y
+  const map = (a, ...args) => a.map(...args)
+  const square = (x, y) => x * x
+
+
   function not(f) {
     return function(...args){
       let result = f.apply(this, args)
@@ -25,12 +35,79 @@
   console.log([1, 1, 3, 5, 5].every(odd))
 
 
-  const mapper = (f) => {
-    return a => map(a, f)
+  const mapper = func => {
+    return x => map(x, func)
   }
-  const increment = x => x + 1
+  const increment = x1 => x1 += 1
   const incrementAll = mapper(increment)
-  incrementAll([1, 2, 3])
 
-  
+  // 返回f(g())
+  function compose(f, g) {
+    return function(...args){
+      console.log(args, f.apply(this, args))
+      return f.call(this, g.apply(this, args))
+    }
+  }
+
+  function aaaa(a, b){
+    return (...args) => console.log(args)
+  }
+  console.log(compose(square, sum)(2, 3))
+
+  // _splitLine()
+
+  function partialLeft(f, ...outerArgs) {
+    return function(...innerArgs){
+      let args = [...outerArgs, ...innerArgs]
+      return f.apply(this, args)
+    }
+  }
+
+  function partialRight(f, ...outerArgs) {
+    return function(...innerArgs) {
+      let args = [...innerArgs, ...outerArgs]
+      return f.apply(this, args)
+    }
+  }
+
+  function partial(f, ...outerArgs) {
+    return function(...innerArgs) {
+      let args = [...outerArgs]
+      let innerIndex = 0
+      for(let i = 0;i < args.length; i++){
+        // undefined 则用innerArgs填充
+        args[i] ?? innerArgs[innerIndex++]
+        // args[i] === undefined ? innerArgs[innerIndex++] : args[i]
+        args.push(...innerArgs.slice(innerIndex))
+        return f.apply(this, args)
+      }
+    }
+  }
+
+  function partialC(f, ...outerArgs) {
+    return function(...innerArgs) {
+      let args = [...outerArgs]
+      let innerIndex = 0
+      // for(let i = 0; i < args.length; i++){
+      for(let i in args){
+        args[i] ?? innerArgs[innerIndex++]
+        args.push(...innerArgs.slice(innerIndex))
+        return f.apply(this, args)
+      }
+    }
+  }
+  const f = function(x, y, z) {return x * (y - z)}
+  console.log('---')
+  console.log(partialLeft(f, 2)(3, 4, 5))
+  console.log(partialRight(f, 2)(3, 4))
+  console.log(partial(f, undefined, 2)(3, 4))
+  console.log(partialC(f, 2)(3, 4))
+
+  console.log('---')
+
+  const outOrIn = (x, y) => {
+    return (a, b) => {
+      console.log(`x: ${x}, y: ${y}, a: ${a}, b: ${b}`)
+    }
+  }
 </script>

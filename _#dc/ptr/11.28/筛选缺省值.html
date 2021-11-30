@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>配置缺省值</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+  // import {  } from '../../../common/js/index.js'
+
+  const testArr = new Array(10).fill({
+    name: 'xl',
+    sex: '',
+    age: 0
+  })
+
+  // console.log(testArr)
+  // 改进前
+  const getErrorArr = targetArr => {
+    let errorArr = [],
+      flag = false
+    targetArr.forEach(item => {
+      Object.values(item).forEach(item => !item && (flag = true)) //[]
+      flag && errorArr.push(item)
+      flag = false
+    })
+    return errorArr
+  }
+  // 改进后
+  const getErrorArrC = targetArr => targetArr.filter(item => Object.values(item).some(res => !res))
+
+  const getErrorArrC2 = targetArr => targetArr.filter(item => {
+    for (const key in item) {
+      if (!item[key]) {
+        return true
+      }
+    }
+    return false
+  })
+
+  const getErrorArrC3 = targetArr => {
+    const result = []
+    for (let i = 0; i < targetArr.length; i++) {
+      const item = targetArr[i]
+      for (const key in item) {
+        if (!item[key]) {
+          result.push(item)
+          break
+        }
+      }
+    }
+    return result
+  }
+
+  console.log(getErrorArrC(testArr))
+  console.log('---')
+
+  // const getErrorArrC = targetArr => {
+  //   let errorArr = [], flag = false
+  //   targetArr.forEach(item => {
+  //     Object.values(item).forEach(item => !item && (flag = true))
+  //     flag && errorArr.push(item)
+  //     flag = false
+  //   })
+  //   return errorArr
+  // }
+
+  // console.log(Object.values(testArr[1]))
+  // console.log(Object.values({a: null, b: undefined, c: '132'}))
+  // console.log(Object.values({a: null, b: undefined, c: '132'}).some(res => !res))
+  // console.log(Object.values(testArr[1]).map( item => item ?? 'bbb').includes('bbb'))
+
+  console.log(getErrorArr(testArr))
+  
+  console.time('time')
+  getErrorArrC2(testArr)
+  console.timeEnd('time')
+  // 还可以再优化
+</script>

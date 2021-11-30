@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise</title>
+</head>
+
+<body>
+</body>
+
+</html>
+<script>
+  function a1() {
+
+  }
+  // get Json
+  getJSON(url).then(jsonData => {
+    // 回调函数，它会解析得到JSON的值
+    // 之后被异步调用 并且接收JSON值作为参考
+  })
+
+  const displayUserProfile = profile => {
+    console.log(profile)
+  }
+
+  getJSON('url').then(res => {
+    displayUserProfile(res)
+  })
+
+  //  抓取错误
+  const handleProfileError = err => {
+    console.log(err)
+  }
+  getJSON('url').then(displayUserProfile, handleProfileError)
+
+  // 另一种写法
+  // 语义化更加明显
+  getJSON('url').then(displayUserProfile).catch(handleProfileError)
+
+  // 在getJSON、displayUserProfile甚至handleUserProfile抛出的任何异常都会作为参数传到handleUserProfile函数中
+  // 等价于
+  getJSON('url').then(displayUserProfile((res = null) => {
+    // ...
+  })).catch(handleProfileError)
+
+
+
+
+  // promise链
+
+  fetch(document)
+    .then(response => response.json())
+    .then(document => {
+      return render(document)
+    })
+    .then(rendered => {
+      cacheInDatabase(rendered)
+    })
+    .catch(err => {
+      handle(error)
+    })
+
+  fetch('api/user/profile').then(response => {
+    if (response.ok && response.header.get('content-Type') === 'application/json') {
+      // do something
+    }
+  })
+
+
+  //  幼稚方式
+  fetch('api/user/profile').then(response => {
+    response.json().then(profile => {
+      displayUserProfile(profile)
+    })
+  })
+  //  之所以说这种写法为幼稚方式是因为
+  //  promise应该对每次结果的处理是用链式方法
+  // 这种方式违背了promise的初衷
+
+  //  该采用的方式
+  fetch('api/user/profile').then(response => {
+    return response.json()
+  })
+  .then(profile => {
+    displayUserProfile(profile)
+  })
+
+
+  const theURL = 'api/user/profile'
+  fetch(theURL)
+  .then(callback(1))
+  .then(callback(2))
+  .then(callback(3))
+  .then(callback(4))
+  
+
+</script>
