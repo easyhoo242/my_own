@@ -13,8 +13,8 @@
 
 <body>
   <div id="app">
-    <div v-for="(item, index) in dataList" :key="index" class="wrap">  
-      <p>{{item.type}}</p>
+    <div v-for="(item, index) in dataList" :id="`grid-${index + 1}`" :key="index" class="wrap">  
+      <p>{{`${item.id}   ${item.type} `}}</p>
       <div class="container">
         <div class="item">1</div>
         <div class="item">2</div>
@@ -40,16 +40,20 @@
     data() {
       return {
         dataList: [{
+            id: 1,
             type: '百分比划分'
           },
           {
+            id: 2,
             type: '定宽划分'
           },
           {
-            type: '百分比划分'
+            id: 3,
+            type: '自适应划分(fr)'
           },
           {
-            type: '百分比划分'
+            id: 4,
+            type: '固定一列 + 其余适应'
           },
         ]
       }
