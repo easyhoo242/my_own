@@ -137,6 +137,12 @@ a {
   margin: 60px auto 40px 0px;
   height: 500px;
   width: 100px;
-  background-color: hotpink;
+}
+
+.info .info-list .info-item ul li::before {
+  content: "●";
+  font-size: 18px;
+  color: #9fa0a0;
+  margin-right: 5px;
 }
 /*# sourceMappingURL=index.css.map */
