@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  margin: 20px auto;
+  display: grid;
+  width: 180px;
+  height: 180px;
+  background-color: rgba(204, 204, 204, 0.445);
+  border-radius: 5px;
+
+  //  repeat关键字 repeat(3, fn)
+  //  分别为重复次数以及要重复的内容
+  //  非常方便
+  grid-template-columns: repeat(3, 33%);
+  grid-template-rows: repeat(3, 33%);
+
+  // auto-fill关键字
+
+  &:nth-child(2) {
+    grid-template-columns: repeat(auto-fill, 50px);
+    // grid-template-rows: repeat(3, 33%);
+  }
+
+  //  fr  关键字
+  //  可以和绝对长度的单位结合使用
+  //  例如可以定宽两列 中间自适应一列
+  //  或者定宽最左边的一列 按照比例划分右侧的了两列
+  &:nth-child(3) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  .item {
+    width: 50px;
+    height: 50px;
+    background-color: hotpink;
+    margin: 5px;
+  }
+}
