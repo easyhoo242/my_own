@@ -124,7 +124,7 @@
 
   // 相对完整版本的.then 加入了一些出错判断
   // 并且使用了 catch(e) 的 then(null, e) 版本
-  
+
   fetch('api/user/profile')
     .then(response => {
       if (!response.ok) {
