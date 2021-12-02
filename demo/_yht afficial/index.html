@@ -6,22 +6,33 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./css/index.css">
   <title>益禾堂</title>
 </head>
 
 <body>
   <div id="app">
-    <div class="nav">
+    <header class="nav">
       <ul>
         <li v-for="(item, index) in navList">
-          <a 
-            href="javascript:void(0);"
-          >
-          {{item}}
+          <img v-if="index === 3" :src="navLogo" alt="">
+          <a href="javascript:void(0);">
+            {{item}}
           </a>
         </li>
       </ul>
-    </div>
+    </header>
+
+    <section class="banner">
+      <div class="swiper-container swiper-container-horizontal">
+        <div v-for="(item, index) in imgList" :key="index" class="swiper-slide">
+          <img :src="item" alt="">
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
   </div>
 
 </body>
@@ -29,18 +40,30 @@
 </html>
 <script src="https://unpkg.com/vue@next"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"> </script>
 <script>
   const {
     createApp
   } = Vue
-  const { aos } = Aos
 
-  // aos.init()
+  const mySwiper = new Swiper('.swiper-container', {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  })
 
   const app = createApp({
     data() {
       return {
-        navList: ['官网首页', '关于我们', '加盟合作', '', '营运支持', '品牌展示', '招聘入口']
+        navList: ['官网首页', '关于我们', '加盟合作', '', '营运支持', '品牌展示', '招聘入口'],
+        navLogo: 'https://www.yihetang.com/assets/yht/images/logo.png',
+        imgList: [
+          'https://www.yihetang.com/uploads/20211118/113f9afde0f5a9edfbc5dcb80aa31288.jpg',
+          'https://www.yihetang.com/uploads/20211018/1b4b4661bd2b304a0a6b9f08c1e0595a.jpg',
+          'https://www.yihetang.com/uploads/20210909/ba414378f098088f55b849f81c1298d7.jpg',
+          'https://www.yihetang.com/uploads/20211028/76d64c7292047c1ebcdb1f60b8ade4ed.jpg',
+        ]
       }
     },
     methods: {
