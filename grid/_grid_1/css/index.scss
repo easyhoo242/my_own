@@ -4,6 +4,36 @@
 }
 
 
+//  repeat关键字 repeat(3, fn)
+//  分别为重复次数以及要重复的内容
+//  非常方便
+#grid-1 {
+  grid-template-columns: repeat(3, 33%);
+  grid-template-rows: repeat(3, 33%);
+}
+
+// auto-fill关键字
+#grid-2 {
+  display: grid;
+  // grid-template-columns: repeat(auto-fill, 50px);
+  grid-template-columns: repeat(auto-fill, 33%);
+  // grid-template-rows: repeat(3, 33%);
+}
+
+//  fr  关键字
+//  可以和绝对长度的单位结合使用
+//  例如可以定宽两列 中间自适应一列
+//  或者定宽最左边的一列 按照比例划分右侧的了两列
+#grid-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+#grid-4 {
+  grid-template-columns: 30px 2fr 1fr;
+  // grid-template-rows: 100px 2fr 1fr;
+}
+
 .wrap {
   width: 50%;
   margin: 0 auto;
@@ -11,14 +41,13 @@
   padding-top: 20px;
   border: 2px solid hotpink;
   margin-top: 20px;
-  
 
   .container {
-    margin: 20px auto;
     display: grid;
+    margin: 20px auto;
     width: 180px;
     height: 180px;
     background-color: rgba(178, 236, 240, 0.445);
-    border-radius: 5px;    
+    border-radius: 5px;
   }
 }
