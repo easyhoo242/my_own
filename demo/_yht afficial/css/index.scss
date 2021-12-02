@@ -69,17 +69,16 @@ a {
 
 .share {
   background: url(https://www.yihetang.com/assets/yht/images/shike.png) no-repeat center top;
-  background-size: cover;
   height: 621px;
   overflow: hidden;
   margin: 0px auto;
   width: 100%;
+  position: relative;
 
   .introduce {
     width: 500px;
     margin: 0 0 0 0;
-    margin-top: 100px;
-    margin-left: 200px;
+    margin: 8% 0 0 18%;
 
     .share-content {
       font-family: "思源黑体 CN Normal", "Microsoft YaHei UI";
@@ -111,9 +110,14 @@ a {
 
       &:hover {
         background-image: linear-gradient(to left, #f1d6a5, #bb9e7d);
-
       }
     }
+  }
+
+  .img {
+    position: absolute;
+    top: 8%;
+    left: 50%;
   }
 
 }

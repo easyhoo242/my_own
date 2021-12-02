@@ -77,18 +77,17 @@ a {
 
 .share {
   background: url(https://www.yihetang.com/assets/yht/images/shike.png) no-repeat center top;
-  background-size: cover;
   height: 621px;
   overflow: hidden;
   margin: 0px auto;
   width: 100%;
+  position: relative;
 }
 
 .share .introduce {
   width: 500px;
   margin: 0 0 0 0;
-  margin-top: 100px;
-  margin-left: 200px;
+  margin: 8% 0 0 18%;
 }
 
 .share .introduce .share-content {
@@ -124,6 +123,12 @@ a {
 .share .introduce .btn:hover {
   background-image: -webkit-gradient(linear, right top, left top, from(#f1d6a5), to(#bb9e7d));
   background-image: linear-gradient(to left, #f1d6a5, #bb9e7d);
+}
+
+.share .img {
+  position: absolute;
+  top: 8%;
+  left: 50%;
 }
 
 .map {
