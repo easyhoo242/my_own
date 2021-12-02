@@ -45,15 +45,29 @@
         </div>
         <div class="btn">了解益禾堂发展史</div>
       </div>
-      
-      <div class="img">
+
+      <div class="shre-img">
         <img :src="shareData.bikeImg" alt="">
       </div>
     </section>
 
 
     <section class="map">
+      <div class="map-img">
+        <img src="" alt="">
+      </div>
+    </section>
 
+    <section class="info">
+      <div class="info-lst">
+        <div class="info-item">
+          <h3>{{infoList.titleE}}</h3>
+          <p>{{infoList.titleC}}</p>
+          <ul>
+            <li v-for="(item, index) in infoList.data" :key="index">{{item}}</li>
+          </ul>
+        </div>
+      </div>
     </section>
   </div>
 
@@ -101,7 +115,36 @@
                     将茶饮品质与价值平衡，
                     致力于为全球茶饮爱好者提供更时尚、 更年轻的美味体验，
                     品牌以年轻化著称，受到来自世界各地年轻群体的青睐。`
-        }
+        },
+        infoList: [{
+            titleE: 'join us',
+            titleC: '加盟合作',
+            data: [
+              '品牌优势', '加盟政策', '加盟问答'
+            ]
+          },
+          {
+            titleE: 'join us',
+            titleC: '加盟合作',
+            data: [
+              '品牌优势', '加盟政策', '加盟问答'
+            ]
+          },
+          {
+            titleE: 'join us',
+            titleC: '加盟合作',
+            data: [
+              '品牌优势', '加盟政策', '加盟问答'
+            ]
+          },
+          {
+            titleE: 'join us',
+            titleC: '加盟合作',
+            data: [
+              '品牌优势', '加盟政策', '加盟问答'
+            ]
+          }
+        ]
       }
     },
     methods: {

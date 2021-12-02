@@ -125,13 +125,16 @@ a {
   background-image: linear-gradient(to left, #f1d6a5, #bb9e7d);
 }
 
-.share .img {
+.share .share-img {
   position: absolute;
   top: 8%;
   left: 50%;
 }
 
 .map {
+  overflow: hidden;
+  position: relative;
+  margin: 60px auto 40px 0px;
   height: 500px;
   width: 100px;
   background-color: hotpink;
