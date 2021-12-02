@@ -82,19 +82,36 @@
 
   //  该采用的方式
   fetch('api/user/profile').then(response => {
-    return response.json()
-  })
-  .then(profile => {
-    displayUserProfile(profile)
-  })
+      return response.json()
+    })
+    .then(profile => {
+      displayUserProfile(profile)
+    })
+
+
 
 
   const theURL = 'api/user/profile'
   fetch(theURL)
-  .then(callback(1))
-  .then(callback(2))
-  .then(callback(3))
-  .then(callback(4))
-  
+    .then(callback(1))
+    .then(callback(2))
+    .then(callback(3))
+    .then(callback(4))
 
+
+
+
+  // 解决promise
+  function c1(response) {
+    let p4 = response.json()
+    return p4
+  }
+
+  function c2(profile) {
+    displayUserProfile(profile)
+  }
+
+  let profile_1 = fetch('api/user/profile')
+  let profile_2 = profile_1.then(c1)
+  let profile_3 = profile_1.then(c2)
 </script>
