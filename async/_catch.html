@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>catch</title>
 </head>
+
 <body>
-  
+
 </body>
+
 </html>
 
 <script>
+  // 如果有一种情况是 在使用promise链的过程中 会出现一个错误 但是这个错误是属于可以解决的问题 那么可以子promise链中加入一个catch
+  // 例如
+  startAsyncOperation()
+    .then(doStageTwo)
+    .catch(recoverFromStageTwoError)
+    .then(doStageThree)
+    .then(doStageFour)
+    .catch(logStageThreeAndFourError)
+  // 不管是startAsyncOperation() 还是 doStageTwo() 出现了错误 都会传递给 recoverFromStageTwoError()
+  // 当recoverFromStageTwoError() 执行完成后 若正常返回 则继续传给doStageThree() 和 doStageFour()
+  // 当recoverFromStageTwoError()  不能正常返回 且抛出错误的时候 直接传值给 logStageThreeAndFourError()
+
+
+  // 以下例子为查询数据库的操作
+  queryDatabase()
+    .then(displayTable)
+    .catch(displayDatabaseError)
+  // 假设网络负载问题导致查询有百分之一的失败率
+  queryDatabase()
+    .catch(e => wait(500).then(queryDatabase))
+    .then(displayTable)
+    .catch(displayDatabaseError)
+  // 出错时 就等待0.5，秒 然后重新调用该函数
+  // 错误率从0.01 降低至0.0001
   
 </script>
