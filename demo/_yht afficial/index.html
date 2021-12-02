@@ -26,12 +26,33 @@
 
     <section class="banner">
       <div class="swiper-container swiper-container-horizontal">
-        <div v-for="(item, index) in imgList" :key="index" class="swiper-slide">
-          <img :src="item" alt="">
+        <div class="swiper-wrapper">
+          <div v-for="(item, index) in imgList" :key="index"
+            class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next">
+            <img :src="item" alt="">
+          </div>
         </div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
+    </section>
+
+    <section class="share">
+      <div class="introduce">
+        <img :src="shareData.introduceImg" alt="">
+        <div class="share-content">
+          {{shareData.content}}
+        </div>
+        <div class="btn">了解益禾堂发展史</div>
+      </div>
+      <div class="img">
+
+      </div>
+    </section>
+
+
+    <section class="map">
+      
     </section>
   </div>
 
@@ -40,12 +61,11 @@
 </html>
 <script src="https://unpkg.com/vue@next"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"> </script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
   const {
     createApp
   } = Vue
-
   const mySwiper = new Swiper('.swiper-container', {
     navigation: {
       nextEl: ".swiper-button-next",
@@ -63,7 +83,23 @@
           'https://www.yihetang.com/uploads/20211018/1b4b4661bd2b304a0a6b9f08c1e0595a.jpg',
           'https://www.yihetang.com/uploads/20210909/ba414378f098088f55b849f81c1298d7.jpg',
           'https://www.yihetang.com/uploads/20211028/76d64c7292047c1ebcdb1f60b8ade4ed.jpg',
-        ]
+        ],
+        shareData: {
+          background: 'https://www.yihetang.com/assets/yht/images/shike.png',
+          introduceImg: 'https://www.yihetang.com/assets/yht/images/shike2.png',
+          content: `益禾堂创立于2012年，
+                    隶属于武汉熠汇饮科技有限公司，
+                    原叶手作时尚茶饮连锁品牌。
+                    品牌运营采用直营、加盟两大经营模式，
+                    历经九年发展，发展遍布中国以及东南亚国家，
+                    且同步启动品牌战略 , 
+                    以中国为基础，进一步向海外市场进军，
+                    大力推进品牌的国际化进程。
+                    益禾堂拥有业内前沿的创作研发能力，
+                    将茶饮品质与价值平衡，
+                    致力于为全球茶饮爱好者提供更时尚、 更年轻的美味体验，
+                    品牌以年轻化著称，受到来自世界各地年轻群体的青睐。`
+        }
       }
     },
     methods: {
