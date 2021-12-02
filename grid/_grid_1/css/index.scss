@@ -3,6 +3,15 @@
   margin: 0;
 }
 
+
+.wrap {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 20px;
+  border: 2px solid hotpink;
+  margin-top: 20px;
+}
 .container {
   margin: 20px auto;
   display: grid;
@@ -14,13 +23,16 @@
   //  repeat关键字 repeat(3, fn)
   //  分别为重复次数以及要重复的内容
   //  非常方便
-  grid-template-columns: repeat(3, 33%);
-  grid-template-rows: repeat(3, 33%);
+  &:nth-child(1) {
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: repeat(3, 33%);
+  }
 
   // auto-fill关键字
 
   &:nth-child(2) {
-    grid-template-columns: repeat(auto-fill, 50px);
+    // grid-template-columns: repeat(auto-fill, 50px);
+    grid-template-columns: repeat(auto-fill, 33%);
     // grid-template-rows: repeat(3, 33%);
   }
 
@@ -29,8 +41,8 @@
   //  例如可以定宽两列 中间自适应一列
   //  或者定宽最左边的一列 按照比例划分右侧的了两列
   &:nth-child(3) {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
   }
 
 }
