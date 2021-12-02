@@ -13,7 +13,7 @@
 
 <body>
   <div id="app">
-    <div v-for="(item, index) in dataList" :key="index" class="wrap">
+    <div v-for="(item, index) in dataList" :key="item.id" class="wrap">
       <p>{{`${item.id}   ${item.type} `}}</p>
       <div :id="`grid-${index + 1}`" class="container">
         <div class="item">1</div>
@@ -54,6 +54,10 @@
           {
             id: 4,
             type: '固定一列 + 其余适应'
+          },
+          {
+            id: 5,
+            type: 'minmax'
           },
         ]
       }
