@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <title>益禾堂</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="nav">
+      <ul>
+        <li v-for="(item, index) in navList">
+          <a 
+            href="javascript:void(0);"
+          >
+          {{item}}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+
+</html>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  const {
+    createApp
+  } = Vue
+  const { aos } = Aos
+
+  // aos.init()
+
+  const app = createApp({
+    data() {
+      return {
+        navList: ['官网首页', '关于我们', '加盟合作', '', '营运支持', '品牌展示', '招聘入口']
+      }
+    },
+    methods: {
+      handleClick() {
+        return 123
+      }
+    }
+  })
+
+  app.mount('#app')
+</script>
