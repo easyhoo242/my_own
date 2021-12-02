@@ -139,6 +139,30 @@ a {
   width: 100px;
 }
 
+.info {
+  width: 100%;
+  height: 600px;
+  background-color: hotpink;
+}
+
+.info .info-list {
+  width: 80%;
+  height: 100px;
+  background-color: #ccc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.info .info-list .info-item {
+  background-color: #bbb;
+}
+
 .info .info-list .info-item ul li::before {
   content: "●";
   font-size: 18px;
