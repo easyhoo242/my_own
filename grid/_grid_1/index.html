@@ -13,16 +13,19 @@
 
 <body>
   <div id="app">
-    <div v-for="(item, index) in 3" :key="index" class="container">
-      <div class="item">1</div>
-      <div class="item">2</div>
-      <div class="item">3</div>
-      <div class="item">4</div>
-      <div class="item">5</div>
-      <div class="item">6</div>
-      <div class="item">7</div>
-      <div class="item">8</div>
-      <div class="item">9</div>
+    <div v-for="(item, index) in dataList" :key="index" class="wrap">  
+      <p>{{item.type}}</p>
+      <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+      </div>
     </div>
   </div>
 </body>
@@ -36,9 +39,18 @@
   const app = createApp({
     data() {
       return {
-        dataList: [
-          {},
-          {}
+        dataList: [{
+            type: '百分比划分'
+          },
+          {
+            type: '定宽划分'
+          },
+          {
+            type: '百分比划分'
+          },
+          {
+            type: '百分比划分'
+          },
         ]
       }
     }
