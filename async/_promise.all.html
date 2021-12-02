@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>promise.all</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+  console.log(Promise)
+
+  const urls = ['123', '123132343']
+  promises = urls.map(url => fetch(url).then(r => r.text()))
+
+  Promise.all(promises)
+    .then(
+      bodies => {
+        /* 得到处理的字符串*/
+      }
+    )
+    .catch(e => console.log(e))
+  // 并行promise
+</script>
