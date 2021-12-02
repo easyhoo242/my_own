@@ -114,4 +114,43 @@
   let profile_1 = fetch('api/user/profile')
   let profile_2 = profile_1.then(c1)
   let profile_3 = profile_1.then(c2)
+
+
+  // catch方法实际上就是第一个参数为null的then方法
+  // 例如： 
+  profile_1.then(null, c)
+  profile_1.catch(c)
+  // 以上两种书写方式是等价的
+
+  // 相对完整版本的.then 加入了一些出错判断
+  // 并且使用了 catch(e) 的 then(null, e) 版本
+  
+  fetch('api/user/profile')
+    .then(response => {
+      if (!response.ok) {
+        return null
+      }
+      let type = response.headers.get('content-type')
+      if (type !== 'application/json') {
+        throw new TypeError(`Expected JSON, got ${type}`)
+      }
+      return response.json()
+    })
+    .then(profile => {
+      if (profile) {
+        displayUserProfile(profile)
+      } else {
+        displayUserProfile()
+      }
+    })
+    // .catch(e => {})
+    .then(null, e => {
+      if (e instanceof NetworkError) {
+        displayErrorMessage('check your internet connection')
+      } else if (e instanceof TypeError) {
+        displayErrorMessage('Something is wrong with your serve')
+      } else {
+        console.error(e)
+      }
+    })
 </script>
