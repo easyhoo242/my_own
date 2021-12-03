@@ -125,14 +125,14 @@
   // 相对完整版本的.then 加入了一些出错判断
   // 并且使用了 catch(e) 的 then(null, e) 版本
 
-  fetch('api/user/profile')  // 发送http请求
-    .then(response => {      // 在状态和头部就绪时调用 
-      if (!response.ok) {    // 如果遇到404 not found 或类似的错误 可能遇到遇到用户未登录  
-        return null          // 返回空状态
+  fetch('api/user/profile') // 发送http请求
+    .then(response => { // 在状态和头部就绪时调用 
+      if (!response.ok) { // 如果遇到404 not found 或类似的错误 可能遇到遇到用户未登录  
+        return null // 返回空状态
       }
       // 检查头部以确保服务器返回给我们的数据是JSON格式
       // 如果不是 说明服务器坏了 这是一个严重的错误
-      let type = response.headers.get('content-type') 
+      let type = response.headers.get('content-type')
       if (type !== 'application/json') {
         throw new TypeError(`Expected JSON, got ${type}`)
       }
@@ -141,10 +141,10 @@
       // 因此我们可以安心的返回一个promise  表示解析响应体之后得到的JSON的对象
       return response.json()
     })
-    .then(profile => {        //  调用传入解析后的相应体或者null
+    .then(profile => { //  调用传入解析后的相应体或者null
       if (profile) {
-        displayUserProfile(profile) 
-      } else {                //如果遇到了404错误并且返回null 则会走到这里
+        displayUserProfile(profile)
+      } else { //如果遇到了404错误并且返回null 则会走到这里
         displayUserProfile()
       }
     })
