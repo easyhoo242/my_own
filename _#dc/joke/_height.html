@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>身高计算器</title>
+
+  <style>
+    .container {
+      width: 300px;
+      display: block;
+      margin: 200px auto;
+    }
+
+    .container p {
+      text-align: left;
+    }
+
+    .container input {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <p>身高计算器</p>
+    <input type="text" name="" id="" placeholder="请输入你的身高(CM)">
+    <p class="result"></p>
+  </div>
+</body>
+
+</html>
+
+<script>
+  const height = document.querySelector('input')
+  const p = document.querySelector('.result')
+  height.addEventListener('keyup', (e) => {
+    // if (e.keycode === 13) {
+    //   // document.querySelector('.result').value = '1'
+    //   console.log(123)
+
+    // }
+      e.keyCode === 13 && (p.innerHTML = `您的身高是：${height.value}CM`)
+  })
+</script>
