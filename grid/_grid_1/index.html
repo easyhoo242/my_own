@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
+=======
+>>>>>>> fd1e846c1a912e780cdfbaa71487f08cad2ea148
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/index.css">
+<<<<<<< HEAD
   <link rel="stylesheet" href="./css/item.css">
 
   <title>grid</title>
@@ -65,4 +69,38 @@
   })
 
   app.mount('#app')
+=======
+  <link rel="stylesheet" href="./css/item-style.css">
+  <title>grid布局初试</title> 
+</head>
+<body>
+  <div id="app">
+    <div
+      v-for = "(item, index) in 3"
+      :key = "index"
+      class="container">
+      <div class="item"><p>1</p></div>
+      <div class="item"><p>2</p></div>
+      <div class="item"><p>3</p></div>
+      <div class="item"><p>4</p></div>
+      <div class="item"><p>5</p></div>
+      <div class="item"><p>6</p></div>
+      <div class="item"><p>7</p></div>
+      <div class="item"><p>8</p></div>
+      <div class="item"><p>9</p></div>
+    </div>
+  </div>
+</body>
+</html>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+  const { createApp } = Vue
+  const app = createApp({
+
+  })
+
+  app.mount('#app')
+
+>>>>>>> fd1e846c1a912e780cdfbaa71487f08cad2ea148
 </script>
