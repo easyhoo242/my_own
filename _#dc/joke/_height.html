@@ -40,11 +40,6 @@
   const height = document.querySelector('input')
   const p = document.querySelector('.result')
   height.addEventListener('keyup', (e) => {
-    // if (e.keycode === 13) {
-    //   // document.querySelector('.result').value = '1'
-    //   console.log(123)
-
-    // }
-      e.keyCode === 13 && (p.innerHTML = `您的身高是：${height.value}CM`)
+    e.keyCode === 13 && (p.innerHTML = `您的身高是：${height.value}CM`)
   })
 </script>
