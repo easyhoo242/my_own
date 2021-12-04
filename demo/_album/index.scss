@@ -1,5 +1,5 @@
 .album-module {
-  font-family: PingFangSC-Regular,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-family: PingFangSC-Regular, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
 
   .album-header {
@@ -61,7 +61,8 @@
         align-items: center;
 
         &:hover {
-          box-shadow: 0 0  16px 0 rgba(0, 0, 0, .06) ;
+          box-shadow: 0 0 16px 0 rgba(0, 0, 0, .06);
+
           .album-item-report {
             color: #f86;
             display: block;
@@ -141,7 +142,6 @@
           }
         }
       }
-
     }
   }
 }
