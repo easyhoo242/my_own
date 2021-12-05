@@ -6,17 +6,34 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    #app {
+      width: 400px;
+      height: 300px;
+      margin: 200px auto;
+      border: 1px solid #f5f5f5;
+      border-radius: 5px;
+      padding: 20px 15px;
+    }
+
+    .active {
+      color: #f55;
+    }
+  </style>
 </head>
 
 <body>
-  <input type="text" name="" id="">
-  <div>
-    <h3>这是标题</h3>
-    <p>这是内容Lorem ipsum dolor, sit amet consectetur adipisicing elit. A inventore distinctio, facere aliquam aliquid
-      veniam commodi dolorem deleniti voluptatibus perferendis cum quod nesciunt. Veritatis dignissimos possimus numquam
-      odit adipisci delectus.</p>
+  <div id="app">
+    <input v-model="input" type="text" name="" id="">
+    <p>{{`要高亮显示的内容是: ${input}`}}</p>
+    <div class="demo-content">
+      <h3>123这是标题</h3>
+      <p>123这是内容Lorem ipsum dolor, sit amet consectetur adipisicing elit. A inventore distinctio, facere aliquam aliquid
+        veniam commodi dolorem deleniti voluptatibus perferendis cum quod nesciunt. Veritatis dignissimos possimus
+        numquam
+        odit adipisci delectus.</p>
+    </div>
   </div>
-
 </body>
 
 </html>
@@ -27,4 +44,18 @@
   const {
     createApp
   } = Vue
+
+  const app = createApp({
+    data() {
+      return {
+        msg: {
+          type: String,
+          default: ''
+        },
+        input: ''
+      }
+    }
+  })
+
+  app.mount('#app')
 </script>
