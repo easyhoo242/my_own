@@ -39,18 +39,18 @@
   const input = document.querySelector('.input')
   const btn = document.querySelector('button')
   const content = document.querySelector('.demo-content')
+  const contents = content.innerText.trim()
 
   btn.addEventListener('click', function () {
     const search = input.value.trim()
-    // console.log(search, 'search')
-
-    const contents = content.innerText.trim()
-    const text = contents.split(search)
-    // console.log(contents, 'contents')
-    // console.log(text, 'text')
-    const result = text.join('<span class="active">' + search + '</span>')
-
-    content.innerHTML = ''
-    content.innerHTML = result
+    if (contents.indexOf(search) !== -1) {
+      const text = contents.split(search)
+      const result = text.join('<span class="active">' + search + '</span>')
+      // 先清空
+      content.innerHTML = ''
+      content.innerHTML = result
+    } else {
+      content.innerHTML = '没有搜索到匹配项，请重新输入'
+    }
   })
 </script>
