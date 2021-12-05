@@ -24,14 +24,16 @@
 
 <body>
   <div id="app">
-    <input v-model="input" type="text" name="" id="">
+    <input v-model="input" type="text">
     <p>{{`要高亮显示的内容是: ${input}`}}</p>
-    <div class="demo-content">
+    <div class="demo-content" ref="content">
       <h3>123这是标题</h3>
-      <p>123这是内容Lorem ipsum dolor, sit amet consectetur adipisicing elit. A inventore distinctio, facere aliquam aliquid
-        veniam commodi dolorem deleniti voluptatibus perferendis cum quod nesciunt. Veritatis dignissimos possimus
+      <div>123这是内容Lorem ipsum dolor, sit amet consectetur adipisicing elit. A inventore distinctio, facere aliquam
+        aliquid veniam commodi dolorem deleniti voluptatibus perferendis cum quod nesciunt. Veritatis dignissimos
+        possimus
         numquam
-        odit adipisci delectus.</p>
+        odit adipisci delectus.
+      </div>
     </div>
   </div>
 </body>
@@ -42,10 +44,12 @@
 
 <script>
   const {
-    createApp
+    createApp,
+    watch
   } = Vue
+  console.log(Vue)
 
-  const app = createApp({
+  const app = Vue({
     data() {
       return {
         msg: {
@@ -54,6 +58,25 @@
         },
         input: ''
       }
+    },
+    watch :{
+      input() {
+        this.getHighLightText
+      }
+    },
+    methods: {
+      getHighLightText() {
+        console.log(123)
+        const content = this.$refs.content
+        const text = content.innerHTML
+
+      }
+    }
+  })
+
+  app.watch({
+    input() {
+      console.log(123)
     }
   })
 

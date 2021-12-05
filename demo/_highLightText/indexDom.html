@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app {
+      width: 400px;
+      height: 300px;
+      margin: 200px auto;
+      border: 1px solid #f5f5f5;
+      border-radius: 5px;
+      padding: 20px 15px;
+    }
+
+    .active {
+      color: #f55;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <input class="input" type="text" value="的">
+    <button>click</button>
+    <div class="demo-content">
+      的大家的积极参与和讨论，是小渡推送更多优质内容的动力~希望大家踊跃互动，在评论区和群里给出答案，带动刚刚入门的小白一起学习，共同进步！保持学习，不要掉队，每天进步一点点！
+      闲言少叙，快来和小渡【每日一练】，夯实强化前端基础吧！更多每日一练可以点击【阅读原文】查阅哦~ 的
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+  const input = document.querySelector('.input')
+  const btn = document.querySelector('button')
+  const content = document.querySelector('.demo-content')
+
+  btn.addEventListener('click', function () {
+    const search = input.value.trim()
+    // console.log(search, 'search')
+
+    const contents = content.innerText.trim()
+    const text = contents.split(search)
+    // console.log(contents, 'contents')
+    // console.log(text, 'text')
+    const result = text.join('<span class="active">' + search + '</span>')
+
+    content.innerHTML = ''
+    content.innerHTML = result
+  })
+</script>
