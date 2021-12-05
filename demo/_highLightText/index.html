@@ -17,7 +17,7 @@
     }
 
     .active {
-      color: #f55;
+      color: #ff1111;
     }
   </style>
 </head>
@@ -43,13 +43,9 @@
 <script src="https://unpkg.com/vue@next"></script>
 
 <script>
-  const {
-    createApp,
-    watch
-  } = Vue
-  console.log(Vue)
-
-  const app = Vue({
+  const app = Vue
+  console.log(app, 'app')
+  app.createApp({
     data() {
       return {
         msg: {
@@ -59,26 +55,18 @@
         input: ''
       }
     },
-    watch :{
-      input() {
-        this.getHighLightText
-      }
-    },
     methods: {
       getHighLightText() {
         console.log(123)
         const content = this.$refs.content
         const text = content.innerHTML
-
       }
     }
-  })
+  }).mount('#app')
 
   app.watch({
     input() {
       console.log(123)
     }
   })
-
-  app.mount('#app')
 </script>
