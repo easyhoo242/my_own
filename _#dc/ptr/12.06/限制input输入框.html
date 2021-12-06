@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>限制input输入框</title>
+</head>
+
+<body>
+  <div id="app">
+    <input v-model="num" type="number" placeholder="第一种方法" onfocus="this.blur();">
+    <input v-model="num" type="number" placeholder="第二种方法" readonly="readonly">
+    <input v-model="num" type="number" placeholder="第三种方法" maxlength="0">
+    <input v-model="num" type="number" placeholder="第四种方法" disabled="disabled">
+    <p>{{num}}</p>
+  </div>
+</body>
+
+</html>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+  const app = Vue
+
+  app.createApp({
+    data() {
+      return {
+        num: 1
+      }
+    }
+  }).mount('#app')
+</script>
