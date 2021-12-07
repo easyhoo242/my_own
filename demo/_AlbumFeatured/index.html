@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/index.css">
+  <title>专辑精选页面</title>
+</head>
+
+<body>
+  <div id="app">
+    <section class="af-module">
+      <div class="af-header">
+        <div class="af-header-title">
+          专精特新小巨人
+        </div>
+
+        <div class="af-header-content">
+          介专精特新“小巨人”企业，主要指代那些集中于新一代信息技术、高端装备制造、新能源、新材料、
+          生物医药等中高端产业领域的尚处发展早期的小型企业。
+          它们始终坚持专业化发展战略，普遍具有经营业绩良好、有科技含量高、设备工艺先进、管理体系
+          完善、市场竞争力强等特点，并且极具发展潜力与成长性，有望在未来成为相关领域国际领先的企业。
+        </div>
+      </div>
+
+
+
+      <div class="af-body center-module">
+
+      </div>
+
+      <div class="af-footer center-module">
+        <div v-for="item in 4" class="af-footer-item">
+          <h2>查看独角兽榜单</h2>
+          <p>
+            最新估值超10亿美元的独角兽公司 榜单
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+  // 分割线
+  const _splitLine = res => {
+    const logR = res => {
+      console.log(new Array(30).fill(null).join(res))
+    }
+    res ? logR(res) : logR('-')
+  }
+
+  _splitLine()
+
+  const {  createApp } = Vue
+  const app = createApp({
+    data() {
+      return {
+        list: []
+      }
+    }
+  })
+
+  app.mount('#app')
+</script>
