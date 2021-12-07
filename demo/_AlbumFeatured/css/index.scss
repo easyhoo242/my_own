@@ -6,6 +6,7 @@
 .center-module {
   margin: 20px auto 0;
   width: 1005px;
+  font-size: 14px;
 }
 
 .af-header {
@@ -54,5 +55,56 @@
     p {
       font-size: 13px;
     }
+  }
+}
+
+.af-body {
+  height: 1000px;
+
+  .af-body-select-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 10px;
+    background-color: #2c2c2c;
+    padding: 4px 10px;
+
+    .af-screen-total {
+      flex: 1 1 auto;
+      text-align: left;
+      color: #ffffff;
+      width: 100px;
+
+      span {
+        vertical-align: baseline;
+        color: #f86;
+        line-height: 1;
+      }
+    }
+
+    .af-select {
+      flex: 0 0 auto;
+      display: flex;
+      text-align: center;
+
+      input {
+        margin-right: 15px;
+        width: 160px;
+        height: 32px;
+        line-height: 32px;
+        cursor: pointer;
+        outline: none;
+      }
+
+    }
+
+    .af-screen-subscribe {
+      flex: 0 0 auto;
+      width: 100px;
+      text-align: right;
+    }
+
+
   }
 }

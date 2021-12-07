@@ -28,7 +28,19 @@
 
 
       <div class="af-body center-module">
+        <div class="af-body-select-bar">
+          <div class="af-screen-total">
+            共<span>234</span>条结果
+          </div>
 
+          <div class="af-select">
+            <input v-for="item in 4" :key="item" type="text">
+          </div>
+
+          <div class="af-screen-subscribe">
+            <input type="button" value="订阅">
+          </div>
+        </div>
       </div>
 
       <div class="af-footer center-module">
@@ -56,7 +68,9 @@
 
   _splitLine()
 
-  const {  createApp } = Vue
+  const {
+    createApp
+  } = Vue
   const app = createApp({
     data() {
       return {
