@@ -7,53 +7,114 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="./css/common.css">
   <title>专辑精选页面</title>
 </head>
 
 <body>
   <div id="app">
-    <section class="af-module">
-      <div class="af-header">
-        <div class="af-header-title">
-          专精特新小巨人
-        </div>
-
-        <div class="af-header-content">
-          介专精特新“小巨人”企业，主要指代那些集中于新一代信息技术、高端装备制造、新能源、新材料、
-          生物医药等中高端产业领域的尚处发展早期的小型企业。
-          它们始终坚持专业化发展战略，普遍具有经营业绩良好、有科技含量高、设备工艺先进、管理体系
-          完善、市场竞争力强等特点，并且极具发展潜力与成长性，有望在未来成为相关领域国际领先的企业。
-        </div>
-      </div>
-
-      <div class="af-body center-module">
-        <div class="af-body-select-bar">
-          <div class="af-screen-total">
-            共<span>234</span>条结果
-          </div>
-
-          <div class="af-select">
-            <input v-for="item in 4" :key="item" type="text">
-          </div>
-
-          <div class="af-screen-subscribe">
-            <input type="button" value="订阅">
+    <div>
+      <section class="af-module">
+        <div class="af-header text-center">
+          <h1>
+            专精特新小巨人
+          </h1>
+          <div class="af-header-text text-left">
+            介专精特新“小巨人”企业，主要指代那些集中于新一代信息技术、高端装备制造、新能源、新材料、
+            生物医药等中高端产业领域的尚处发展早期的小型企业。
+            它们始终坚持专业化发展战略，普遍具有经营业绩良好、有科技含量高、设备工艺先进、管理体系
+            完善、市场竞争力强等特点，并且极具发展潜力与成长性，有望在未来成为相关领域国际领先的企业。
           </div>
         </div>
-      </div>
 
-      <div class="af-footer center-module">
-        <div v-for="item in 4" class="af-footer-item">
-          <h2>查看独角兽榜单</h2>
-          <p>
-            最新估值超10亿美元的独角兽公司 榜单
-          </p>
+        <div class="af-body center-module">
+          <div class="af-body-header">
+            <el-input v-model="keyword" type="text" placeholder="搜索" prefix-icon="el-icon-search" />
+          </div>
+
+          <div class="af-body-select-bar-wrap">
+            <div class="af-body-select-bar d-flex align-items-center justify-content-between">
+              <div class="af-screen-total flex-0 text-left">
+                共<span>234</span>条结果
+              </div>
+              <div class="af-select flex-fill">
+                <el-select v-for="item in 4" :key="item" size="small" style="width: 164px; margin-right: 15px">
+                  <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+                </el-select>
+              </div>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <td v-for="item in tableTrData" :key="item" class="af-table-th">
+                    {{ item }}
+                  </td>
+                </tr>
+              </thead>
+            </table>
+          </div>
+
+          <div class="af-body-table-wrap">
+            <table class="af-tbody">
+              <tbody>
+                <tr v-for="(item) in tableData" :key="item"
+                  class="af-table-tr d-flex justify-content-between align-items-center">
+                  <td>
+                    {{ item.id }}
+                  </td>
+                  <td>
+                    <div class="af-unicorn-com-box d-flex">
+                      <div class="af-unicorn-img-box flex-0">
+                        <img :src="`${$imgPath}/${item.img}`" alt="">
+                      </div>
+                      <div class="af-com-box flex-fill">
+                        <a href="javascript:void(0);">
+                          {{ item.name }}
+                        </a>
+                        <div class="af-com-tip">
+                          {{ item.address }}
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    {{ item.type }}
+                  </td>
+                  <td>
+                    {{ item.time }}
+                  </td>
+                  <td>
+                    {{ item.addr }}
+                  </td>
+                  <td>
+                    {{ item.upTime }}
+                  </td>
+                  <td>
+                    {{ item.gotMoney + '亿人民币' }}
+                  </td>
+                  <td>
+                    {{ item.IPOMoney + '亿人民币' }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pageNation-bar">
+            <Pagination :total="77" hide-on-single-page layout="prev, pager, next" background align="right" />
+          </div>
         </div>
-      </div>
 
-      <el-button type="primary">订阅</el-button>
-
-    </section>
+        <div class="af-footer center-module d-flex justify-content-between">
+          <A v-for="(item, index) in footerImgList" :key="index"
+            :style="{ backgroundImage: `url(${$imgPath}/${item.bgImg})` }" :href="item.link"
+            class="af-footer-item flex-0">
+            <h2>{{ item.title }}</h2>
+            <div>{{ item.desc }}</div>
+          </A>
+        </div>
+      </section>
+    </div>
   </div>
 </body>
 
@@ -68,19 +129,73 @@
     }
     res ? logR(res) : logR('-')
   }
-  
+
   _splitLine()
 
   const {
     createApp
   } = Vue
   const app = createApp({
-    component: {
-      elButton
-    },
     data() {
       return {
-        list: []
+        keyword: '',
+        options: [{
+            value: '选项1',
+            label: '黄金糕'
+          },
+          {
+            value: '选项2',
+            label: '双皮奶'
+          }
+        ],
+        value: '',
+        tableTrData: [
+          '序号',
+          '公司',
+          '行业',
+          '成立时间',
+          '交易所',
+          '上市时间',
+          '募资基金',
+          'IPO首日充值'
+        ],
+        tableData: new Array(20).fill({
+          id: 1,
+          name: '青瓷游戏',
+          address: '福建-厦门',
+          img: '91f132b342c6294146850529dce37589.png',
+          type: '游戏',
+          time: '2012.3',
+          addr: '上交所',
+          upTime: '2021.11.30',
+          gotMoney: '3.201',
+          IPOMoney: '12.81'
+        }),
+        footerImgList: [{
+            title: '查看大公司投资版图',
+            desc: '一键看懂百度、阿里、腾讯等大公司投资信',
+            link: '/unicorn',
+            bgImg: 'd487f0d70d37999afa763a5781b76d83.png'
+          },
+          {
+            title: '查看独角兽榜单',
+            desc: '最新估值超10亿美元的独角兽公司榜单',
+            link: '/unicorn',
+            bgImg: 'd3d02563d6fbe828ec592922855c29cc.png'
+          },
+          {
+            title: 'IPO上市版图',
+            desc: '近4000家上榜企业数据一览，哪家企业',
+            link: '/unicorn',
+            bgImg: '0a3897cd05ad61774c0ca8129d5008e1.png'
+          },
+          {
+            title: '数据定制',
+            desc: '覆盖创投领域全数据、精确获取所需数据维',
+            link: '/unicorn',
+            bgImg: '3923e0b1c79652ce8bc6f89cea649e44.png'
+          }
+        ]
       }
     }
   })
