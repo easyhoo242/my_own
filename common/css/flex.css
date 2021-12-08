@@ -1,0 +1,40 @@
+.flex-fill {
+  flex: 1 1 auto !important;
+}
+
+.flex-0 {
+  flex: 0 0 auto !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.justify-content-start {
+  justify-content: flex-start !important;
+}
+
+.justify-content-end {
+  justify-content: flex-end !important;
+}
+
+.justify-content-baseline {
+  justify-content: baseline !important;
+}
+
+.justify-content-stretch {
+  justify-content: stretch !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.justify-content-around {
+  justify-content: space-around !important;
+}
+
+.justify-content-evenly {
+  justify-content: space-evenly !important;
+}
+
