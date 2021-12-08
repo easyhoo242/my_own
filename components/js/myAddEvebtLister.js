@@ -1,6 +1,6 @@
-const eventsMap = new Map()
+export const eventsMap = new Map()
 
-const on = (name, fn) => {
+export const on = (name, fn) => {
   if (eventsMap.has(name)) {
     eventsMap.get(name).push(fn)
   } else {
@@ -8,37 +8,37 @@ const on = (name, fn) => {
   }
 }
 
-const emit = (name, ...args) => {
+export const emit = (name, ...args) => {
   if (eventsMap.has(name)) {
     const fns = [...eventsMap.get(name)]
-    
+
     fns.forEach(fn => {
       fn(...args)
     })
   }
 }
 
-const off = (name, fn) => {
+export const off = (name, fn) => {
   if (eventsMap.has(name)) {
     const fns = eventsMap.get(name)
     const index = fns.indexOf(fn)
-    
+
     if (index > -1) {
       fns.splice(index, 1)
     }
   }
 }
 
-const once = (name, fn) => {
+export const once = (name, fn) => {
   const onceFn = (...args) => {
     off(name, onceFn)
     fn(...args)
   }
-  
+
   on(name, onceFn)
 }
 
-const fn = (a1, a2) => {
+export const fn = (a1, a2) => {
   console.log('click1: ', a1, a2)
 }
 
