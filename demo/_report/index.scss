@@ -1,0 +1,154 @@
+.wrap {
+  margin: 100px auto;
+  width: 774px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item-content__tip {
+  .item-content__tip-pay {
+    background-color: #f08e6e;
+    color: #fff;
+    padding: 0 7px;
+    border-radius: 4px;
+    text-align: center;
+    margin-right: 10px;
+  }
+
+  .item-content__tip-report {
+    padding: 0 7px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 12px;
+    border: 1px solid #f08e6e;
+    color: #f08e6e;
+  }
+}
+
+.month-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+
+  .item-logo {
+    flex: 0 0 auto;
+    width: 46px;
+    margin-right: 15px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .item-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .item-content__title {
+      font-size: 14px;
+      font-weight: 700;
+      padding-top: 6px;
+      margin-bottom: 15px;
+    }
+
+
+
+
+  }
+
+  .item-download {
+    flex: 0 0 auto;
+    width: 140px;
+    position: relative;
+
+    .item-download__btn {
+      position: absolute;
+      bottom: 0;
+      right: 10px;
+      cursor: pointer;
+      line-height: 26px;
+      padding: 0 20px;
+      border-radius: 4px;
+      color: #fff;
+      background-color: #f08e6e;
+    }
+  }
+}
+
+
+.juzi-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+
+  .item-logo {
+    flex: 0 0 auto;
+    width: 82px;
+    height: 106px;
+    margin: 0 15px 0 10px;
+    box-shadow: 0 0 9px 0 rgba(6, 6, 6, .2);
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .item-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .item-content__title {
+      font-size: 14px;
+      font-weight: 700;
+      padding-top: 6px;
+      margin-bottom: 15px;
+    }
+
+    .item-content__text {
+      flex: 0 1 auto;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 10px;
+      color: #999999;
+    }
+
+  }
+
+
+  .item-info {
+    flex: 0 0 auto;
+    width: 140px;
+    text-align: right;
+    position: relative;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+
+    .item-info__date {
+      color: #999999;
+    }
+
+    .item-info__download {
+      position: absolute;
+      bottom: 0;
+      right: 10px;
+      
+      cursor: pointer;
+      padding: 0 20px;
+      line-height: 26px;
+      color: #fff;
+      background-color: #f08e6e;
+      border-radius: 4px;
+    }
+  }
+
+}
