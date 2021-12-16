@@ -69,4 +69,31 @@
   for await (const response of promises) {
     handle(response)
   }
+
+
+  // 异步生成器
+
+  // 基于promise的包装函数 保障setTimeout() 以实现等待
+  // 返回一个promise 这个promise会在指定的毫秒数之后兑现
+  function elapsedTime(ms) {
+    return new Promise(resolve => {
+      setTimeout(resolve, ms)
+    })
+  }
+
+  // 一个异步迭代器函数 按照固定的时间间隔
+  // 递增并生成制定（或无穷）歌书的计数器
+  async function* clock(interval, max = Infinity) {
+    for (let count = 1; count <= max; count++) {
+      await elapsedTime(interval)
+      yield count
+    }
+  }
+
+  // 一个测试函数 设计用异步迭代器和 for await
+  async function test() {
+    for await (let tick of click(300, 100)) {
+      console.log(tick) //  循环100次 每个300秒
+    }
+  }
 </script>
