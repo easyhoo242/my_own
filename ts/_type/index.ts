@@ -11,10 +11,54 @@ console.log(arrNum)
 const arrStr: string[] = ['1', '2', '3']
 const arrStrC: Array<string> = ['1', '2', '3']
 console.log(arrStr)
-
+// 元组 Tuple
 let x: [string, number]
 x = ['123', 123]
 // x = [123, '123']   //error
+
+// Any
+let notSure: any = 4
+notSure = 'i am notSure'
+notSure = false
+// 可以是任意类型
+
+// Any和Object的区别
+notSure.toFixed()
+
+let prettySure: Object = 4
+// prettySure.toFixed()   //  无法调用
+
+// 混合类型用any
+let arrFix: any = [1, '234', true]
+
+// void 和 any 类型基本相反
+
+// 没有返回值的函数 其返回值就是void类型
+function warnUser(): void {
+  console.log(`it is a wrong message`)
+}
+
+// void表示没有任何类型  null undefined
+let unusable: void = null
+unusable = undefined
+
+// never类型
+
+// 返回never类型的函数
+// 存在无法到达的中终点
+function throwNewError(message: string): never {
+  throw new Error(message)
+}
+
+function fail() {
+  
+}
+
+
+
+
+
+
 
 
 class AMan {
