@@ -6,25 +6,18 @@
 
 // console.log(greeter(user))
 
-class Student {
-  fullName: string
-  constructor(public firstName, public middleInitial, public lastName) {
-    this.fullName = this.firstName + ' ' + this.middleInitial + ' ' + this.lastName
-  }
-}
-
 interface Person {
   firstName: string
   lastName: string
 }
 
+const people = { firstName: "Jane", lastName: "User" }
+
 function hello(person: Person) {
   return "Hello, " + person.firstName + " " + person.lastName
 }
 
-let person = { firstName: "Jane", lastName: "User" }
-
-console.log(hello(person))
+console.log(hello(people))
 
 
 

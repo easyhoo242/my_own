@@ -12,8 +12,8 @@ var Student = /** @class */ (function () {
     }
     return Student;
 }());
+var people = { firstName: "Jane", lastName: "User" };
 function hello(person) {
     return "Hello, " + person.firstName + " " + person.lastName;
 }
-var person = { firstName: "Jane", lastName: "User" };
-console.log(hello(person));
+console.log(hello(people));
