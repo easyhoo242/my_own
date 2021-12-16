@@ -96,4 +96,36 @@
       console.log(tick) //  循环100次 每个300秒
     }
   }
+
+
+  // 实现异步迭代器
+  function clock(interval, max = Infinity) {
+    // 一个setTimeout的 promise版本 可以实现等待
+    // 注意参数是一个绝对时间而非时间间隔
+    function until(time) {
+      return new Promise(resolve => setTimeout(resolve, time - Date.now()))
+    }
+
+    return {
+      startTime: Date.now(),
+      count: 1,
+      async next() {
+        if (this.count > max) {
+          return {
+            down: true
+          }
+        }
+        let targetTime = this.startTime = this.count * interval
+
+        await until(targetTime)
+
+        return {
+          value: this.count++
+        }
+      },
+      [Symbol.asyncIterator]() {
+        return this
+      }
+    };
+  }
 </script>
