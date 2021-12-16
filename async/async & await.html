@@ -56,4 +56,17 @@
       })
     }
   }
+
+  // for await循环
+  const urls = [url1, url2, url3]
+  const promises = urls.map(url => fetch(url))
+
+  for (const promise of promises) {
+    response = await promise
+    handle(response)
+  }
+  // 使用 for await
+  for await (const response of promises) {
+    handle(response)
+  }
 </script>
