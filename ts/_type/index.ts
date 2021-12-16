@@ -50,8 +50,16 @@ function throwNewError(message: string): never {
   throw new Error(message)
 }
 
+// 推断的返回值类型为never
 function fail() {
-  
+  return throwNewError('Something failed')
+}
+
+// 存在无法到达的中终点
+function infiniteLoop(): never {
+  while (true) {
+
+  }
 }
 
 
