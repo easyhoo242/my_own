@@ -38,5 +38,22 @@
 
 
   // 实现细节
-  
+  const asyncFn = () => {
+    async function f_1(x) {
+      // 函数体
+    }
+
+    // 等价于
+    function f_2(x) {
+      return new Promise((resolve, reject) => {
+        try {
+          resolve(function (x) {
+            // 函数体
+          })
+        } catch {
+          reject(e)
+        }
+      })
+    }
+  }
 </script>
