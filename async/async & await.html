@@ -29,6 +29,14 @@
     const body = await response.json()
     return body
   }
+  //  调用
+  let value_1 = getJSON(url1)
+  let value_2 = getJSON(url2)
 
+  let [value1, value2] = await Promise.all([getJSON(url1), getJSON(url2)])
+
+
+
+  // 实现细节
   
 </script>
