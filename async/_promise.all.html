@@ -63,7 +63,7 @@
 
   // 串行promise
     function fetchSequentially(urls) {
-      
+
       const bodies = []
 
       function fetchOne(url) {
@@ -85,6 +85,15 @@
 
       return p.then(() => bodies)
     }
+
+    // 调用
+      fetchSequentially(urls)
+      .then(bodies => { /* 处理抓取到的字符串数组 */ })
+      .catch(e => console.log(e))
+
+
+
+      
 
 
 </script>
