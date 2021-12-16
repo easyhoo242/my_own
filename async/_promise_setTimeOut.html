@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>promise + setTimeOut</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+  const promise_1 = new Promise((resolve, reject) => {
+    console.log(1)
+    resolve()
+    console.log(2)
+  })
+
+  promise_1.then(() => {
+    console.log(3)
+  })
+
+  console.log(4)
+
+  const query = {
+    value: {
+      page: 1,
+      month: '123-456',
+
+    }
+  }
+
+
+
+  const getPostDataMonth = (month) => {
+    return {
+      month: '123-456'
+    }
+  }
+
+  const useSSRData = () => {
+    const {
+      app,
+      query
+    } = useContext()
+
+    const ssrData = useAsync(async () => {
+
+      const currentPage = !query.value.page ||
+        Array.isArray(query.value.page) ||
+        isNaN(parseInt(query.value.page)) ?
+        1 :
+        parseInt(query.value.page)
+
+      const month = query.value.month
+
+      const {
+        startTime: start_time,
+        endTime: end_time
+      } = getPostDataMonth(
+        month ? (month).split('-') : []
+      )
+
+      const listData = await (process.client ?
+        Promise.resolve({
+          list: [],
+          total: 0,
+          inClientFetch: true
+        }) :
+        app.$axios
+        .get('/report/juzi_report', {
+          params: {
+            per_page: 20,
+            page: currentPage,
+            type: query.value.type,
+            start_time,
+            end_time
+          }
+        })
+        .then((r) => ({
+          list: r.data.data,
+          total: r.data.total,
+          inClientFetch: false
+        })))
+
+      return {
+        currentPage,
+        // search value
+        sv: {
+          type: query.value.type || ALL_KEY,
+          month: query.value.month ?
+            (query.value.month).split('-').map((_) => parseInt(_)) : []
+        },
+        ...listData
+      }
+    }, 'report-origin')
+  }
+</script>

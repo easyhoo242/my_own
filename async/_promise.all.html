@@ -11,25 +11,80 @@
 <body>
 
 </body>
+<div id="app">
+  <p>123</p>
+</div>
 
 </html>
 
-<script>
-  console.log(Promise)
+<script type='module'>
+  import  { _splitLine } from '../common/js/index.js'
+
+  Response.prototype.textC = _ => {
+    console.log(_ || '123')
+  }
+
+  const app = document.getElementById('app')
+  const p = app.querySelector('p')
+  
+  _splitLine()
+
+  const myPromise = new Promise((resolve, reject) => {
+
+  })
 
   const urls = ['123', '123132343']
-  promises = urls.map(url => fetch(url).then(r => r.text()))
 
-  Promise.all(promises)
-    .then(
-      bodies => {
-        /* 得到处理的字符串*/
+  myPromise = urls.map(r => r.text(1))
+
+
+  // Promise.all(myPromise)
+  //   .then(
+  //     bodies => {
+  //       /* 得到处理的字符串*/
+  //     }
+  //   )
+  //   .catch(e => console.log(e))
+
+
+
+  function wait(duration) {
+    return new Promise((resolve, reject) => {
+      // 如果参数无效 拒绝期约
+      if(duration < 0) {
+        reject(new Error('Time travel not yet implemented'))
       }
-    )
-    .catch(e => console.log(e))
-  // 并行promise  
+      // 否则 异步等待 然后解决期约
+      // setTimeout调用时未传参 新期约会以undefined值兑现
+      setTimeout(resolve, duration)
+    })
+  }
 
-  const myPromise = new Promise({
-    
-  })
+
+  // 串行promise
+    function fetchSequentially(urls) {
+      
+      const bodies = []
+
+      function fetchOne(url) {
+        return fetch(url)
+        .then(response => response.text())
+        .then(body => {
+          // 把响应体保存到数组 这里省略了返回值
+          // 返回undefined
+          bodies.push(body)
+        })
+      }
+
+      let p = Promise.resolve(undefined)
+      for(url of urls) {
+        p = p.then(() => {
+          fetchOne(url)
+        })
+      }
+
+      return p.then(() => bodies)
+    }
+
+
 </script>
