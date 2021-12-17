@@ -11,6 +11,60 @@
 <body>
   <script type="module" src="./index.js"></script>
 
+  <div id="app">
+    <ul>
+      <li></li>
+    </ul>
+  </div>
+
 </body>
 
 </html>
+
+
+<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+<script type="module">
+  import {
+    default as generalList
+  } from './generalData.js'
+
+  const {
+    createApp,
+    ref
+  } = Vue
+
+  const app = createApp({
+        setup() {
+
+          console.log(generalList)
+          const ALL_KEY = 'ALL_KEY'
+          const useList =  
+            [  
+              {
+                key: ALL_KEY,
+                value: ALL_KEY,
+                label: '全部'
+              },
+            ...generalList.data.data.map(item => ({
+              ...item,
+              born: dayjs(`${item.born_time}000`).format('YYYY年MM月DD日'),
+              id: item.com_id,
+              value: item.des,
+              addr: item.prov
+            })),
+
+          ]
+
+          console.log(useList)
+
+          return {
+            ALL_KEY,
+            useList
+          }
+        }
+      })
+
+      app.mount('#app')
+</script>
