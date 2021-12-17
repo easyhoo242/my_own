@@ -1,3 +1,7 @@
+import { default as generalList } from './generalData.js'
+
+console.log(generalList)
+
 var __assign = (this && this.__assign) || function () {
   __assign = Object.assign || function (t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -20,3 +24,4 @@ var __toNormalQuery = function (data) {
     return __assign(__assign({}, acc), (_b = {}, _b[key] = value === ALL_KEY ? undefined : value, _b));
   }, {});
 };
+
