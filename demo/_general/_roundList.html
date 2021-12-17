@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>roundList</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+  const ALL_KEY = 'ALL_KEY'
+  const roundList = [
+    '种子轮',
+    '天使轮',
+    'Pre-A轮',
+    'A轮',
+    'A+轮',
+    'Pre-B轮',
+    'B轮',
+    'B+轮',
+    'C轮',
+    'C+轮',
+    'D轮',
+    'D+轮',
+    'E轮',
+    'E+轮',
+    'F轮',
+    'G轮',
+    'H轮',
+    'Pre-IPO',
+    '战略投资'
+  ]
+
+
+  const useRoundListC = [{
+      key: ALL_KEY,
+      value: ALL_KEY,
+      label: '全部轮次',
+    },
+    ...roundList.map((item, index) => ({
+      key: index + 1,
+      value: item,
+      label: item
+    }))
+  ]
+
+  console.log(useRoundListC)
+</script>
