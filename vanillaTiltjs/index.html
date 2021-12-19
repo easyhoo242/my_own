@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vanilla tilt</title>
+  <script src="./node_modules/vanilla-tilt/dist/vanilla-tilt.js"></script>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="card-list">
+      <div v-for="item in itemList" :key="item" class="card-item">
+        <div class="item-logo">
+          <img :src="item.logo" alt="">
+        </div>
+        <div class="text">
+          {{ num }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+<script src="https://unpkg.com/vue@next"></script>
+<script type="module">
+
+  const { createApp, ref } = Vue
+  const app  = createApp({
+    setup() {
+      const num = ref(0)
+      const itemList = ref([])
+
+      itemList = [
+        {
+          logo: 'https://webstatic.mihoyo.com/upload/puzzle/2021/11/19/8af3cd19a02ea142778e1276e2be36fa_4143952888926438468.png'
+        }
+      ]
+      return {  
+        num,
+        itemList
+      }
+    }
+  })
+
+  app.mount('#app')
+
+
+  // VanillaTilt.init(item, {
+  //   max: 40,
+  //   speed: 400
+  // })
+
+
+
+</script>
