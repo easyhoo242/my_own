@@ -1,0 +1,28 @@
+.tab {
+  width: 300px;
+
+  .tab-header {
+    ul {
+      display: flex;
+      justify-content: space-between;
+
+
+      li {
+        height: 30px;
+        line-height: 30px;
+      }
+
+    }
+  }
+
+
+  .tab-content {
+    display: flex;
+    align-items: center;
+
+    .tab-content__item {
+      height: 200px;
+      line-height: 200px;
+    }
+  }
+}
