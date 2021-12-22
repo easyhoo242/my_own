@@ -9,20 +9,17 @@
 </head>
 
 <body>
-
+  <section>123</section>
 </body>
 
 </html>
 
 <script>
   class Phone {
-
     constructor(brand, price) {
       this.brand = brand
       this.price = price
     }
-
-
     call() {
       console.log('我可以打电话')
     }
@@ -42,15 +39,9 @@
     game() {
       console.log('打游戏')
     }
-
   }
 
+  const newPhone = new smartPhone('小米', 1899, '黑色', '18cm')
 
-  const xiaoMi = new smartPhone('小米', 1899, '黑色', '18cm')
-
-  xiaoMi.call()
-
-  xiaoMi.photo()
-  xiaoMi.game()
-  console.log(xiaoMi)
+  console.log(newPhone)
 </script>
