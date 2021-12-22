@@ -23,9 +23,6 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   margin: 0 auto;
   padding: 0;
 }
@@ -35,21 +32,27 @@
   text-align: center;
   list-style: none;
   height: 30px;
+  width: 60px;
   line-height: 30px;
+  padding: 5px 0;
   position: relative;
 }
 
 .tab .tab-header ul li span {
   font-size: 12px;
   border-radius: 5px;
-  margin: 5px;
-  padding: 5px;
+  margin: 10px 5px;
+  padding: 5px 3px;
 }
 
 .tab .tab-header ul li i {
+  display: block;
+  width: 20px;
+  height: 20px;
   position: absolute;
   top: -15px;
   right: -5px;
+  z-index: 999;
 }
 
 .tab .tab-header ul li:hover span {
