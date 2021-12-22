@@ -3,12 +3,12 @@ let that
 class Tab {
   constructor(id) {
     that = this
-    this.tab = document.querySelector(id)
-    this.addBtn = this.tab.querySelector('.btn')
 
-    this.ul = this.tab.querySelector('tab-header ul:first-child')
-    this.lis = this.tab.querySelectorAll('li')
-    this.secs = this.tab.querySelectorAll('.item')
+    this.tab = document.querySelector(id)
+
+    this.addBtn = this.tab.querySelector('.btn')
+    this.ul = this.tab.querySelector('ul')
+    this.secs = this.tab.querySelector('section')
     this.init()
   }
 
@@ -38,31 +38,29 @@ class Tab {
   }
   // 切换选项卡
   toggleTab() {
-    console.log(1)
     that.clearClass()
     that.lis[this.index].className = 'active'
     that.secs[this.index].className = 'item active'
   }
   // 增加选项卡
   addTab() {
+    // 创建tab和内容
     const newLi = `<li><span>新选项</span></li>`
-    console.log(that)
-    document.querySelector('ul').insertAdjacentHTML('beforeend', newLi)
-
     const newSec = `
       <div class="item">
-      新标题<br>
-      新内容
+      新标题<br>新内容
       </div>
     `
-    document.querySelector('.tab-content').insertAdjacentHTML('beforeend', newSec)
-    console.log(document.querySelector('ul'))
-    console.log(that, 'addtab')
-
+    // 将tab和内容加入到队列末
+    that.ul.insertAdjacentHTML('beforeend', newLi)
+    document.querySelector('.tab-content ').insertAdjacentHTML('beforeend', newSec)
+    // 同步更新
     that.init()
   }
-  deleteTab() {
-
+  deleteTab(e) {
+    // 阻止冒泡事件
+    e.stopPropagation()
+    
   }
   editTab() {
 

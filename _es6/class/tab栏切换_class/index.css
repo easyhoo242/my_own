@@ -36,6 +36,7 @@
   list-style: none;
   height: 30px;
   line-height: 30px;
+  position: relative;
 }
 
 .tab .tab-header ul li span {
@@ -43,6 +44,12 @@
   border-radius: 5px;
   margin: 5px;
   padding: 5px;
+}
+
+.tab .tab-header ul li i {
+  position: absolute;
+  top: -15px;
+  right: -5px;
 }
 
 .tab .tab-header ul li:hover span {
