@@ -1,5 +1,7 @@
 .tab {
   width: 300px;
+  background-color: hotpink;
+  padding: 10px 10px 5px;
 }
 
 .tab .tab-header ul {
@@ -9,24 +11,23 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .tab .tab-header ul li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  text-align: center;
+  list-style: none;
   height: 30px;
   line-height: 30px;
 }
 
-.tab .tab-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 .tab .tab-content .tab-content__item {
-  height: 200px;
-  line-height: 200px;
+  margin: 5px;
+  padding: 2px 5px 5px;
+  background-color: skyblue;
 }
 /*# sourceMappingURL=index.css.map */
