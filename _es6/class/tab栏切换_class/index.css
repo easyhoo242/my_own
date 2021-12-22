@@ -21,25 +21,38 @@
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+  cursor: pointer;
   text-align: center;
   list-style: none;
   height: 30px;
   line-height: 30px;
 }
 
+.tab .tab-header ul li span {
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px 17px;
+}
+
+.tab .tab-header ul li:hover span {
+  background-color: #ffbc75;
+}
+
 .tab .tab-header ul li.active {
   border-bottom: 2px solid #ff8200;
 }
 
-.tab .tab-content .tab-content__item {
+.tab .tab-content .item {
   margin: 5px;
   padding: 2px 5px 5px;
   background-color: skyblue;
   border-radius: 5px;
+  display: none;
 }
 
-.tab .tab-content .tab-content__item.active {
-  background-color: #000;
-  color: #fff;
+.tab .tab-content .item.active {
+  display: block;
+  background-color: #ffc282a1;
+  color: #ff8200;
 }
 /*# sourceMappingURL=index.css.map */

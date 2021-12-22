@@ -14,10 +14,21 @@
 
       li {
         flex: 1 1 auto;
+        cursor: pointer;
         text-align: center;
         list-style: none;
         height: 30px;
         line-height: 30px;
+
+        span {
+          border-radius: 5px;
+          margin: 5px;
+          padding: 5px 17px;
+        }
+
+        &:hover span {
+          background-color: rgb(255, 188, 117);
+        }
 
         &.active {
           border-bottom: 2px solid #ff8200;
@@ -27,15 +38,17 @@
   }
 
   .tab-content {
-    .tab-content__item {
+    .item {
       margin: 5px;
       padding: 2px 5px 5px;
       background-color: skyblue;
       border-radius: 5px;
+      display: none;
 
       &.active {
-        background-color: #000;
-        color: #fff;
+        display: block;
+        background-color: #ffc282a1;
+        color: #ff8200;
       }
     }
   }
