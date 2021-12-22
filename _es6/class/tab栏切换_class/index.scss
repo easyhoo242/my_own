@@ -1,19 +1,24 @@
 .tab {
   margin: 50px auto;
-  width: 300px;
+  min-width: 300px;
+  max-width: 960px;
   background-color: #ffc282a1;
   padding: 10px 10px 5px;
   border-radius: 5px;
 
   .tab-header {
+    display: flex;
+    align-items: center;
+
     ul {
+      flex: 1 1 auto;
+
       display: flex;
       justify-content: space-between;
       margin: 0 auto;
       padding: 0;
 
       li {
-        flex: 1 1 auto;
         cursor: pointer;
         text-align: center;
         list-style: none;
@@ -21,9 +26,10 @@
         line-height: 30px;
 
         span {
+          font-size: 12px;
           border-radius: 5px;
           margin: 5px;
-          padding: 5px 17px;
+          padding: 5px;
         }
 
         &:hover span {
@@ -35,9 +41,25 @@
         }
       }
     }
+
+    .btn {
+      flex: 0 0 auto;
+
+      cursor: pointer;
+      margin: 10px;
+      width: 20px;
+      height: 20px;
+      line-height: 19px;
+      text-align: center;
+      border-radius: 10px;
+      background-color: #ff8200;
+    }
+
   }
 
   .tab-content {
+    padding-top: 10px;
+
     .item {
       margin: 5px;
       padding: 2px 5px 5px;
@@ -47,8 +69,8 @@
 
       &.active {
         display: block;
-        background-color: #ffc282a1;
-        color: #ff8200;
+        background-color: #fff;
+        color: #000;
       }
     }
   }

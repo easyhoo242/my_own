@@ -1,12 +1,25 @@
 .tab {
   margin: 50px auto;
-  width: 300px;
+  min-width: 300px;
+  max-width: 960px;
   background-color: #ffc282a1;
   padding: 10px 10px 5px;
   border-radius: 5px;
 }
 
+.tab .tab-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .tab .tab-header ul {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,9 +31,6 @@
 }
 
 .tab .tab-header ul li {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
   cursor: pointer;
   text-align: center;
   list-style: none;
@@ -29,9 +39,10 @@
 }
 
 .tab .tab-header ul li span {
+  font-size: 12px;
   border-radius: 5px;
   margin: 5px;
-  padding: 5px 17px;
+  padding: 5px;
 }
 
 .tab .tab-header ul li:hover span {
@@ -40,6 +51,24 @@
 
 .tab .tab-header ul li.active {
   border-bottom: 2px solid #ff8200;
+}
+
+.tab .tab-header .btn {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  cursor: pointer;
+  margin: 10px;
+  width: 20px;
+  height: 20px;
+  line-height: 19px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #ff8200;
+}
+
+.tab .tab-content {
+  padding-top: 10px;
 }
 
 .tab .tab-content .item {
@@ -52,7 +81,7 @@
 
 .tab .tab-content .item.active {
   display: block;
-  background-color: #ffc282a1;
-  color: #ff8200;
+  background-color: #fff;
+  color: #000;
 }
 /*# sourceMappingURL=index.css.map */
