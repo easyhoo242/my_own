@@ -1,7 +1,9 @@
 .tab {
+  margin: 50px auto;
   width: 300px;
-  background-color: hotpink;
+  background-color: #ffc282a1;
   padding: 10px 10px 5px;
+  border-radius: 5px;
 }
 
 .tab .tab-header ul {
@@ -25,9 +27,19 @@
   line-height: 30px;
 }
 
+.tab .tab-header ul li.active {
+  border-bottom: 2px solid #ff8200;
+}
+
 .tab .tab-content .tab-content__item {
   margin: 5px;
   padding: 2px 5px 5px;
   background-color: skyblue;
+  border-radius: 5px;
+}
+
+.tab .tab-content .tab-content__item.active {
+  background-color: #000;
+  color: #fff;
 }
 /*# sourceMappingURL=index.css.map */
