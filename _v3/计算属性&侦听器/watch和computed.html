@@ -9,28 +9,51 @@
 </head>
 
 <body>
-
-  {{ lastName }}
-  <input type="text" v-model="firstName">
-  <input type="text" v-model="lastName">
+  <div id="app">
+    <input type="text" v-model="firstName" style="margin-bottom: 10px;">
+    <br>
+    <input type="text" v-model="lastName">
+    <p>{{ `computed ${getFullName}` }}</p>
+    <p>{{ `watch ${fullName}` }}</p>
+  </div>
 </body>
 
 </html>
 
-<script src="https://unpkg.com/vue@next"></script>
+<script src="../node_modules/vue/dist/vue.global.js"></script>
 
 <script>
-  const vm = new Vue({
+  const {
+    createApp
+  } = Vue
+
+  const vm = Vue.createApp({
     data() {
       return {
         firstName: 'd',
-        lastName: 'c'
+        lastName: 'c',
+        fullName: ''
+      }
+    },
+    computed: {
+      getFullName() {
+        // 返回值为timer 不可用
+        // setTimeout(() => {
+        return this.firstName + '-' + this.lastName
+        // }, 1000);
       }
     },
     watch: {
       firstName(val) {
-        setTimeout(() => {}, 1000)
+        const timer = setTimeout(() => {
+          console.log(this)
+          this.fullName = val + '-' + this.lastName
+        }, 1000)
+      },
+      lastName(val) {
+        this.fullName = this.firstName + '-' + this.lastName
       }
     }
   })
+  vm.mount('#app')
 </script>
