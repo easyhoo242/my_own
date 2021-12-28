@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ayyarIntoObj</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+  const chartTitle = ['地区', '轮次', '行业', '成立时间', '融资事件时间']
+  const obj = {
+    a: [{
+        a1: 1,
+        b1: 1
+      },
+      {
+        a1: 1,
+        b1: 1
+      }
+    ],
+    b: [{
+        a1: 1,
+        b1: 1
+      },
+      {
+        a1: 1,
+        b1: 1
+      }
+    ]
+  }
+
+
+
+  console.log(Object.entries(obj), 'before')
+  Object.entries(obj).map((res, index) => {
+    console.log(res, index, 'entires')
+
+  })
+
+  console.log(Object.entries(obj), 'after')
+</script>
