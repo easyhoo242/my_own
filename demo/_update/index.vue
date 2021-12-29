@@ -194,33 +194,32 @@ import { ALL_KEY } from '@/utils'
 export default defineComponent({
   name: 'ReportUpload',
   meta: {
-    breadcrumb: ['报告']
+    breadcrumb: ['报告'],
   },
   components: {
-    Upload
+    Upload,
   },
   data() {
     return {
       fileData: {
-        scope: ''
+        scope: '',
       },
       fileList: [
         {
-          name: 'food.jpeg'
+          name: 'food.jpeg',
         },
         {
           name: 'food2.jpeg',
-          url:
-            'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
-        }
+          url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
+        },
       ],
 
       nameList: [],
       errorList: [],
       dialogVisible: false,
       rules: {
-        scope: [{ required: true, message: '请选择报告标签', trigger: 'blur' }]
-      }
+        scope: [{ required: true, message: '请选择报告标签', trigger: 'blur' }],
+      },
     }
   },
   methods: {
@@ -240,7 +239,7 @@ export default defineComponent({
     },
     handlePreview(file: any) {
       console.log(file)
-    }
+    },
   },
   setup() {
     // 已选择的类别
@@ -248,13 +247,13 @@ export default defineComponent({
     const scopeOptions = computed(() =>
       _scopeOptions.value.map((item) => ({
         ...item,
-        value: item.value === ALL_KEY ? ALL_KEY : item.label
+        value: item.value === ALL_KEY ? ALL_KEY : item.label,
       }))
     )
     return {
-      scopeOptions
+      scopeOptions,
     }
-  }
+  },
 })
 </script>
 
