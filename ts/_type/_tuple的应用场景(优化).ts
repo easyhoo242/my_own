@@ -1,6 +1,6 @@
 // hook useState
 
-function useState<T>(state: T) {
+function useState<T>(state: T): [T, (newValue: T) => void] {
   let currentState = state
 
   // 改变了currentState
@@ -26,5 +26,16 @@ const [counter, setCounter] = useState(10)
 const [title, setTitle] = useState('abc')
 // 此处的flag为boolean类型
 const [flag, setFlag] = useState(true)
+
+
+// 普通写法
+const foo = () => { }
+// 给类型
+const fooC: () => void = () => { }
+
+// 给类型简写 
+// 常用
+type myFunc = () => void
+const bar: myFunc = () => { }
 
 export { }
