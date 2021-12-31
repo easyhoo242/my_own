@@ -1,0 +1,21 @@
+table,
+tr,
+td {
+  border: 1px solid hotpink;
+}
+
+table {
+  margin: 0 auto;
+}
+
+td {
+  min-width: 100px;
+  text-align: center;
+}
+
+
+td>div span {
+  cursor: pointer;
+  background-color: skyblue;
+
+}

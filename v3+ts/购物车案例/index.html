@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>购物车</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <div>
+      <table cellspacing="0">
+        <tr>
+          <td>序号</td>
+          <td>书名</td>
+          <td>单价</td>
+          <td>生产日起</td>
+          <td>数量</td>
+          <td>总价</td>
+          <td>操作</td>
+        </tr>
+
+        <tr v-for="(item, index) in books" :key="item.id">
+          <td>{{ item.idC }}</td>
+          <td>{{ item.nameC }}</td>
+          <td>{{`${ item.priceC }¥`}}</td>
+          <td>{{ item.dateC }}</td>
+          <td>
+            <div>
+              <span @click="decrement(index)">-</span> {{ item.countC }} <span @click="increment(index)">+</span>
+            </div>
+          </td>
+          <td>{{ item.priceC * item.countC }}</td>
+          <td><button @click="remove(index)">删除</button></td>
+        </tr>
+
+        <tr>
+          总价格: {{ totalPrice }}
+        </tr>
+
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script src="../node_modules/vue/dist/vue.global.js"></script>
+<script src="./index.js" type="module"></script>
