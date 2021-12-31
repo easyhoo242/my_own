@@ -86,6 +86,15 @@ const person = {
   age: 33
 }
 
-const whatTheManSay = `well , i am ${person.name}, 
-                      i'm going to ${person.age} next month`
+const whatTheManSay = `well , i am ${person.name}, i'm going to ${person.age} next month`
 
+// 声明有类型的数组
+const arrString: Array<string> = []
+// 不推荐的写法   在react或者jsx中会有冲突  
+arrString.push('abc')
+// 这里将字符串push到number类型的数组中会报错
+// 文件会编译失败
+
+const arrNumber: number[] = []
+// 推荐的写法
+arrString.push('abc')
