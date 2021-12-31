@@ -13,8 +13,11 @@
     <input type="text" v-model="firstName" style="margin-bottom: 10px;">
     <br>
     <input type="text" v-model="lastName">
-    <p>{{ `computed ${getFullName}` }}</p>
-    <p>{{ `watch ${fullName}` }}</p>
+    <br>
+
+    <p>立即变化：{{ `computed ${getFullName}` }}</p>
+
+    <p>一秒后发生变化：{{ `watch ${fullName}` }}</p>
   </div>
 </body>
 
@@ -46,12 +49,13 @@
     watch: {
       firstName(val) {
         const timer = setTimeout(() => {
-          console.log(this)
           this.fullName = val + '-' + this.lastName
         }, 1000)
       },
       lastName(val) {
-        this.fullName = this.firstName + '-' + this.lastName
+        const timer = setTimeout(() => {
+          this.fullName = this.firstName + '-' + val
+        }, 1000)
       }
     }
   })
