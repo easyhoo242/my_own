@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>watch & computed</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>信息：</h1>
+    <h3>姓名 ： {{ person.fullName }}</h3>
+    <br>
+    <input type="text" v-model.lazy="person.score">
+    <h3>成绩 ：{{ result }}</h3>
+    <h4>msg: {{ person.msg }}</h4>
+    <h4>reverseMsg: {{ reverseMsg }}</h4>
+
+    <h1>智障式问答</h1>
+    <input type="text" v-model.lazy="question">
+  </div>
+</body>
+
+</html>
+
+<script src="../node_modules/vue/dist/vue.global.js"></script>
+<script>
+  const {
+    createApp,
+    computed,
+    watch,
+    ref,
+    reactive
+  } = Vue
+
+  const vm = createApp({
+    setup() {
+
+      // 个人信息
+      const person = reactive({
+        firstName: 'd',
+        lastName: 'c',
+        fullName: '',
+        score: 89,
+        msg: 'Hello World',
+      })
+
+      person.fullName = computed(() => {
+        return `${person.firstName} - ${person.lastName}`
+      })
+      const result = computed(() => {
+        return person.score >= 60 ? '及格' : '不及格'
+      })
+
+      const reverseMsg = person.msg.split('').reverse().join('')
+
+
+      // 智障式问答
+      const question = ref('123')
+
+      const answer = () => {
+        console.log(`您的问题${question.value} 的答案是 ： 哈哈哈哈哈呵呵呵呵呵`)
+      }
+
+      watch(
+        () => person,
+        (val, preVal) => {
+          console.log(`person的新值： ${val}, person的旧值： ${preVal}`)
+        }
+      )
+      // 侦听reactive要使用函数形式来侦听
+      watch(
+        () => person.score,
+        (val, preVal) => {
+          console.log(`新值： ${val}, 旧值： ${preVal}`)
+        }
+      )
+
+      // 侦听ref直接写
+      watch(
+        question,
+        (val, preVal) => {
+          console.log(`您的问题${val} 的答案是 ： 哈哈哈哈哈呵呵呵呵呵`)
+          answer()
+        }
+      )
+
+      return {
+        person,
+        question,
+        result,
+        reverseMsg,
+      }
+    }
+  })
+  vm.mount('#app')
+</script>
