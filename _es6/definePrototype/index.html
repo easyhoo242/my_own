@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>definePrototype</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+  const name = 'dc'
+  const age = 18
+  let person = {
+    name: 'dc',
+  }
+
+  Object.defineProperty(person, 'age', {
+    get() {
+      console.log('有人查看age了')
+      return age
+    },
+    set(value) {
+      console.log('有人给age值了') 
+      return value
+    }
+  })
+</script>
