@@ -37,7 +37,6 @@
 
   const vm = createApp({
     setup() {
-
       // 个人信息
       const person = reactive({
         firstName: 'd',
@@ -64,12 +63,6 @@
         console.log(`您的问题${question.value} 的答案是 ： 哈哈哈哈哈呵呵呵呵呵`)
       }
 
-      watch(
-        () => person,
-        (val, preVal) => {
-          console.log(`person的新值： ${val}, person的旧值： ${preVal}`)
-        }
-      )
       // 侦听reactive要使用函数形式来侦听
       watch(
         () => person.score,
@@ -80,10 +73,11 @@
 
       // 侦听ref直接写
       watch(
-        question,
-        (val, preVal) => {
-          console.log(`您的问题${val} 的答案是 ： 哈哈哈哈哈呵呵呵呵呵`)
+        question, () => {
           answer()
+        }, {
+          deep: true, //深度监听
+          immediate: true //先执行一边watch里面的函数再进行监听
         }
       )
 
@@ -93,7 +87,25 @@
         result,
         reverseMsg,
       }
-    }
+    },
+    // created() {
+    //   // 完整写法 + 停止侦听
+    //   const unWatch = this.$watch({
+    //     'person.score': {
+    //       handler(val, preVal) {
+    //         console.log(`新的值：${val}, 旧的值：${preVal}`)
+    //       },
+    //       deep: true,
+    //       immediate: true
+    //     }
+    //   })
+
+    //   // 这里能获取到侦听器的id  可以关掉侦听器 像setTimeout一样  
+    //   console.log(unWatch())
+
+    // }
   })
+
+
   vm.mount('#app')
 </script>
