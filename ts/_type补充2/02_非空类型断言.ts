@@ -1,3 +1,6 @@
+// 非空类型断言
+// 表示一定有值
+
 function printMessageLength(msg?: string) {
   // 第一种方式是判断类型
   // if (typeof msg === 'string') {
