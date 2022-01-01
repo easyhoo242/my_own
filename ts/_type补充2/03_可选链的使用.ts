@@ -20,4 +20,6 @@ const person: Person = {
 }
 
 console.log(person.name)
+// dc
 console.log(person.friend.age)
+// undefined
