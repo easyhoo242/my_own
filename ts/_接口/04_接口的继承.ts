@@ -19,4 +19,4 @@ const action: IWalking = {
   }
 }
 
-export { }
+export { } 
