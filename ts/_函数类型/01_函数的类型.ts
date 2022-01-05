@@ -1,6 +1,6 @@
 // 函数作为参数时 如何编写类型
 
-type funcType = () => void
+type funcType = () => void;
 
 const foo = (fn: funcType) => {
   fn()
@@ -12,7 +12,6 @@ const sum: sumType = (num1: number, num2: number) => {
   return num1 + num2
 }
 
-sum(20, 30) 
+sum(20, 30)
 
-
-export { }
+export {
