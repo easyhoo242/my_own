@@ -11,7 +11,7 @@ getLength(['123', '456', '789'])
 
 
 // 重载实现
-function getLengthC(args: string): number;
+function getLengthC(args: string): number
 function getLengthC(args: string[]): number;
 
 function getLengthC(args: any): number {
