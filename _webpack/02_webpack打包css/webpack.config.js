@@ -35,6 +35,20 @@ module.exports = {
           'css-loader'
         ]
       },
+      {
+        test: /\.(jpg|png|jpeg|svg|gif)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            // outputPath是可以省略不写的  直接在name中使用/拼接 /之前的就是文件夹的名字
+            // outputPath: 'img',
+            // placeHolder
+            // name 是文件名  hash冒号后面选择保留多少位 ext是保留原来的拓展名
+            // name: '[name]_[hash:6].[ext]'
+            name: 'img/[name]_[hash:6].[ext]'
+          }
+        }
+      },
       // {
       //   text: /\.scss$/,
       //   use: [

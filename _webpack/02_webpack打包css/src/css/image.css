@@ -1,0 +1,6 @@
+.img-bg {
+  background-image: url(../img/bg.jpg);
+  width: 200px;
+  height: 200px;
+  background-size: 100%;
+}
