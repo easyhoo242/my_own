@@ -1,4 +1,4 @@
-@import './container.css';
+@import './container.scss';
 
 .container {
   color: red;
