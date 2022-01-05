@@ -14,4 +14,4 @@ const sum: sumType = (num1: number, num2: number) => {
 
 sum(20, 30)
 
-export {
+export { } 
