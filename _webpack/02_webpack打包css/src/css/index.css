@@ -1,6 +1,11 @@
-.container {
-  color: red;
-}
+@import './image.css';
+
+/* .container {
+  &::after {
+    content: '   +++++++我是after';
+  }
+} */
+
 .container::after {
   content: '   +++++++我是after';
 }

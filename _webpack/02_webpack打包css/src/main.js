@@ -1,1 +1,1 @@
-import { } from './js/element'
+import './js/element'
