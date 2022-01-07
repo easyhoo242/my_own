@@ -2,14 +2,14 @@
   <div>
     <button @click="isShowDemo = !isShowDemo">显示/隐藏Demo</button>
     <br />
+    <br />
     <Demo v-if="isShowDemo" />
-    {{ isShowDemo }}
   </div>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue'
-import Demo from './components/Demo2_hooks.vue'
+import Demo from './components/Demo3_toRef.vue'
 
 export default defineComponent({
   name: 'App',
