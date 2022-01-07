@@ -1,11 +1,18 @@
+// webpack的话这里必须选择以下的版本 否则不会编译
+import { createApp } from 'vue/dist/vue.esm-bundler'
+
+import App from './vue/App.vue'
 import './js/element'
+import './js/other(from_main)'
 
-import { sum } from './js/math'
 
-console.log(sum(20, 30))
+// 这两个需要安装
+// vue@next
+// @vue/compiler-sfc
 
-const name = [...'123123'].map(res => parseInt(res))
+// webpack配置loader  vue
+// vue-loader-plugin   webpack插件
+const app = createApp(App)
 
-name.forEach((item, index) => {
-  console.log(`{这是第${index}项: ${item}}`)
-})
+
+app.mount('#app')

@@ -1,7 +1,10 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+// const { DefinePlugin } = require('define-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 // 这jb copy插件有毒似的  tmd  烦死我了
+// vue-loader-plugin
+const { VueLoaderPlugin } = require('vue-loader/dist/index')
 
 module.exports = {
   // 开发者模式
@@ -26,6 +29,10 @@ module.exports = {
       template: './public/index.html',   //可以给一个模版
       title: '我是标题'
     }),
+    // new webpack.DefinePlugin({
+
+    // }),
+    new VueLoaderPlugin()
   ],
   module: {
     rules: [
@@ -76,6 +83,10 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
       }
     ]
   }
