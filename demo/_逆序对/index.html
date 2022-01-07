@@ -56,4 +56,10 @@
     }
   }
   console.log(getFinalArr(arr))
+
+
+  // const getMaxArr = arr => [Math.max(...arr), Math.max(arr.splice(arr.indexOf(Math.max(...arr))), 1)]
+  const getMaxArr = arr => [arr.sort((x, y) => y - x)[0], arr.sort((x, y) => y - x)[1]]
+  console.log(arr)
+  console.log(getMaxArr(arr))
 </script>
