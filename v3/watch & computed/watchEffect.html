@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>watchEffect</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>信息</h1>
+    <h2>姓名: {{ person.name}}</h2>
+    <button @click="person.name+='~'">姓名变了</button>
+    <h3>年龄: {{ person.age}}</h3>
+    <button @click="person.age++">年龄++</button>
+    <h3>身高: {{ person.height}}</h3>
+    <button @click="person.height+=0.01">身高++</button>
+  </div>
+</body>
+
+</html>
+
+<script src="../node_modules/vue/dist/vue.global.js"></script>
+<script>
+  const {
+    createApp,
+    reactive,
+    watch,
+    watchEffect
+  } = Vue
+  const vm = createApp({
+    setup() {
+      const person = reactive({
+        name: '张三',
+        age: 18,
+        height: 1.88
+      })
+
+      // 使用ref定义的响应式对象 watch监听的时候需要使用obj.value
+      // 配置项中需要使用 deep: true开启深度监视
+
+      // watch(person.value, (val, preVal) => {
+      //   console.log('person的值变了', val, preVal)
+      // }, {
+      //   deep: true
+      // })
+
+      // watch(person, (val, preVal) => {
+      //   console.log('person的值变了', val, preVal)
+      // }, {
+      //   // 立即执行
+      //   // immediate: true
+      // })
+
+
+      // watchEffect和computed比较像 
+      // computed更加注重结果 当监听的值发生了变化 返回值的结果理所应当的也会变化 所以需要返回值
+
+      // watchEffect更加注重过程 watchEffect则是 用到了哪个量 则哪个量被调用 并返回改变后的值
+      // 相比于watch更加的只智能
+      watchEffect((val, preVal) => {
+        const x1 = person.name
+        console.log('watchEffect被调用了!')
+      })
+
+
+      return {
+        person
+      }
+    }
+  })
+
+  vm.mount('#app')
+</script>
