@@ -9,7 +9,7 @@
 
 <script>
 import { defineComponent, ref } from 'vue'
-import Demo from './components/Demo3_toRef.vue'
+import Demo from './components/Demo_provide.vue'
 
 export default defineComponent({
   name: 'App',
