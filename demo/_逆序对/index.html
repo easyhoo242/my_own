@@ -14,52 +14,53 @@
 
 </html>
 
+<script src="./index.js"></script>
 <script>
-  const arr = [5, 9, 3, 6, 8, 10, 1, 4]
+  // const arr = [5, 9, 3, 6, 8, 10, 1, 4]
 
-  const getArr = arr => {
-    let finalArr = []
-    let max = -Infinity
-    for (let i = 0; i < arr.length; i++) {
-      for (let j = i + 1; j < arr.length; j++) {
-        if (arr[i] > arr[j] && arr[i] + arr[j] > max) {
-          max = arr[i] + arr[j]
-          finalArr = [arr[i], arr[j]]
-        }
-      }
-    }
-    return {
-      finalArr,
-      max
-    }
-  }
-  console.log(getArr(arr))
+  // const getArr = arr => {
+  //   let finalArr = []
+  //   let max = -Infinity
+  //   for (let i = 0; i < arr.length; i++) {
+  //     for (let j = i + 1; j < arr.length; j++) {
+  //       if (arr[i] > arr[j] && arr[i] + arr[j] > max) {
+  //         max = arr[i] + arr[j]
+  //         finalArr = [arr[i], arr[j]]
+  //       }
+  //     }
+  //   }
+  //   return {
+  //     finalArr,
+  //     max
+  //   }
+  // }
+  // console.log(getArr(arr))
 
-  getArr(arr)
+  // getArr(arr)
 
-  const getFinalArr = arr => {
-    let max = -Infinity
-    let finalArr = []
-    for (let i = 0; i < arr.length; i++) {
-      let j = i + 1
-      while (j < arr.length) {
-        if (arr[i] > arr[j] && arr[i] + arr[j] > max) {
-          max = arr[i] + arr[j]
-          finalArr = [arr[i], arr[j]]
-        }
-        j++
-      }
-    }
-    return {
-      finalArr,
-      max
-    }
-  }
-  console.log(getFinalArr(arr))
+  // const getFinalArr = arr => {
+  //   let max = -Infinity
+  //   let finalArr = []
+  //   for (let i = 0; i < arr.length; i++) {
+  //     let j = i + 1
+  //     while (j < arr.length) {
+  //       if (arr[i] > arr[j] && arr[i] + arr[j] > max) {
+  //         max = arr[i] + arr[j]
+  //         finalArr = [arr[i], arr[j]]
+  //       }
+  //       j++
+  //     }
+  //   }
+  //   return {
+  //     finalArr,
+  //     max
+  //   }
+  // }
+  // console.log(getFinalArr(arr))
 
 
-  // const getMaxArr = arr => [Math.max(...arr), Math.max(arr.splice(arr.indexOf(Math.max(...arr))), 1)]
-  const getMaxArr = arr => [arr.sort((x, y) => y - x)[0], arr.sort((x, y) => y - x)[1]]
-  console.log(arr)
-  console.log(getMaxArr(arr))
+  // // const getMaxArr = arr => [Math.max(...arr), Math.max(arr.splice(arr.indexOf(Math.max(...arr))), 1)]
+  // const getMaxArr = arr => [arr.sort((x, y) => y - x)[0], arr.sort((x, y) => y - x)[1]]
+  // console.log(arr)
+  // console.log(getMaxArr(arr))
 </script>
