@@ -16,11 +16,43 @@ module.exports = {
   //  建立js映射文件 方便调试代码
   devtool: 'source-map',
   // webpack-cli
-  watch: true,
-  // devServer: {
-  //   contentBase: './public',
-  //   hot: true
-  // },
+  // watch: true,
+  devServer: {
+    static: '../public',
+    // 是否热更新
+    hot: true,
+    // 这里能修改端口 和本地服务
+    // host: '0.0.0.0',
+    port: 7777,
+    // 自动打开浏览器
+    open: true,
+    // 是否压缩静态资源   bundle.js
+    compress: true,
+    // 域名代理
+    // 用于本地解决跨域问题
+    // 在本地服务器与当前域名不同时， 请求数据会出现跨域问题， 这时候就需要代理
+    // Proxy: {
+    //   '/api': {
+    //     // 这里会将域名换成target的内容
+    //     target: 'http://localhost:8888',
+    //     // 用于跨域时多出来的一个'api'
+    //     // 重写为空
+    //     pathRewrite: {
+    //       '^/api': ''
+    //     }
+    //   }
+    // }
+  },
+
+  resolve: {
+    // 自动添加拓展名
+    extensions: ['.js', '.json', '.mjs', '.vue'],
+    // 别名--方便访问路经
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      'js': path.resolve(__dirname, 'src/js')
+    }
+  },
   // 入口
   entry: './src/main.js',
   // 出口的位置
