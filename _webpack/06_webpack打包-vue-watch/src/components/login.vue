@@ -4,8 +4,9 @@
 
 <style>
 .login {
-  width: 200px;
-  height: 200px;
+  font-size: 12px;
+  width: 50px;
+  height: 50px;
   background-color: #ff8200;
 }
 </style>

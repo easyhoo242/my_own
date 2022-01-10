@@ -6,12 +6,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 // vue-loader-plugin
 const { VueLoaderPlugin } = require('vue-loader/dist/index')
 
+// 开发阶段 contentBase
+// 打包阶段 CopyWebpackPlugin
+
 module.exports = {
   // 开发者模式
   // 打包的内容不会进行丑化
   mode: 'development',
   //  建立js映射文件 方便调试代码
   devtool: 'source-map',
+  // webpack-cli
+  watch: true,
+  // devServer: {
+  //   contentBase: './public',
+  //   hot: true
+  // },
   // 入口
   entry: './src/main.js',
   // 出口的位置
@@ -19,7 +28,7 @@ module.exports = {
     filename: 'js/bundle.js',
     path: path.resolve(__dirname, 'build'),
     // 这里可以写下asset-module-type的generator配置
-    // assetModuleFilename: 'img/[name]_[hash:6][ext]'
+    // assetModuleFilename: 'img/[name]_[hash:6][ext]
   },
   plugins: [
     // 运行打包时 删除原来output的内容
