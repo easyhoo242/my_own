@@ -1,6 +1,5 @@
 // 导入scss
 import '../css/index.css'
-// import '../css/font.scss'
 
 // 图片如果直接使用会出错 必须采用导入的方式
 const baiduPng = require('../img/baidu.png')

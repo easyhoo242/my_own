@@ -85,6 +85,13 @@ module.exports = {
           'css-loader'
         ]
       },
+      // {
+      //   test: /\.sass$/,
+      //   use: [
+      //     'style-loader',
+      //     'css-loader',
+      //     'sass-loader']
+      // },
       // asset-module-type  用来取代url-loader & file-loader (webpack5)
       // webpack5内置  不需要安装loader
       {
