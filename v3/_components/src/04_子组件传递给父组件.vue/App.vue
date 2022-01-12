@@ -2,7 +2,7 @@
   <div class="header">
     <div class="title">头部标题</div>
     <h1>{{ count }}</h1>
-    <CounterOperation @add="addOne" @sub="subOne" />
+    <CounterOperation @add="addOne" @sub="subOne" @addN="addNum" />
   </div>
 </template>
 
@@ -20,6 +20,10 @@ export default {
     },
     subOne() {
       this.count--
+    },
+    addNum(num, name, age) {
+      this.count += num
+      console.log('姓名' + name, '年龄' + age)
     },
   },
   setup() {

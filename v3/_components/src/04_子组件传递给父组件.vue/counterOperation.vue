@@ -2,12 +2,19 @@
   <div>
     <button @click="decrement">-</button>
     <button @click="increment">+</button>
+    <input type="text" v-model.number="num" />
+    <button @click="incrementN">+N</button>
   </div>
 </template>
 
 <script>
 export default {
-  emit: ['add', 'sub'],
+  data() {
+    return {
+      num: 0,
+    }
+  },
+  emit: ['add', 'sub', 'addN'],
   methods: {
     increment() {
       console.log('+')
@@ -16,6 +23,9 @@ export default {
     decrement() {
       console.log('-')
       this.$emit('sub')
+    },
+    incrementN() {
+      this.$emit('addN', this.num, 'dc', 18)
     },
   },
 }
