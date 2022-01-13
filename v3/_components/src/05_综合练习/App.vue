@@ -7,7 +7,7 @@
     <hr />
 
     <h3>接收ShowMsg传来的消息：</h3>
-    <h3 class="getMsg">{{ msg }}</h3>
+    <h3 class="getMsg">{{ msg || '这个是未发送时显示的默认消息' }}</h3>
     <ShowMsg @sendMsg="getMsg" />
   </div>
 </template>
