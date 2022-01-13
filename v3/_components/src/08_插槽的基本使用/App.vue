@@ -22,10 +22,11 @@
     <div class="main">
       <h2>具名插槽</h2>
       没有name的slot 会有一个隐含的名字 default
-      <name-slot>
-        <template #left> 左边 </template>
-        <template v-slot:center> 中间 </template>
-        <template #right> 右边 </template>
+      <name-slot :name="name">
+        <template v-slot:left>左边</template>
+        <template #center>中间</template>
+        <template #right>右边</template>
+        <template #[name]>这是动态具名插槽</template>
       </name-slot>
     </div>
     <div class="right"></div>
@@ -40,6 +41,11 @@ export default {
   components: {
     noNameSlot,
     nameSlot,
+  },
+  data() {
+    return {
+      name: 'dcc',
+    }
   },
 }
 </script>
