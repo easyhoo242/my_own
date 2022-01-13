@@ -21,7 +21,11 @@
     </div>
     <div class="main">
       <h2>具名插槽</h2>
-      <name-slot></name-slot>
+      <name-slot>
+        <h2>左边</h2>
+        <h2>右边</h2>
+        <h2>中间</h2>
+      </name-slot>
     </div>
     <div class="right"></div>
   </div>
