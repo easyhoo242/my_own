@@ -21,4 +21,7 @@ emitter.off('event')
 
 // 取消全部监听
 emitter.all.clear()
+
+
+
 export default emitter
