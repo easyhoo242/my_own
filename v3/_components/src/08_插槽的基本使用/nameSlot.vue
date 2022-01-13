@@ -1,13 +1,13 @@
 <template>
   <div class="container">
     <section class="left">
-      <slot></slot>
+      <slot name="left"></slot>
     </section>
     <section class="center">
-      <slot></slot>
+      <slot name="center"></slot>
     </section>
     <section class="right">
-      <slot></slot>
+      <slot name="right"></slot>
     </section>
   </div>
 </template>
@@ -28,6 +28,7 @@ export default {}
 
   section {
     height: 50px;
+    line-height: 50px;
   }
 
   .left,

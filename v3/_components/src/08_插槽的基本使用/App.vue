@@ -21,10 +21,11 @@
     </div>
     <div class="main">
       <h2>具名插槽</h2>
+      没有name的slot 会有一个隐含的名字 default
       <name-slot>
-        <h2>左边</h2>
-        <h2>右边</h2>
-        <h2>中间</h2>
+        <template #left> 左边 </template>
+        <template v-slot:center> 中间 </template>
+        <template #right> 右边 </template>
       </name-slot>
     </div>
     <div class="right"></div>
