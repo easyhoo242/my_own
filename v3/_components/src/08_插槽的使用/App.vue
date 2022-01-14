@@ -29,22 +29,29 @@
         <template #[name]>这是动态具名插槽</template>
       </name-slot>
     </div>
-    <div class="right"></div>
+    <div class="right">
+      <scope-slot :name="nameList">
+        
+      </scope-slot>
+    </div>
   </div>
 </template>
 
 <script>
 import noNameSlot from './noName.vue'
 import nameSlot from './nameSlot.vue'
+import scopeSlot from './scopeSlot.vue'
 
 export default {
   components: {
     noNameSlot,
     nameSlot,
+    scopeSlot,
   },
   data() {
     return {
       name: 'dcc',
+      nameList: ['dc', 'cd', 'dcc', 'cdd'],
     }
   },
 }
