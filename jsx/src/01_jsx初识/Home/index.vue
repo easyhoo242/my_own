@@ -1,13 +1,15 @@
 <script>
+// 模版
 export { default } from './index.tsx'
 </script>
 
 <style lang="scss" scoped>
-.ul-list {
+.name-list {
   list-style: none;
 
   .item {
-    font-size: 16px;
+    color: #ff8200;
+    font-size: 12px;
   }
 }
 </style>

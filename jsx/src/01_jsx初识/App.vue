@@ -1,7 +1,6 @@
 <template>
   <div>
-    这是App
-
+    <h1>有一个人前来买瓜</h1>
     <Home />
   </div>
 </template>
