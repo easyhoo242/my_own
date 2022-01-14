@@ -1,64 +1,34 @@
 import { defineComponent } from 'vue'
-import { companyList } from '@/api'
 
 export default defineComponent({
   name: 'HomeContent',
-  setup() {
-    const thList: any[] = [
-      {
-        name: '名称',
-        width: '150px',
-      },
-      {
-        name: '所在城市',
-        width: '100px',
-      },
-      {
-        name: '创立时间',
-        width: '150px',
-      },
-      {
-        name: '轮次',
-        width: '150px',
-      },
-      {
-        name: '行业',
-        width: '100px',
-      },
-      {
-        name: '标签',
-        width: '350px',
-      },
-    ]
-    const comList: any = companyList.data.map((res) => ({
-      id: res.id,
-      name: res.name,
-      bornTime: res.agg_born_time,
-      city: res.city,
-      logo: res.logo,
-      month: res.month,
-      round: res.round,
-      scope: res.scope,
-      type: res.slogan,
-      tag: res.tag.map((item) => ({
-        tagName: item.tag_name,
-        tagId: item.tag_id,
-      })),
-    }))
+  props: {
+    thList: {
+      type: Array,
+      default: () => [],
+    },
+    comList: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  setup(props: any) {
+    // console.log('@', props.comList)
+    // console.log('@', props.thList)
     return () => {
       return (
         <div class="container">
           <div class="header">公司列表</div>
           <div class="table-wrap">
-            <table>
+            <table cellspacing={0} cellpadding={0}>
               <tr>
-                {thList.map((item, index: number) => (
+                {props.thList.map((item: any, index: number) => (
                   <td style={`width:${item.width}`} key={index}>
                     {item.name}
                   </td>
                 ))}
               </tr>
-              {comList.map((item: any) => (
+              {props.comList.map((item: any, index: number) => (
                 <tr key={item.id}>
                   <td>
                     <div class="name-box">
@@ -66,7 +36,9 @@ export default defineComponent({
                         <img src={item.logo} alt="" />
                       </div>
                       <div class="name-box__content">
-                        <div class="name-box__content--title">{item.name}</div>
+                        <div class="name-box__content--title">
+                          <a href="`javascript:;`">{item.name}</a>
+                        </div>
                         <div class="name-box__content--desc">{item.type}</div>
                       </div>
                     </div>
@@ -74,7 +46,18 @@ export default defineComponent({
                   <td>{item.city}</td>
                   <td>{item.bornTime}</td>
                   <td>{item.round}</td>
-                  <td>{item.scope}</td>
+                  <td>
+                    <i
+                      onClick={(e: Event) => {
+                        console.log(index, item.id, item.name)
+                        // this.$emit('contrast', index)
+                        // 阻止冒泡事件
+                        e.stopPropagation()
+                      }}
+                    >
+                      {item.scope}
+                    </i>
+                  </td>
                   <td>
                     <div class="tag-wrap">
                       {item.tag.map((item: any) => {

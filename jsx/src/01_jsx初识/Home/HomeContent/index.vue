@@ -6,24 +6,34 @@ export { default } from './index'
 .container {
   .header {
     color: #ff8200;
-    font-size: 16px;
+    font-size: 22px;
   }
 
   .table-wrap {
-    margin: 0 auto;
+    margin: 20px auto;
+    padding: 5px 10px;
+    width: 1120px;
+    border-radius: 5px;
+    background-color: #fff;
 
     table {
+      width: 100%;
       margin: 0 auto;
-      border: 1px solid #ccc;
       border-radius: 5px;
 
       tr {
         height: 40px;
-        background-color: #cccccc;
+        border-radius: 15px;
+
+        &:first-child:hover {
+          background-color: #fff;
+        }
+
+        &:hover {
+          background-color: rgb(240, 235, 235);
+        }
 
         td {
-          border-radius: 5px;
-
           .name-box {
             display: flex;
             align-items: center;
@@ -49,7 +59,15 @@ export { default } from './index'
               display: flex;
               flex-direction: column;
               align-items: flex-start;
-              justify-content: flex-start;
+              justify-content: space-between;
+
+              .name-box__content--title {
+                font-size: 14px;
+              }
+              .name-box__content--desc {
+                font-size: 12px;
+                text-align: left;
+              }
             }
           }
 
