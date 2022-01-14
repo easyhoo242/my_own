@@ -24,9 +24,39 @@ export { default } from './index'
         td {
           border-radius: 5px;
 
+          .name-box {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+
+            .name-box__logo {
+              flex: 0 0 auto;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 40px;
+              height: 40px;
+              margin-right: 10px;
+
+              img {
+                height: 100%;
+                width: 100%;
+              }
+            }
+
+            .name-box__content {
+              flex: 1 1 auto;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              justify-content: flex-start;
+            }
+          }
+
           .tag-wrap {
             display: flex;
             justify-content: start;
+            align-items: flex-start;
             flex-wrap: wrap;
             padding: 2px 5px;
 

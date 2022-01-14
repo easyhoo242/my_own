@@ -7,31 +7,27 @@ export default defineComponent({
     const thList: any[] = [
       {
         name: '名称',
-        width: '100px',
-      },
-      {
-        name: '创立时间',
-        width: '100px',
+        width: '150px',
       },
       {
         name: '所在城市',
         width: '100px',
       },
       {
+        name: '创立时间',
+        width: '150px',
+      },
+      {
         name: '轮次',
-        width: '100px',
+        width: '150px',
       },
       {
         name: '行业',
         width: '100px',
       },
       {
-        name: '类型',
-        width: '200px',
-      },
-      {
         name: '标签',
-        width: '300px',
+        width: '350px',
       },
     ]
     const comList: any = companyList.data.map((res) => ({
@@ -49,11 +45,7 @@ export default defineComponent({
         tagId: item.tag_id,
       })),
     }))
-
     return () => {
-      {
-        comList.data
-      }
       return (
         <div class="container">
           <div class="header">公司列表</div>
@@ -68,12 +60,21 @@ export default defineComponent({
               </tr>
               {comList.map((item: any) => (
                 <tr key={item.id}>
-                  <td>{item.name}</td>
-                  <td>{item.bornTime}</td>
+                  <td>
+                    <div class="name-box">
+                      <div class="name-box__logo">
+                        <img src={item.logo} alt="" />
+                      </div>
+                      <div class="name-box__content">
+                        <div class="name-box__content--title">{item.name}</div>
+                        <div class="name-box__content--desc">{item.type}</div>
+                      </div>
+                    </div>
+                  </td>
                   <td>{item.city}</td>
+                  <td>{item.bornTime}</td>
                   <td>{item.round}</td>
                   <td>{item.scope}</td>
-                  <td>{item.type}</td>
                   <td>
                     <div class="tag-wrap">
                       {item.tag.map((item: any) => {
