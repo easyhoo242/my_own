@@ -1,11 +1,16 @@
 import { defineComponent } from 'vue'
+import { companyList } from '@/api/index'
+
+import HomeContent from './HomeContent'
+
+console.log(companyList)
 
 export default defineComponent({
   inheritAttrs: false,
-  render() {
-    const arrList: string[] = ['dc', 'cd', 'cdd', 'dcc']
+  setup() {
+    const arrList: string[] = ['dc', 'cd', 'dcc', 'cdd']
 
-    return (
+    return () => (
       <div class='container'>
         <div class='list'>
           <ul>
@@ -18,6 +23,8 @@ export default defineComponent({
             <h4>{item}</h4>
           ))}
         </div>
+
+        <HomeContent></HomeContent>
       </div>
     )
   },
