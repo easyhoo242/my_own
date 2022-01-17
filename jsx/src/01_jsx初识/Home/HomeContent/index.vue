@@ -65,6 +65,7 @@ export { default } from './index'
                 font-size: 14px;
               }
               .name-box__content--desc {
+                color: rgb(158, 154, 154);
                 font-size: 12px;
                 text-align: left;
               }

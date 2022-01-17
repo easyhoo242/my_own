@@ -1,39 +1,26 @@
 <template>
   <div class="container">
-    <div>
-      <ul class="name-list">
-        <li
-          v-for="(item, index) in arrList"
-          :key="index"
-          :style="liStyle"
-          class="item"
-        >
-          <br />
-          {{ `${item} ${uName}` }}
-          {{ ` ${item} 瓜皮子是金子做的还是瓜粒子是金子做的 ` }}
-        </li>
-      </ul>
-    </div>
+    <Contrast :comList="comList" :arrList="arrList" />
+    <HomeContent :thList="thList" :comList="comList" @contrast="showContrast" />
   </div>
-  <HomeContent :thList="thList" :comList="comList" />
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import { companyList } from '@/api'
 import HomeContent from './HomeContent/index.vue'
+import Contrast from './HomeContent/contrast.tsx'
 
 export default defineComponent({
-  inheritAttrs: false,
+  // inheritAttrs: false,
   components: {
     HomeContent,
+    Contrast,
   },
   setup() {
-    const uName = '你这瓜多少钱一斤呐'
+    const uMsg = '已加入对比'
     const liStyle =
       'border-radius: 10px;font-size:12px;width:300px;margin:5px auto;background: #ccc'
-
-    const arrList = ['aa', 'tt']
     const thList = [
       {
         name: '名称',
@@ -75,24 +62,75 @@ export default defineComponent({
         tagId: item.tag_id,
       })),
     }))
+
+    const arrList = ref([])
+    // const contrastComList = ref(
+    //   comList.filter((res) => new Set(arrList.value).has(res.id))
+    // )
+
+    // 接收子组件传来的值
+    const showContrast = (val) => {
+      console.log(val)
+      arrList.value.push(val)
+      console.log('id', arrList)
+      // contrastComList.value = ref(
+      //   comList.filter((res) => new Set(arrList.value).has(res.id))
+      // )
+      // console.log('res', contrastComList)
+    }
+
     return {
-      uName,
+      uMsg,
       liStyle,
       arrList,
       thList,
       comList,
+      // 已加入对比的公司列表
+      // contrastComList,
+      showContrast,
     }
   },
 })
 </script>
 
 <style lang="scss" scoped>
-.name-list {
-  list-style: none;
+.container {
+  // 击穿
+  ::v-deep .name-list {
+    list-style: none;
 
-  .item {
-    color: #ff8200;
-    font-size: 12px;
+    .contrast-wrap {
+      padding: 10px 5px;
+      width: 200px;
+
+      .contrast-list {
+        .item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .item-logo {
+            flex: 0 0 auto;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          .item-content {
+            flex: 1 1 auto;
+          }
+        }
+      }
+    }
+    .item {
+      color: #ff8200;
+      font-size: 12px;
+    }
   }
 }
 </style>

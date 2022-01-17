@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <h1>有一个人前来买瓜</h1>
     <Home />
   </div>
 </template>
@@ -20,7 +19,6 @@ export default defineComponent({
 <style lang="scss">
 html {
   background-color: rgb(252, 252, 252);
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;

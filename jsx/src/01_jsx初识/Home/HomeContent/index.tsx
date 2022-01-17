@@ -12,9 +12,7 @@ export default defineComponent({
       default: () => [],
     },
   },
-  setup(props: any) {
-    // console.log('@', props.comList)
-    // console.log('@', props.thList)
+  setup(props: any, { emit }) {
     return () => {
       return (
         <div class="container">
@@ -51,6 +49,7 @@ export default defineComponent({
                       onClick={(e: Event) => {
                         console.log(index, item.id, item.name)
                         // this.$emit('contrast', index)
+                        emit('contrast', item.id)
                         // 阻止冒泡事件
                         e.stopPropagation()
                       }}
