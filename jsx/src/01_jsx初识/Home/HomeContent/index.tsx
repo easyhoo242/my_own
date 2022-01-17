@@ -44,18 +44,17 @@ export default defineComponent({
                   <td>{item.city}</td>
                   <td>{item.bornTime}</td>
                   <td>{item.round}</td>
-                  <td>
-                    <i
-                      onClick={(e: Event) => {
-                        console.log(index, item.id, item.name)
-                        // this.$emit('contrast', index)
-                        emit('contrast', item.id)
-                        // 阻止冒泡事件
-                        e.stopPropagation()
-                      }}
-                    >
-                      {item.scope}
-                    </i>
+                  <td>{item.scope}</td>
+                  <td
+                    onClick={(e: Event) => {
+                      console.log(index, item.id, item.name)
+                      // this.$emit('contrast', index)
+                      emit('contrast', item.id)
+                      // 阻止冒泡事件
+                      e.stopPropagation()
+                    }}
+                  >
+                    {'O'}
                   </td>
                   <td>
                     <div class="tag-wrap">

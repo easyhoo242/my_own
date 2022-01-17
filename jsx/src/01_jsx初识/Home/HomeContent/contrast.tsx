@@ -11,8 +11,8 @@ export default defineComponent({
       default: () => [],
     },
   },
-  setup(props, { attrs }) {
-    const contrastList: any = ref([39263926])
+  setup(props, { emit }) {
+    const contrastList: any = ref([])
 
     watch(
       props.arrList,
@@ -26,28 +26,34 @@ export default defineComponent({
       }
     )
     return () => (
-      <div>
-        <ul class={['name-list', attrs]}>
-          {contrastList.value.map((res: any) => (
-            <li>
-              <div>
-                <div class="contrast-wrap">
-                  <div class="contrast-list">
-                    <div class="item">
-                      <div class="item-logo">
-                        <img src={res.logo} alt="" />
-                      </div>
-                      <div class="item-content">
-                        <div class="item-content__title">{res.name}</div>
-                        <div class="item-content__desc">{res.type}</div>
-                      </div>
-                    </div>
+      <div class="name-list">
+        {contrastList.value.length && (
+          <div class="contrast-wrap">
+            {contrastList.value.map((res: any) => (
+              <div class="contrast-list">
+                <div class="item">
+                  <div class="item-logo">
+                    <img src={res.logo} alt="" />
+                  </div>
+                  <div class="item-content">
+                    <div class="item-content__title">{res.name}</div>
+                    <div class="item-content__desc">{res.type}</div>
+                  </div>
+                  <div
+                    class="item-del"
+                    onClick={(e: Event) => {
+                      emit('del', res.id)
+                      e.stopPropagation()
+                      console.log(res.id)
+                    }}
+                  >
+                    <span>x</span>
                   </div>
                 </div>
               </div>
-            </li>
-          ))}
-        </ul>
+            ))}
+          </div>
+        )}
       </div>
     )
   },

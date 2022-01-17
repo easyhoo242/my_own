@@ -1,7 +1,11 @@
 <template>
   <div class="container">
-    <Contrast :comList="comList" :arrList="arrList" />
-    <HomeContent :thList="thList" :comList="comList" @contrast="showContrast" />
+    <Contrast :com-list="comList" :arr-list="arrList" @del="delContrast" />
+    <home-content
+      :thList="thList"
+      :comList="comList"
+      @contrast="showContrast"
+    />
   </div>
 </template>
 
@@ -43,6 +47,10 @@ export default defineComponent({
         width: '100px',
       },
       {
+        name: '对比',
+        width: '50px',
+      },
+      {
         name: '标签',
         width: '350px',
       },
@@ -64,19 +72,14 @@ export default defineComponent({
     }))
 
     const arrList = ref([])
-    // const contrastComList = ref(
-    //   comList.filter((res) => new Set(arrList.value).has(res.id))
-    // )
 
     // 接收子组件传来的值
     const showContrast = (val) => {
-      console.log(val)
       arrList.value.push(val)
-      console.log('id', arrList)
-      // contrastComList.value = ref(
-      //   comList.filter((res) => new Set(arrList.value).has(res.id))
-      // )
-      // console.log('res', contrastComList)
+    }
+
+    const delContrast = (val) => {
+      arrList.value.splice(arrList.value.indexOf(val), 1)
     }
 
     return {
@@ -85,9 +88,8 @@ export default defineComponent({
       arrList,
       thList,
       comList,
-      // 已加入对比的公司列表
-      // contrastComList,
       showContrast,
+      delContrast,
     }
   },
 })
@@ -100,20 +102,24 @@ export default defineComponent({
     list-style: none;
 
     .contrast-wrap {
+      position: absolute;
       padding: 10px 5px;
       width: 200px;
+      background-color: rgba(6, 37, 49, 0.603);
+      border-radius: 15px;
 
       .contrast-list {
         .item {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          margin: 5px 2px 0;
 
           .item-logo {
             flex: 0 0 auto;
             width: 40px;
             height: 40px;
-            margin-right: 10px;
+            margin-right: 20px;
 
             img {
               width: 100%;
@@ -123,13 +129,33 @@ export default defineComponent({
 
           .item-content {
             flex: 1 1 auto;
+            font-size: 12px;
+            text-align: left;
+            color: #fff;
+
+            .item-content__desc {
+              color: gainsboro;
+            }
+          }
+
+          .item-del {
+            flex: 0 0 50px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            span {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 30px;
+              height: 30px;
+              border-radius: 50%;
+              background-color: #fff;
+            }
           }
         }
       }
-    }
-    .item {
-      color: #ff8200;
-      font-size: 12px;
     }
   }
 }
