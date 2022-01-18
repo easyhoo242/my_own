@@ -12,8 +12,8 @@
 <script>
 import { defineComponent, ref } from 'vue'
 import { companyList } from '@/api'
-import HomeContent from './HomeContent/index.vue'
-import Contrast from './HomeContent/contrast.tsx'
+import HomeContent from '@/components/home/index.vue'
+import Contrast from '@/components/home/contrast.tsx'
 
 export default defineComponent({
   // inheritAttrs: false,

@@ -53,9 +53,7 @@ export default defineComponent({
                       // 阻止冒泡事件
                       e.stopPropagation()
                     }}
-                  >
-                    {'O'}
-                  </td>
+                  ></td>
                   <td>
                     <div class="tag-wrap">
                       {item.tag.map((item: any) => {
