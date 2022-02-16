@@ -16,7 +16,7 @@ console.log('---------------')
 console.log('---------------')
 
   ; (function a() {
-    var a = 3
+    // var a = 3
     console.log(this)
     console.log(a)
   })()
