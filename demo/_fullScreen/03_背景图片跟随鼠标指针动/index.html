@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>鼠标指针</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        height: 100vh;
+        background: url(./img/poster.jpeg) no-repeat;
+        background-size: 120% 120%;
+        /* background-position: center center; */
+        background-position: 50px 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+  </body>
+</html>
+
+<script>
+  const con = document.querySelector('.container')
+  con.addEventListener('mousemove', (e) => {
+    const bgp = {
+      x: e.x,
+      y: e.y,
+    }
+    con.style.backgroundPosition = `${bgp.x}px ${bgp.y}px`
+  })
+</script>
