@@ -1,1 +1,56 @@
-/* No CSS *//*# sourceMappingURL=index.css.map */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: skyblue;
+  height: 100vh;
+}
+
+.container .content {
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: bold;
+  width: 10%;
+  height: 350px;
+  line-height: 350px;
+  text-align: center;
+  border-radius: 200px;
+}
+
+.container .content.c-1 {
+  background-color: hotpink;
+  -webkit-transform: rotate(26deg);
+          transform: rotate(26deg);
+}
+
+.container .content.c-2 {
+  background-color: goldenrod;
+  -webkit-transform: rotate(26deg);
+          transform: rotate(26deg);
+}
+
+.container .content.c-3 {
+  background-color: blanchedalmond;
+  -webkit-transform: rotate(26deg);
+          transform: rotate(26deg);
+}
+
+.container .content.c-4 {
+  background-color: blueviolet;
+  -webkit-transform: rotate(26deg);
+          transform: rotate(26deg);
+}
+/*# sourceMappingURL=index.css.map */

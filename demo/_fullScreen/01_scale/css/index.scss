@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: skyblue;
+  height: 100vh;
+
+  .content {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: bold;
+    width: 10%;
+    height: 350px;
+    line-height: 350px;
+    text-align: center;
+    border-radius: 200px;
+
+    &.c-1 {
+      background-color: hotpink;
+      transform: rotate(26deg);
+    }
+    &.c-2 {
+      background-color: goldenrod;
+      transform: rotate(26deg);
+    }
+    &.c-3 {
+      background-color: blanchedalmond;
+      transform: rotate(26deg);
+    }
+    &.c-4 {
+      background-color: blueviolet;
+      transform: rotate(26deg);
+    }
+  }
+}
