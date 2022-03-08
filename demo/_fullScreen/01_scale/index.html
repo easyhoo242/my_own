@@ -11,10 +11,12 @@
   <body>
     <div class="container">
       <section class="content c-1">
-        home
-        <span> ➡️ </span>
+        <div>
+          home
+          <span> ➡️ </span>
+        </div>
       </section>
-      <section class="content c-2">
+      <!-- <section class="content c-2">
         about
         <span> ➡️ </span>
       </section>
@@ -25,7 +27,57 @@
       <section class="content c-4">
         story
         <span> ➡️ </span>
-      </section>
+      </section> -->
     </div>
+
+    <div class="full-screen">fullScreen</div>
   </body>
 </html>
+
+<script>
+  const fullScreen = document.querySelector('full-screen')
+  const c1 = document.querySelector('.c-1')
+  // 初始坐标
+  const c1Position = {
+    X: c1.offsetLeft,
+    Y: c1.offsetTop,
+  }
+
+  const c1Size = {
+    width: c1.offsetWidth,
+    height: c1.offsetHeight,
+  }
+
+  c1.addEventListener('mousemove', function (e) {
+    // 当前元素位置
+    const elementPosition = {
+      X: c1.offsetLeft,
+      Y: c1.offsetTop,
+    }
+
+    // if (
+    //   !(
+    //     mousePosition.X > c1Position.X + 100 &&
+    //     mousePosition.X < c1Position.X + c1Size.width + 100
+    //   )
+    // ) {
+    //   return
+    // } else {
+    //   c1.style.left = mousePosition.mX - 100 + 'px'
+    // }
+
+    if (e.x >= c1Position.X - 100 && e.x <= c1Position.X + c1Size.width + 100) {
+      c1.style.left = e.x - 100 + 'px'
+    } else {
+      c1.style.left = c1Position.X + 'px'
+    }
+    if (
+      e.y >= c1Position.Y - 100 &&
+      e.y <= c1Position.Y + c1Size.height + 100
+    ) {
+      c1.style.top = e.y - 100 + 'px'
+    } else {
+      c1.style.top = c1Position.Y + 'px'
+    }
+  })
+</script>

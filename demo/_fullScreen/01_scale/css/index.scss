@@ -8,22 +8,33 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-color: skyblue;
+  background-color: #000;
   height: 100vh;
 
   .content {
     text-transform: uppercase;
     font-size: 24px;
     font-weight: bold;
-    width: 10%;
-    height: 350px;
+    width: 200px;
+    height: 200px;
     line-height: 350px;
     text-align: center;
-    border-radius: 200px;
+    // border-radius: 200px;
+    user-select: none;
+    position: absolute;
+    transition: ease-in-out 0.05s;
+
+    div {
+      position: fixed;
+      top: 350px;
+      left: 570px;
+    }
 
     &.c-1 {
-      background-color: hotpink;
-      transform: rotate(26deg);
+      z-index: 1000;
+      top: 350px;
+      left: 520px;
+      background-color: #fff;
     }
     &.c-2 {
       background-color: goldenrod;
@@ -38,4 +49,8 @@ body {
       transform: rotate(26deg);
     }
   }
+}
+
+.full-screen {
+  height: 100vh;
 }
