@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数 作业</title>
+  </head>
+  <body>
+    <div class="container">
+      <input type="button" value="题目1" />
+      <input type="button" value="题目2" />
+      <input type="button" value="题目3" />
+      <input type="button" value="题目4" />
+    </div>
+  </body>
+</html>
+
+<script>
+  const btn = document.querySelectorAll('input[type="button"]')
+
+  const answer_1 = () => {
+    const number = window.prompt('请输入一个数字')
+    if (number) {
+      console.log('十五斤三十块')
+    } else {
+      console.log('两块钱一斤')
+    }
+  }
+
+  const answer_2 = () => {
+    const number1 = parseInt(window.prompt('第一个数'))
+    const way = window.prompt('运算方式')
+    const number2 = parseInt(window.prompt('第二个数'))
+
+    const result =
+      way === '+'
+        ? number1 + number2
+        : way === '-'
+        ? number1 - number2
+        : way === '*'
+        ? number1 * number2
+        : way === '/'
+        ? number1 / number2
+        : way === '%'
+        ? number1 % number2
+        : ''
+
+    console.log(result)
+  }
+
+  const answer_3 = () => {
+    const n = parseInt(window.prompt('输入一个数，计算阶乘'))
+
+    const getResult = (number) => {
+      if (number === 1) {
+        return 1
+      }
+
+      return number * getResult(number - 1)
+    }
+
+    alert('结果为:' + getResult(n))
+  }
+
+  const answer_4 = () => {
+    const number = parseInt(
+      window.prompt('输入一个数字, 计算斐波那契数列的第n位')
+    )
+    const getResult = (n, num1, num2) => {
+      if (n === 1) {
+        return num1
+      } else if (n === 2) {
+        return num2
+      } else {
+        return getResult(n - 1, num2, num1 + num2)
+      }
+    }
+
+    alert(getResult(number, 1, 1))
+  }
+
+  btn.forEach((item, index) => {
+    item.addEventListener('click', () => {
+      switch (index) {
+        case 0:
+          answer_1()
+          break
+        case 1:
+          answer_2()
+          break
+        case 2:
+          console.log(123)
+          answer_3()
+          break
+        case 3:
+          answer_4()
+          break
+      }
+    })
+  })
+</script>
