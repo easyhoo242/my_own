@@ -43,4 +43,25 @@
 
 
 
+// eg：
+// 一元钱可以买一瓶水，两个空瓶可以换一瓶水，
 
+// 三个瓶盖可以换一瓶水，20块钱可以换多少瓶水
+
+// 借鉴思路；1元   1瓶      
+//			2元  5瓶  		
+//			3元  11瓶		
+//			4元  17瓶		
+//			5元   23瓶	
+
+function getWater(n) {
+  if (n === 1) {
+    return 1
+  }
+  if (n === 2) {
+    return 5
+  }
+  return getWater(n - 1) + 6
+}
+
+console.log(getWater(20))
