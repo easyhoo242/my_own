@@ -65,19 +65,19 @@
       // 3.找函数声明 赋值
       // 4.执行
 
-      console.log('奇怪的上下文')
-      function test(a) {
-        console.log(a)
-        var a = 1
-        console.log(a)
-        function a() {}
-        console.log(a)
-        var b = function () {}
-        console.log(b)
-        function b() {}
-      }
+      // console.log('奇怪的上下文')
+      // function test(a) {
+      //   console.log(a)
+      //   var a = 1
+      //   console.log(a)
+      //   function a() {}
+      //   console.log(a)
+      //   var b = function () {}
+      //   console.log(b)
+      //   function b() {}
+      // }
 
-      test(1)
+      // test(1)
 
       // AO {}
       // a: undefined -> function a() {} => 1
@@ -85,45 +85,63 @@
 
       console.log(new Array(30).join('-'))
 
-      function test1(a, b) {
-        console.log(a)
-        console.log('c', c)
-        c = 0
-        var c
-        a = 0
-        b = 6
-        console.log(b)
-        console.log('d', d)
-        function b() {}
-        function d() {}
-        console.log(b)
-        console.log(c)
-      }
-      test1()
+      // function test1(a, b) {
+      //   console.log(a)
+      //   console.log('c', c)
+      //   c = 0
+      //   var c
+      //   a = 0
+      //   b = 6
+      //   console.log(b)
+      //   console.log('d', d)
+      //   function b() {}
+      //   function d() {}
+      //   console.log(b)
+      //   console.log(c)
+      // }
+      // test1()
 
-      // AO {}
-      // a: undefined
-      // b: undefined -> function b() {} -> 6
+      // // AO {}
+      // // a: undefined
+      // // b: undefined -> function b() {} -> 6
 
-      // c: undefined -> 0
-      // d: undefined -> function d() {}
+      // // c: undefined -> 0
+      // // d: undefined -> function d() {}
+
+      // console.log(new Array(30).join('-'))
+
+      // // GO  global object  全局上下文
+      // // GO === window
+      // // 与AO的不同点是没有参数
+      // // 1.变量声明
+      // // 2.函数声明
+      // // 3.赋值
+      // var a = 1
+      // function a() {
+      //   console.log(2)
+      // }
+      // console.log(a)
+
+      // // GO {}
+      // // a: undefined -> function a() {} -> 1
 
       console.log(new Array(30).join('-'))
 
-      // GO  global object  全局上下文
-      // GO === window
-      // 与AO的不同点是没有参数
-      // 1.变量声明
-      // 2.函数声明
-      // 3.赋值
-      var a = 1
-      function a() {
-        console.log(2)
+      a = 1
+      function b(a) {
+        console.log(a)
+        a = 2
+        console.log(a)
+        function a() {}
+        var a = 3
+        console.log(a)
+        console.log(b)
       }
-      console.log(a)
+      b(a)
 
-      // GO {}
-      // a: undefined -> function a() {} -> 1
+      // AO
+      // GO
+      // a: undefined -> 1 => 2 -> 3
     </script>
   </body>
 </html>
