@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // // 函数默认值
+
+      // // es6
+      // function test1(a = 1, b = 2) {
+      //   console.log(a, b)
+      // }
+      // test1()
+
+      // // es5
+      // // 通过给实参赋值的方式来给函数增加默认值
+      // function test(a, b) {
+      //   // // 或运算补全
+      //   // if (typeof arguments[0] !== 'undefined') {
+      //   //   a = 1
+      //   // } else {
+      //   //   a = arguments[0]
+      //   // }
+      //   a = arguments[0] || 1
+      //   b = arguments[0] || 2
+      //   console.log(a, b)
+      // }
+      // test()
+
+      // var 变量提升
+      // 只有声明提升 赋值不提升
+
+      // 暗示全局变量 imply global
+
+      // var a = 1
+      // a = 1
+      // console.log(window.a)
+
+      // 以上两种声明方式都会把a提升到全局
+
+      // const a = 1
+      // let a = 1
+      // let和const则不会发生变量提升的问题
+
+      // function test() {
+      //   var a = (b = 1)
+      // }
+
+      // test()
+
+      // 相当于 var a = 1    b = 1   b是全局变量
+
+      // console.log(b)
+
+      console.log(new Array(30).join('-'))
+
+      // AO activation object
+      // 活跃对象 函数上下文
+      // 1.寻找形参和变量类型
+      // 2.实参值赋值给形参
+      // 3.找函数声明 赋值
+      // 4.执行
+
+      console.log('奇怪的上下文')
+      function test(a) {
+        console.log(a)
+        var a = 1
+        console.log(a)
+        function a() {}
+        console.log(a)
+        var b = function () {}
+        console.log(b)
+        function b() {}
+      }
+
+      test(1)
+    </script>
+  </body>
+</html>
