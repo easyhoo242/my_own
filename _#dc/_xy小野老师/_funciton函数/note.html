@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>note</title>
+  </head>
+  <body>
+    <input type="button" value="all" />
+    <input type="button" value="done" />
+    <input type="button" value="wait" />
+
+    <ul id="all">
+      <li>DONE1</li>
+      <li>DONE2</li>
+    </ul>
+    <ul id="done">
+      <li>DONE1</li>
+    </ul>
+    <ul id="wait">
+      <li>WAIT1</li>
+    </ul>
+  </body>
+</html>
+
+<script>
+  const input = document.querySelectorAll('input[type="button"]')
+  const all = document.getElementById('all')
+  const done = document.getElementById('done')
+  const wait = document.getElementById('wait')
+
+  ;(function () {
+    all.style = 'background-color: #ff8866;'
+    done.style = 'background-color: skyblue;'
+    wait.style = 'background-color: hotpink;'
+
+    all.querySelectorAll('li').forEach((item, index) => {
+      item.addEventListener('click', () => {
+        console.log(item.innerHTML, index)
+      })
+    })
+  })()
+
+  input.forEach((item, index) => {
+    item.addEventListener('click', () => {
+      console.log(item.value)
+    })
+  })
+</script>
