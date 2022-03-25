@@ -9,6 +9,12 @@ test1()
 // es5
 // 通过给实参赋值的方式来给函数增加默认值
 function test(a, b) {
+  // // 或运算补全
+  // if (typeof arguments[0] !== 'undefined') {
+  //   a = 1
+  // } else {
+  //   a = arguments[0]
+  // }
   a = arguments[0] || 1
   b = arguments[0] || 2
   console.log(a, b)
