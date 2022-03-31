@@ -7,16 +7,15 @@
 //   })()
 
 let uname = 'World'
-  ; (function () {
-    console.log(uname)
-    if (uname) {
-      console.log('hello ' + uname)
-    } else {
-      let uname = 'jack'
-      console.log('你好: ' + uname)
-    }
-  })()
-
+;(function () {
+  console.log(uname)
+  if (uname) {
+    console.log('hello ' + uname)
+  } else {
+    let uname = 'jack'
+    console.log('你好: ' + uname)
+  }
+})()
 
 // var a = 1
 //   ; (function () {
