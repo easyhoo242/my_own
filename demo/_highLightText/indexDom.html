@@ -1,37 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>原生js搜索高亮文字</title>
+    <style>
+      #app {
+        width: 400px;
+        height: 300px;
+        margin: 200px auto;
+        border: 1px solid #f5f5f5;
+        border-radius: 5px;
+        padding: 20px 15px;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>原生js搜索高亮文字</title>
-  <style>
-    #app {
-      width: 400px;
-      height: 300px;
-      margin: 200px auto;
-      border: 1px solid #f5f5f5;
-      border-radius: 5px;
-      padding: 20px 15px;
-    }
+      .active {
+        color: #f55;
+      }
+    </style>
+  </head>
 
-    .active {
-      color: #f55;
-    }
-  </style>
-</head>
-
-<body>
-  <div id="app">
-    <input class="input" type="text" value="的">
-    <button>click</button>
-    <div class="demo-content">
-      后今和人贼资投章感与春明洪是，一价恼，何遗临不禀为洪笔苦游春在小，曾仍贼君生文诗的想可赐夹评目大，后第艳五的人举松设完不方答德叩可冒天到，没支仅遗疾么于头当房要此落生艳天自本，瞠人赠活路人，冈不力什水心未太许过的诗话从相，甲最唯使他谓揽谭智厄忧天时那，台。
+  <body>
+    <div id="app">
+      <input
+        class="input"
+        type="text"
+        placeholder="请输入您想查询的内容"
+        style="width: 300px"
+      />
+      <button>click</button>
+      <div class="demo-content">
+        后今和人贼资投章感与春明洪是，一价恼，何遗临不禀为洪笔苦游春在小，曾仍贼君生文诗的想可赐夹评目大，后第艳五的人举松设完不方答德叩可冒天到，没支仅遗疾么于头当房要此落生艳天自本，瞠人赠活路人，冈不力什水心未太许过的诗话从相，甲最唯使他谓揽谭智厄忧天时那，台。Lorem
+        ipsum dolor sit amet consectetur, adipisicing elit. Ullam quam
+        voluptatibus et! Facere ab laudantium rerum labore nihil quo pariatur,
+        aliquam harum sapiente minus ad, eos cum itaque officiis id! Lorem ipsum
+        dolor sit amet consectetur, adipisicing elit. Expedita magnam aliquam
+        reiciendis doloribus tenetur dolorem ipsam eveniet, repudiandae odio,
+        fugiat aliquid nobis excepturi vero maxime rem cum totam eligendi Lorem,
+        ipsum dolor sit amet consectetur adipisicing elit. Non sequi mollitia
+        molestias nam excepturi, repudiandae voluptatem sed, ab earum
+        consectetur incidunt! Saepe accusantium nostrum placeat veritatis error
+        libero culpa at?
+      </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
 
 <script>
