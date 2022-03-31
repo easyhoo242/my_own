@@ -15,8 +15,13 @@
         padding: 20px 15px;
       }
 
+      .demo-content {
+        line-height: 16px;
+      }
+
       .active {
-        color: #f55;
+        color: #f86;
+        background-color: #ccc;
       }
     </style>
   </head>
@@ -48,21 +53,25 @@
 </html>
 
 <script>
-  const input = document.querySelector('.input')
-  const btn = document.querySelector('button')
-  const content = document.querySelector('.demo-content')
-  const contents = content.innerText.trim()
+  ;(function () {
+    const input = document.querySelector('.input')
+    const btn = document.querySelector('button')
+    const content = document.querySelector('.demo-content')
+    const contents = content.innerText.trim()
 
-  btn.addEventListener('click', function () {
-    const search = input.value.trim()
-    if (contents.indexOf(search) !== -1) {
-      const text = contents.split(search)
-      const result = text.join('<span class="active">' + search + '</span>')
-      // 先清空
-      content.innerHTML = ''
-      content.innerHTML = result
-    } else {
-      content.innerHTML = '没有搜索到匹配项，请重新输入'
+    const hightLightText = (dom, str, target) => {
+      if (str.indexOf(target) !== -1) {
+        dom.innerHTML = ''
+        dom.innerHTML = str
+          .split(target.trim())
+          .join(`<span class="active">${target.trim()}</span>`)
+      } else {
+        dom.innerHTML = '没有搜索到匹配项，请重新输入'
+      }
     }
-  })
+
+    btn.addEventListener('click', () =>
+      hightLightText(content, contents, input.value.trim())
+    )
+  })()
 </script>
