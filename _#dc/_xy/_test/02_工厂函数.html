@@ -19,8 +19,29 @@
 			persion.height = height
 
 			persion.sayName = () => {
-				console.log('hello , i  am  ' + name)
+				console.log('hello! i am  ' + persion.name)
 			}
+
+			return persion
 		}
+
+		const dc = createPersion('dc', 23, 180)
+		dc.sayName()
+
+		// 工厂函数
+		const createArrList = () => {
+			let uId = 0
+			const arr = new Array(5).fill(null).map((res) => {
+				return {
+					name: 'uu',
+					id: uId++,
+				}
+			})
+
+			return arr
+		}
+
+		const arr = createArrList()
+		console.log(arr)
 	</script>
 </html>
