@@ -1,67 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>数组内是否有该元素</title>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>数组内是否有该元素</title>
-</head>
-
-<body>
-
-</body>
-
+	<body></body>
 </html>
 
 <script>
-    const arr = [1, 3, 5, 7, 4, 3]
-    const hasItem = (arr, item) => {
-        return arr.indexOf(item)
-    }
+	const arr = [1, 3, 5, 7, 4, 3]
+	const hasItem = (arr, item) => {
+		return arr.indexOf(item)
+	}
 
-    // console.log(hasItem(arr, 2))
+	// console.log(hasItem(arr, 2))
 
-    const arr1 = [1, 1, 'true', 'true', true, true, 15, 15, false, false, undefined, undefined, null, null, NaN, NaN,
-        'NaN', 0, 0, 'a', 'a', {}, {}
-    ];
+	const arr1 = [
+		1,
+		1,
+		'true',
+		'true',
+		true,
+		true,
+		15,
+		15,
+		false,
+		false,
+		undefined,
+		undefined,
+		null,
+		null,
+		NaN,
+		NaN,
+		'NaN',
+		0,
+		0,
+		'a',
+		'a',
+		{},
+		{},
+	]
 
+	const newArrFilter = (arr) => {
+		return arr.filter((item, index) => {
+			return arr.indexOf(item) === index
+		})
+	}
 
-    const newArrFilter = arr => {
-        return arr.filter((item, index) => {
-            return arr.indexOf(item) === index
-        })
-    }
+	// const newArrMap = arr => {
+	//   return arr.map((item, index) => {
+	//     return
+	//   })
+	// }
+	console.log(newArrFilter(arr1))
 
-    // const newArrMap = arr => {
-    //   return arr.map((item, index) => {
-    //     return
-    //   })
-    // }
-    console.log(newArrFilter(arr1))
+	const newArrFor = (arr) => {
+		for (let i = 0; i < arr.length; i++) {
+			if (arr.indexOf(arr[i]) < i) {
+				arr.splice(i, 1)
+			}
+		}
+		return arr
+	}
+	console.log(newArrFor(arr1))
 
+	const letters = new Set([...'hello world']) //  都是保留第一个出现的位置
+	console.log(letters)
 
-    const newArrFor = arr => {
-        for (let i = 0; i < arr.length; i++) {
-            if (arr.indexOf(arr[i]) < i) {
-                arr.splice(i, 1)
-            }
-        }
-        return arr
-    }
-    console.log(newArrFor(arr1))
+	const _splitLine = () => console.log(new Array(30).split('-'))
 
+	_splitLine()
 
-    const letters = new Set([...
-            'hello world'
-        ]) //  都是保留第一个出现的位置
-    console.log(letters)
-
-
-    const _splitLine = () => console.log(new Array(30).split('-'))
-
-    _splitLine()
-
-
-    // console.log(arr)
+	// console.log(arr)
 </script>
