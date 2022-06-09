@@ -36,21 +36,51 @@
 
 			// repeat(funAlert, 4, 1000)
 
-			const repeat = (func, times = 1, wait) => {
-				return function (content) {
-					let num = 1
+			// const repeat = (func, times = 1, wait) => {
+			// 	return function (content) {
+			// 		let num = 1
 
-					var timer = setInterval(() => {
-						num += 1
+			// 		var timer = setInterval(() => {
+			// 			num += 1
 
-						func(content)
-					}, wait)
+			// 			func(content)
+			// 		}, wait)
 
-					times === num && clearInterval(timer)
-				}
-			}
+			// 		times === num && clearInterval(timer)
+			// 	}
+			// }
 
-			repeat(funAlert, 4, 2000)('Hello Word')
-		</script>
+			// repeat(funAlert, 4, 2000)('Hello Word')
+
+			/*
+      02.转换数据格式
+
+        const sourceData = [
+          {key: 'name', value: '张三'},
+          {key: 'age', value: 25},
+          {key: 'weight', value: '150'},
+        ]
+    
+    */
+			const sourceData = [
+				{ key: 'name', value: '张三' },
+				{ key: 'age', value: 25 },
+				{ key: 'weight', value: '150' },
+			]
+
+			const sourceObj = {}
+
+			sourceData.forEach(({ key, value }) => {
+				sourceObj[key] = value
+			})
+
+			// {name: '张三', age: 25, weight: '150'}
+
+			console.log({...sourceData})
+
+
+
+
+</script>
 	</body>
 </html>
