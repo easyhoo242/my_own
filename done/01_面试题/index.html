@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>面试题</title>
+	</head>
+	<body>
+		<script>
+			/*
+      01.实现repeat方法
+
+        function reapeat(func, times, wait) {
+          ...
+        }
+    
+    */
+
+			const funAlert = (content) => {
+				console.log(content)
+			}
+
+			// function repeat(func, times = 1, wait) {
+			// 	let currentCount = 1
+
+			// 	do {
+			// 		func()
+
+			// 		setTimeout(() => {
+			// 			currentCount++
+			// 		}, wait)
+			// 		// currentCount++
+			// 	} while (currentCount <= times)
+			// }
+
+			// repeat(funAlert, 4, 1000)
+
+			const repeat = (func, times = 1, wait) => {
+				return function (content) {
+					let num = 1
+
+					var timer = setInterval(() => {
+						num += 1
+
+						func(content)
+					}, wait)
+
+					times === num && clearInterval(timer)
+				}
+			}
+
+			repeat(funAlert, 4, 2000)('Hello Word')
+		</script>
+	</body>
+</html>
