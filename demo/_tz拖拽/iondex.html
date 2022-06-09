@@ -35,22 +35,14 @@
 
 		<script>
 			const handleDragStart = (e) => {
-				e.dataTransfer.setData('imgId', e.target.id)
+				// 第一步 鼠标点击拖拽对象
 			}
 
 			const handleDrop = (e) => {
-				const id = e.dataTransfer.getData('imgId')
-
-				const imgDom = document.getElementById(id)
-
-				console.log(imgDom)
-
-				e.target.appendChild(imgDom)
+				// 第二步 拖动拖拽对象到
 			}
 
-			const handleDragOver = (e) => {
-				e.preventDefault()
-			}
+			const handleDragOver = (e) => {}
 		</script>
 	</body>
 </html>
